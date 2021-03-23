@@ -15,7 +15,7 @@ steps:
     SonarCloud: 'Bugbear'
     organization: '210215-usf-net'
     scannerMode: 'MSBuild'
-    projectKey: '210215-USF-NET_ Bugbear-By-TeamPomodoro-Angular'
+    projectKey: '210215-USF-NET_Bugbear-By-TeamPomodoro-Angular'
     projectName: 'Bugbear-By-TeamPomodoro-Angular'
 
 - task: NodeTool@0
