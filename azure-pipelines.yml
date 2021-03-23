@@ -15,7 +15,10 @@ steps:
     SonarCloud: 'Bugbear'
     organization: '210215-usf-net'
     scannerMode: 'CLI'
-    configMode: 'file'
+    configMode: 'manual'
+    cliProjectKey: '210215-USF-NET_Bugbear-By-TeamPomodoro-Angular'
+    cliProjectName: 'Bugbear-By-TeamPomodoro-Angular'
+    cliSources: 'BBAngular'
 
 - task: NodeTool@0
   inputs:
