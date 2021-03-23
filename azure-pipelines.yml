@@ -32,7 +32,7 @@ steps:
   inputs:
     command: 'custom'
     workingDir: 'BBAngular'
-    customCommand: 'run build-prod'
+    customCommand: 'run build -prod'
 
 - task: SonarCloudAnalyze@1
 
