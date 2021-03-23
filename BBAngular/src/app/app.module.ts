@@ -22,7 +22,7 @@ import { CampaignsComponent } from './campaigns/campaigns.component';
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'characters', component: CharactersComponent },
-      { path: 'campaign', component: CampaignsComponent },
+      { path: 'campaigns', component: CampaignsComponent },
     ]),
   ],
   providers: [],
