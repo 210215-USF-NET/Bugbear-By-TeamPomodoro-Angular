@@ -23,13 +23,16 @@ steps:
     versionSpec: '12.x'
   displayName: 'Install Node.js'
 
-- script: npm ci
-  displayName: npm install
-  workingDirectory: $(appDir)
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: 'BBAngular'
 
-- script: npx ng build --prod
-  displayName: ng build
-  workingDirectory: $(appDir)
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: 'BBAngular'
+    customCommand: 'run build-prod'
 
 - task: SonarCloudAnalyze@1
 
