@@ -12,5 +12,5 @@ export interface character{
     Intelligence: number,
     Wisdom: number,
     Charisma:number,
-    ItemList: item
+    ItemList: item[]
 }

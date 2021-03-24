@@ -4,5 +4,5 @@ export interface campaign{
     CampaignName:string,
     Description:string,
     GameMasterID:number,
-    CampaignUsers:user
+    CampaignUsers:user[]
 }
