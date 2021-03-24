@@ -1,7 +1,7 @@
 export interface story{
-    StoryID:number,
-    DateCreated:Date,
-    StoryTitle:string,
-    StoryDescription:string,
-    CampaignID:number
+    storyID:number,
+    dateCreated:Date,
+    storyTitle:string,
+    storyDescription:string,
+    campaignID:number
 }

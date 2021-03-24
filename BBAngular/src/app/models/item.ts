@@ -1,6 +1,6 @@
 export interface item{
-    ItemID: number,
-    ItemName: string,
-    ItemDescription: string,
-    CharacterID: number
+    itemID: number,
+    itemName: string,
+    itemDescription: string,
+    characterID: number
 }
