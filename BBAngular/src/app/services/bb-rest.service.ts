@@ -14,7 +14,7 @@ export class BBRESTService {
       }
     )
   }
-  url: string = 'https://localhost:5001/api/Character';
+  url: string = 'https://localhost:44362/swagger/api/CharacterController';
 
   constructor(private http: HttpClient) { }
 
