@@ -42,11 +42,11 @@ steps:
   inputs:
     pollingTimeoutSec: '300'
 
-- task: PublishBuildArtifacts@1
+- task: PublishPipelineArtifact@1
   inputs:
-    PathtoPublish: 'dist'
-    ArtifactName: 'app'
-    publishLocation: 'Container'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifact: 'drop'
+    publishLocation: 'pipeline'
 
 - task: AzureRmWebAppDeployment@4
   inputs:
