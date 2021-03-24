@@ -1,8 +1,8 @@
 import { user } from "./user";
 export interface campaign{
-    CampaignID:number,
-    CampaignName:string,
-    Description:string,
-    GameMasterID:number,
-    CampaignUsers:user[]
+    campaignID:number,
+    campaignName:string,
+    description:string,
+    gameMasterID:number,
+    campaignUsers:user[]
 }
