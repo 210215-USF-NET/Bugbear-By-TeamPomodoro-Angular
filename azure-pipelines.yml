@@ -42,11 +42,10 @@ steps:
   inputs:
     pollingTimeoutSec: '300'
 
-- task: PublishBuildArtifacts@1
+- task: PublishBuildArtifacts@1    
+  displayName: 'Publish Artifact: drop'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    PathtoPublish: '$(build.artifactstagingdirectory)'
 
 
 - task: AzureRmWebAppDeployment@4
@@ -55,5 +54,5 @@ steps:
     azureSubscription: 'Azure subscription 1 (1f0ad125-9c6d-4dd3-a0e2-6bf5052dffe8)'
     appType: 'webApp'
     WebAppName: 'bugbearcampaignmanager'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/Container/drop/WebApp.zip'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
