@@ -1,0 +1,19 @@
+<div class="container transparent">
+    <h1>
+        User Characters
+    </h1>
+
+    <table class="table">
+        <thead>
+            <th>Character Name</th>
+            <th>HP</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let character of characters;">
+                <td>{{character.characterName}}</td>
+                <td>{{character.hp}}</td>
+                <td>{{character.xpLevel}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

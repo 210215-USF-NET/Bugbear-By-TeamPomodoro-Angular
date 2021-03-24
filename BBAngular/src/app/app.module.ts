@@ -1,24 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule, Router } from '@angular/router';
-import {
-  OKTA_CONFIG,
-  OktaAuthModule,
-  OktaCallbackComponent,
-  OktaAuthGuard
-} from '@okta/okta-angular';
+import { OKTA_CONFIG, OktaAuthModule, OktaCallbackComponent, OktaAuthGuard } from '@okta/okta-angular';
+import { HttpClientModule } from "@angular/common/http";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { LoginComponent } from './login/login.component';
-import { CharactersComponent } from './characters/characters.component';
-import { CampaignsComponent } from './campaigns/campaigns.component';
-import { CallbackComponent } from './callback.component';
+import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
+import { LoginComponent } from './components/login/login.component';
+import { CharactersComponent } from './components/characters/characters.component';
+import { CampaignsComponent } from './components/campaigns/campaigns.component';
+import { CallbackComponent } from './components/login/callback.component';
 
 const config = {
   issuer: 'https://dev-76430569.okta.com/oauth2/default',
   redirectUri: window.location.origin + '/login/callback',
   clientId: '0oacufqwvov7S1Q4S5d6',
-  pkce: true
+  pkce: true,
+  registration: true
 }
 
 export function onAuthRequired(oktaAuth, injector) {
@@ -55,13 +54,17 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NavMenuComponent,
+    LoginComponent,
     CharactersComponent,
     CampaignsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    OktaAuthModule
+    OktaAuthModule,
+    HttpClientModule,
+    NgbModule,
+    FormsModule
   ],
   providers: [
     { provide: OKTA_CONFIG, useValue: config },

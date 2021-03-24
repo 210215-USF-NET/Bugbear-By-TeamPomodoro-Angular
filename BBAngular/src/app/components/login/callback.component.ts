@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { OktaAuthService } from './app.service';
+import { OktaAuthService } from '../../app.service';
 
-@Component({ template: `` })
+@Component({ template: ` This works! ` })
 export class CallbackComponent implements OnInit {
-
     constructor(private okta: OktaAuthService) { }
 
     ngOnInit(): void {

@@ -16,11 +16,16 @@ export class LoginComponent implements OnInit {
   widget = new OktaSignIn({
     el: '#okta-signin-container',
     baseUrl: 'https://dev-76430569.okta.com',
-    authParams: {
-      pkce: true
-    },
+    issuer: 'https://dev-76430569.okta.com/oauth2/default',
+    redirectUri: window.location.origin + '/login/callback',
     clientId: '0oacufqwvov7S1Q4S5d6',
-    redirectUri: window.location.origin + '/login/callback'
+    pkce: true,
+    features: {
+      registration: true
+    },
+    authParams: {
+      pkce: true,
+    }
   });
 
   constructor(oktaAuth: OktaAuthService, router: Router) {
