@@ -14,17 +14,11 @@ export class BBRESTService {
       }
     )
   }
-  url: string = 'https://localhost:44362/swagger/api/CharacterController';
+  url: string = 'https://localhost:5001/api/character';
 
   constructor(private http: HttpClient) { }
 
   GetCharactersAsync(): Observable<character[]> {
     return this.http.get<character[]>(this.url, this.httpOptions);
-  }
-  GetCharacter(characterName: string): Observable<character> {
-    return this.http.get<character>(`${this.url}/${characterName}`, this.httpOptions);
-  }
-  AddCharacter(character2Add: character): Observable<character> {
-    return this.http.post<character>(this.url, character2Add, this.httpOptions);
   }
 }
