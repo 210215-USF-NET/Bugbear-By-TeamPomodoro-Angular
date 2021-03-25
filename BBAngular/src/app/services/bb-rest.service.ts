@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { env } from '../../../src/environments/environment';
+import { env } from '../../../src/environments/environmentConnections';
 import { Observable } from 'rxjs';
 import { character } from '../models/character';
 

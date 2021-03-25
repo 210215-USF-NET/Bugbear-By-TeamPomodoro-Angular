@@ -7,11 +7,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-import { LoginComponent } from './components/login/login.component';
 import { CharactersComponent } from './components/characters/characters.component';
 import { CampaignsComponent } from './components/campaigns/campaigns.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { env } from '../environments/environment';
+import { env } from '../environments/environmentConnections';
 
 const appRoutes: Routes = [
   {
@@ -28,7 +27,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NavMenuComponent,
-    LoginComponent,
     CharactersComponent,
     CampaignsComponent,
     UserProfileComponent
