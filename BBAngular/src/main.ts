@@ -2,7 +2,7 @@ import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
-import { env } from '../src/environments/environment';
+import { environment } from '../src/environments/environment';
 
 export function getBaseUrl() {
   return document.getElementsByTagName('base')[0].href;
@@ -12,7 +12,7 @@ const providers = [
   { provide: 'BASE_URL', useFactory: getBaseUrl, deps: [] }
 ];
 
-if (env.production) {
+if (environment.production) {
   enableProdMode();
 }
 
