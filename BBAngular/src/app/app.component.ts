@@ -1,7 +1,7 @@
 // src/app/app.component.ts
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { OktaAuthService } from '@okta/okta-angular';
+import { Component, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-root',
@@ -9,27 +9,8 @@ import { OktaAuthService } from '@okta/okta-angular';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
-  title = 'app';
-  isAuthenticated: boolean;
+export class AppComponent{
+  title = 'BugBear';
 
-  constructor(public oktaAuth: OktaAuthService, public router: Router) {
-    this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
-  }
-
-  async ngOnInit() {
-    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
-  }
-
-  login() {
-    this.oktaAuth.signInWithRedirect({
-      originalUri: '/'
-    });
-  }
-
-  async logout() {
-    // Terminates the session with Okta and removes current tokens.
-    await this.oktaAuth.signOut();
-    this.router.navigateByUrl('/');
-  }
+  constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService) {}
 }
