@@ -11,7 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { CharactersComponent } from './components/characters/characters.component';
 import { CampaignsComponent } from './components/campaigns/campaigns.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { env } from 'node:process';
+import { env } from '../environments/environment';
 
 const appRoutes: Routes = [
   {
