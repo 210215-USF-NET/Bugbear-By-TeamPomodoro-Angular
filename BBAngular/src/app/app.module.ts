@@ -11,6 +11,7 @@ import { CharactersComponent } from './components/characters/characters.componen
 import { CampaignsComponent } from './components/campaigns/campaigns.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { env } from '../environments/environmentConnections';
+import { StoriesComponent } from './components/stories/stories.component';
 
 const appRoutes: Routes = [
   {
@@ -20,6 +21,10 @@ const appRoutes: Routes = [
   {
     path: 'characters',
     component: CharactersComponent
+  },
+  {
+    path: 'stories',
+    component: StoriesComponent
   }
 ]
 
@@ -29,7 +34,8 @@ const appRoutes: Routes = [
     NavMenuComponent,
     CharactersComponent,
     CampaignsComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    StoriesComponent
   ],
   imports: [
     BrowserModule,
