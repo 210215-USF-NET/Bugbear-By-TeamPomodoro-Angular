@@ -13,10 +13,10 @@
                         <a class="nav-link text-dark" routerLink='/'>Home</a>
                     </li>
                     <li *ngIf="(auth.isAuthenticated$ | async) === false" class="nav-item" [routerLinkActive]="['link-active']">
-                        <a class="nav-link text-dark" (click)="auth.loginWithRedirect()">Log in</a>
+                        <a class="nav-link text-dark" (click)="auth.loginWithRedirect()" style="cursor: pointer;">Log in</a>
                     </li>
                     <li *ngIf="auth.isAuthenticated$ | async" class="nav-item" [routerLinkActive]="['link-active']">
-                        <a class="nav-link text-dark" (click)="auth.logout({ returnTo: document.location.origin })">Log out</a>
+                        <a class="nav-link text-dark" (click)="auth.logout({ returnTo: document.location.origin })" style="cursor: pointer;">Log out</a>
                     </li>
                     <li class="nav-item" [routerLinkActive]="['link-active']">
                         <a class="nav-link text-dark" routerLink='/characters'>Characters</a>
