@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { env } from 'node:process';
 import { Observable } from 'rxjs';
 import { character } from '../models/character';
 
@@ -14,7 +15,7 @@ export class BBRESTService {
       }
     )
   }
-  url: string = 'https://localhost:5001/api/character';
+  url: string = env.BB_REST;
 
   constructor(private http: HttpClient) { }
 

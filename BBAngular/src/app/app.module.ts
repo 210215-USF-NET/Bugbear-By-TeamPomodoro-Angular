@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { CharactersComponent } from './components/characters/characters.component';
 import { CampaignsComponent } from './components/campaigns/campaigns.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { env } from 'node:process';
 
 const appRoutes: Routes = [
   {
@@ -39,8 +40,8 @@ const appRoutes: Routes = [
     NgbModule,
     FormsModule,
     AuthModule.forRoot({
-      domain: 'bugbear.us.auth0.com',
-      clientId: 'BIQMJPuDYYq9a36GsutPut90QSKybxDH'
+      domain: env.AUTH_DOMAIN,
+      clientId: env.CLIENT_ID
     }),
   ],
   bootstrap: [AppComponent]
