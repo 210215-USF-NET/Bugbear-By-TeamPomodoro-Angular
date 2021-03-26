@@ -11,6 +11,10 @@ import { CharactersComponent } from './components/characters/characters.componen
 import { CampaignsComponent } from './components/campaigns/campaigns.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { env } from '../environments/environmentConnections';
+import { AUTH_PROVIDERS } from 'angular2-jwt';
+import { AddCharacterComponent } from './components/add-character/add-character.component';
+import { CharacterDetailsComponent } from './components/character-details/character-details.component';
+import { EditCharacterComponent } from './components/edit-character/edit-character.component';
 import { StoriesComponent } from './components/stories/stories.component';
 import { AddStoryComponent } from './components/stories/add-story/add-story.component';
 
@@ -22,6 +26,18 @@ const appRoutes: Routes = [
   {
     path: 'characters',
     component: CharactersComponent
+  },
+  {
+    path: 'add-character',
+    component: AddCharacterComponent
+  },
+  {
+    path: 'character-details',
+    component: CharacterDetailsComponent
+  },
+  {
+    path: 'edit-character',
+    component: EditCharacterComponent
   },
   {
     path: 'stories',
@@ -40,6 +56,9 @@ const appRoutes: Routes = [
     CharactersComponent,
     CampaignsComponent,
     UserProfileComponent,
+    AddCharacterComponent,
+    CharacterDetailsComponent,
+    EditCharacterComponent,
     StoriesComponent,
     AddStoryComponent
   ],
@@ -51,8 +70,12 @@ const appRoutes: Routes = [
     FormsModule,
     AuthModule.forRoot({
       domain: env.AUTH_DOMAIN,
-      clientId: env.CLIENT_ID
+      clientId: env.CLIENT_ID,
+      scope: 'openid email profile'
     }),
+  ],
+  providers: [
+    AUTH_PROVIDERS
   ],
   bootstrap: [AppComponent]
 })

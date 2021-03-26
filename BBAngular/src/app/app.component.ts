@@ -1,7 +1,9 @@
 // src/app/app.component.ts
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ViewChild, ElementRef, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Router } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 import { AuthService } from '@auth0/auth0-angular';
+import { BBRESTService } from 'src/app/services/bb-rest.service';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +13,11 @@ import { AuthService } from '@auth0/auth0-angular';
 
 export class AppComponent{
   title = 'BugBear';
+  user2Add : any;
+  @ViewChild('userEmail') userEmail : ElementRef;
+  assigned : boolean = false;
 
-  constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService) {}
+  constructor(@Inject(DOCUMENT) public document: Document, private BBService: BBRESTService, public auth: AuthService) {
+    
+  }
 }
