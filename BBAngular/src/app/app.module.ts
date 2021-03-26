@@ -24,6 +24,8 @@ import { RulesDetailComponent } from './components/rules-detail/rules-detail.com
 import { AddCampaignComponent } from './components/campaigns/add-campaign/add-campaign.component';
 import { CampaignDetailsComponent } from './components/campaigns/campaign-details/campaign-details.component';
 import { EditCampaignComponent } from './components/campaigns/edit-campaign/edit-campaign.component';
+import { GetEncountersComponent } from './components/encounters/get-encounters/get-encounters.component';
+import { AddEncountersComponent } from './components/encounters/add-encounters/add-encounters.component';
 
 const appRoutes: Routes = [
   {
@@ -113,7 +115,9 @@ const appRoutes: Routes = [
     CharactersDetailsComponent,
     QuickRefComponent,
     RulesComponent,
-    RulesDetailComponent
+    RulesDetailComponent,
+    GetEncountersComponent,
+    AddEncountersComponent
   ],
   imports: [
     BrowserModule,

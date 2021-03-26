@@ -6,6 +6,7 @@ import { character } from '../models/character';
 import { user } from '../models/user';
 import { story } from '../models/story';
 import { campaign } from '../models/campaign';
+import { encounter } from '../models/encounter';
 
 @Injectable({
   providedIn: 'root'
@@ -74,5 +75,11 @@ export class BBRESTService {
   }
   EditCampaign(campaign2BEdited: campaign): Observable<any> {
     return this.http.put<any>(`${this.urlCampaign}/${campaign2BEdited.campaignID}`, campaign2BEdited, this.httpOptions);
+  }
+  GetEncountersAsync(): Observable<encounter[]> {
+    return this.http.get<encounter[]>(this.urlEncounter, this.httpOptions);
+  }
+  AddEncounterAsync(encToAdd: encounter): Observable<encounter> {
+    return this.http.post<encounter>(this.urlEncounter, encToAdd, this.httpOptions);
   }
 }
