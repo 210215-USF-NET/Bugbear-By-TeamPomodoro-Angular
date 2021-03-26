@@ -1,0 +1,50 @@
+<div *ngIf="character" class="container transparent">
+
+    <h2>{{character.characterName}} Details</h2>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Name: </td>
+                <td>{{character.characterName}}</td>
+            </tr>
+            <tr>
+                <td>HP: </td>
+                <td>{{character.hp}}</td>
+            </tr>
+            <tr>
+                <td>XP Level: </td>
+                <td>{{character.xpLevel}}</td>
+            </tr>
+            <tr>
+                <td>Strength: </td>
+                <td>{{character.strength}}</td>
+            </tr>
+            <tr>
+                <td>Constitution: </td>
+                <td>{{character.constitution}}</td>
+            </tr>
+            <tr>
+                <td>Intelligence: </td>
+                <td>{{character.intelligence}}</td>
+            </tr>
+            <tr>
+                <td>Wisdom: </td>
+                <td>{{character.wisdom}}</td>
+            </tr>
+            <tr>
+                <td>Charisma: </td>
+                <td>{{character.charisma}}</td>
+            </tr>
+            <tr>
+                <td>Items: </td>
+                <td>{{character.itemList}}</td>
+            </tr>
+            <tr>
+                <td>Money: </td>
+                <td>${{character.money}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-warning" (click)="EditCharacter(character.characterName)">Edit</button> |
+    <button class="btn btn-danger" (click)="DeleteCharacter(character.characterName)">Delete</button>
+</div>

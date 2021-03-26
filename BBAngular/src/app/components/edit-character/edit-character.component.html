@@ -1,52 +1,56 @@
 <div class="container transparent">
-    <form (ngSubmit)="onSubmit()" #characterForm="ngForm">
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
         <div class="form-group">
             <label for="characterName">Character's Name: </label>
-            <input type="text" [(ngModel)]="character2Add.characterName" name="characterName" id="characterName"
+            <input type="text" [(ngModel)]="character2Edit.characterName" name="characterName" id="characterName"
                 #name="ngModel" class="form-control" placeholder="Enter character's name">
         </div>
         <div class="form-group">
             <label for="hp">Character's HP: </label>
-            <input type="number" [(ngModel)]="character2Add.hp" name="hp" id="hp" #name="ngModel" class="form-control"
+            <input type="number" [(ngModel)]="character2Edit.hp" name="hp" id="hp" #name="ngModel" class="form-control"
                 placeholder="Enter character's hp">
         </div>
         <div class="form-group">
             <label for="xpLevel">Character's XP Level: </label>
-            <input type="number" [(ngModel)]="character2Add.xpLevel" name="xpLevel" id="xpLevel" #name="ngModel"
+            <input type="number" [(ngModel)]="character2Edit.xpLevel" name="xpLevel" id="xpLevel" #name="ngModel"
                 class="form-control" placeholder="Enter character's strength">
         </div>
         <div class="form-group">
             <label for="strength">Character's Strength: </label>
-            <input type="number" [(ngModel)]="character2Add.strength" name="strength" id="strength" #name="ngModel"
+            <input type="number" [(ngModel)]="character2Edit.strength" name="strength" id="strength" #name="ngModel"
                 class="form-control" placeholder="Enter character's strength">
         </div>
         <div class="form-group">
             <label for="dexterity">Character's Dexterity: </label>
-            <input type="number" [(ngModel)]="character2Add.dexterity" name="dexterity" id="dexterity" #name="ngModel"
+            <input type="number" [(ngModel)]="character2Edit.dexterity" name="dexterity" id="dexterity" #name="ngModel"
                 class="form-control" placeholder="Enter character's dexterity">
         </div>
         <div class="form-group">
             <label for="constitution">Character's Constitution: </label>
-            <input type="number" [(ngModel)]="character2Add.constitution" name="constitution" id="constitution"
+            <input type="number" [(ngModel)]="character2Edit.constitution" name="constitution" id="constitution"
                 #name="ngModel" class="form-control" placeholder="Enter character's constitution">
         </div>
         <div class="form-group">
             <label for="intelligence">Character's Intelligence: </label>
-            <input type="number" [(ngModel)]="character2Add.intelligence" name="intelligence" id="intelligence"
+            <input type="number" [(ngModel)]="character2Edit.intelligence" name="intelligence" id="intelligence"
                 #name="ngModel" class="form-control" placeholder="Enter character's intelligence">
         </div>
         <div class="form-group">
             <label for="wisdom">Character's Wisdom: </label>
-            <input type="number" [(ngModel)]="character2Add.wisdom" name="wisdom" id="wisdom" #name="ngModel"
+            <input type="number" [(ngModel)]="character2Edit.wisdom" name="wisdom" id="wisdom" #name="ngModel"
                 class="form-control" placeholder="Enter character's wisdom">
         </div>
         <div class="form-group">
             <label for="charisma">Character's Charisma: </label>
-            <input type="number" [(ngModel)]="character2Add.charisma" name="charisma" id="charisma" #name="ngModel"
+            <input type="number" [(ngModel)]="character2Edit.charisma" name="charisma" id="charisma" #name="ngModel"
                 class="form-control" placeholder="Enter character's charisma">
         </div>
-        <input *ngIf="auth.user$ | async as user" type="number" [(ngModel)]="character2Add.userID" name="userID"
-            id="userID" #name="ngModel" value={{user.id}} style="display:none;">
-        <button type="submit" class="mt-2 btn btn-secondary">Add character</button>
+        <input *ngIf="auth.user$ | async as user" type="number" [(ngModel)]="character2Edit.userID" name="userID"
+            id="userID" #name="ngModel" value=user.id style="display:none;">
+        <input type="number" [(ngModel)]="character2Edit.itemList" name="itemList[]" id="itemList" #name="ngModel" value=character2Edit.itemList
+            style="display:none;">
+        <input type="number" [(ngModel)]="character2Edit.money" name="money" id="money" #name="ngModel" value=character2Edit.money
+            style="display:none;">
+        <button type="submit" class="mt-2 btn btn-secondary">Save</button>
     </form>
 </div>
