@@ -15,6 +15,8 @@ import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AddCharacterComponent } from './components/add-character/add-character.component';
 import { CharacterDetailsComponent } from './components/character-details/character-details.component';
 import { EditCharacterComponent } from './components/edit-character/edit-character.component';
+import { StoriesComponent } from './components/stories/stories.component';
+import { AddStoryComponent } from './components/stories/add-story/add-story.component';
 
 const appRoutes: Routes = [
   {
@@ -36,6 +38,14 @@ const appRoutes: Routes = [
   {
     path: 'edit-character',
     component: EditCharacterComponent
+  },
+  {
+    path: 'stories',
+    component: StoriesComponent
+  },
+  {
+    path: 'add-story',
+    component: AddStoryComponent
   }
 ]
 
@@ -48,7 +58,9 @@ const appRoutes: Routes = [
     UserProfileComponent,
     AddCharacterComponent,
     CharacterDetailsComponent,
-    EditCharacterComponent
+    EditCharacterComponent,
+    StoriesComponent,
+    AddStoryComponent
   ],
   imports: [
     BrowserModule,

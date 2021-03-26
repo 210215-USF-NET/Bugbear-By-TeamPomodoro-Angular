@@ -1,4 +1,4 @@
-html, p, div{
+html, p, div, table, body{
     background-color: rgb(168,64,64);
     color: white
 }

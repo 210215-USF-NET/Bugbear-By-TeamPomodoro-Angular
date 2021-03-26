@@ -4,6 +4,7 @@ import { env } from '../../../src/environments/environmentConnections';
 import { Observable } from 'rxjs';
 import { character } from '../models/character';
 import { user } from '../models/user';
+import { story } from '../models/story';
 
 @Injectable({
   providedIn: 'root'
@@ -45,5 +46,12 @@ export class BBRESTService {
   }
   EditCharacter(character2BEdited: character): Observable<any> {
     return this.http.put<any>(`${this.urlCharacter}/${character2BEdited.characterID}`, character2BEdited, this.httpOptions)
+  }
+  GetStoriesAsync(): Observable<story[]> {
+    return this.http.get<story[]>(this.urlStory, this.httpOptions);
+  }
+
+  AddStoryAsync(storyToAdd: story): Observable<story> {
+    return this.http.post<story>(this.urlStory, storyToAdd, this.httpOptions);
   }
 }

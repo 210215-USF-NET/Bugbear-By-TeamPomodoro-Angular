@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>
+        Campaign Summary
+    </h1>
+
+    <table class="table">
+        <thead>
+            <th>Title</th>
+            <th>Description</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let story of stories;">
+                <td>{{story.storyTitle}}</td>
+                <td>{{story.storyDescription}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
