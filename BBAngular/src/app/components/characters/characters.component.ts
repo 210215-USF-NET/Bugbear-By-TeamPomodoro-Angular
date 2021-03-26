@@ -17,21 +17,14 @@ export class CharactersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.BBService.GetCharactersAsync().subscribe(
+    this.BBService.GetCharacters().subscribe(
       (result) => {
-        result.forEach(function (item) {
-          if (item.userID === this.BBService.GetUserByEmailAsync(localStorage.getItem('email')).userID) {
-            this.characters.push(item);
-          }
-        });
+        this.characters = result;
       }
     );
   }
 
   GetCharacter(characterName: string) {
     this.router.navigate(['character-details'], { queryParams: { character: characterName } });
-  }
-  GetUserByEmail(email : string) {
-    this.router.navigate(['user-details'], { queryParams: { user: email } });
   }
 }

@@ -1,7 +1,9 @@
 <div class="container transparent">
-    <h1 *ngIf="auth.user$ | async as user">
-        {{ user.email }} Characters
-    </h1>
+    <button class="btn btn-primary" routerLink='/add-character'>Create Character</button>
+
+    <h1>
+        Characters
+    </h1> 
 
     <table class="table">
         <thead>

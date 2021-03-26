@@ -12,6 +12,7 @@ import { CampaignsComponent } from './components/campaigns/campaigns.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { env } from '../environments/environmentConnections';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
+import { AddCharacterComponent } from './components/add-character/add-character.component';
 
 const appRoutes: Routes = [
   {
@@ -21,6 +22,10 @@ const appRoutes: Routes = [
   {
     path: 'characters',
     component: CharactersComponent
+  },
+  {
+    path: 'add-character',
+    component: AddCharacterComponent
   }
 ]
 
@@ -30,7 +35,8 @@ const appRoutes: Routes = [
     NavMenuComponent,
     CharactersComponent,
     CampaignsComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    AddCharacterComponent
   ],
   imports: [
     BrowserModule,

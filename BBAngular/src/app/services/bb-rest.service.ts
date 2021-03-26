@@ -28,10 +28,13 @@ export class BBRESTService {
 
   constructor(private http: HttpClient) { }
 
-  GetCharactersAsync(): Observable<character[]> {
+  GetCharacters(): Observable<character[]> {
     return this.http.get<character[]>(this.urlCharacter, this.httpOptions);
   }
-  GetUserByEmailAsync(string): Observable<user>{
-    return this.http.get<user>(this.urlUser, this.httpOptions);
+  GetUserByEmail(email : string): Observable<user>{
+    return this.http.get<user>(`${this.urlUser}/${email}`, this.httpOptions);;
+  }
+  AddCharacter(character2Add : character): Observable<character>{
+    return this.http.post<character>(this.urlCharacter, character2Add, this.httpOptions);
   }
 }
