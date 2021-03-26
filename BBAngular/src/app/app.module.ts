@@ -13,6 +13,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { env } from '../environments/environmentConnections';
 import { StoriesComponent } from './components/stories/stories.component';
 import { AddStoryComponent } from './components/stories/add-story/add-story.component';
+import { GetEncountersComponent } from './components/encounters/get-encounters/get-encounters.component';
+import { AddEncountersComponent } from './components/encounters/add-encounters/add-encounters.component';
 
 const appRoutes: Routes = [
   {
@@ -30,6 +32,14 @@ const appRoutes: Routes = [
   {
     path: 'add-story',
     component: AddStoryComponent
+  },
+  {
+    path: 'get-encounters',
+    component: GetEncountersComponent
+  },
+  {
+    path: 'add-encounters',
+    component: AddEncountersComponent
   }
 ]
 
@@ -41,7 +51,9 @@ const appRoutes: Routes = [
     CampaignsComponent,
     UserProfileComponent,
     StoriesComponent,
-    AddStoryComponent
+    AddStoryComponent,
+    GetEncountersComponent,
+    AddEncountersComponent
   ],
   imports: [
     BrowserModule,
