@@ -11,6 +11,7 @@ import { CharactersComponent } from './components/characters/characters.componen
 import { CampaignsComponent } from './components/campaigns/campaigns.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { env } from '../environments/environmentConnections';
+import { AUTH_PROVIDERS } from 'angular2-jwt';
 
 const appRoutes: Routes = [
   {
@@ -39,8 +40,12 @@ const appRoutes: Routes = [
     FormsModule,
     AuthModule.forRoot({
       domain: env.AUTH_DOMAIN,
-      clientId: env.CLIENT_ID
+      clientId: env.CLIENT_ID,
+      scope: 'openid email profile'
     }),
+  ],
+  providers: [
+    AUTH_PROVIDERS
   ],
   bootstrap: [AppComponent]
 })

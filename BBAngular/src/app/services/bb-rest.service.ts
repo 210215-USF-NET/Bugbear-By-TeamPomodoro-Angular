@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { env } from '../../../src/environments/environmentConnections';
 import { Observable } from 'rxjs';
 import { character } from '../models/character';
+import { user } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,8 @@ export class BBRESTService {
 
   GetCharactersAsync(): Observable<character[]> {
     return this.http.get<character[]>(this.urlCharacter, this.httpOptions);
+  }
+  GetUserByEmailAsync(string): Observable<user>{
+    return this.http.get<user>(this.urlUser, this.httpOptions);
   }
 }

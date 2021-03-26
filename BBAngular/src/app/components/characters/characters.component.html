@@ -1,6 +1,6 @@
 <div class="container transparent">
-    <h1>
-        User Characters
+    <h1 *ngIf="auth.user$ | async as user">
+        {{ user.email }} Characters
     </h1>
 
     <table class="table">

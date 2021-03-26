@@ -11,21 +11,27 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class CharactersComponent implements OnInit {
   characters: character[] = [];
-  userID : number;
 
   constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService) {
-    auth.user$.toPromise
+    
   }
 
   ngOnInit(): void {
     this.BBService.GetCharactersAsync().subscribe(
       (result) => {
-        this.characters = result;
+        result.forEach(function (item) {
+          if (item.userID === this.BBService.GetUserByEmailAsync(localStorage.getItem('email')).userID) {
+            this.characters.push(item);
+          }
+        });
       }
     );
   }
 
   GetCharacter(characterName: string) {
     this.router.navigate(['character-details'], { queryParams: { character: characterName } });
+  }
+  GetUserByEmail(email : string) {
+    this.router.navigate(['user-details'], { queryParams: { user: email } });
   }
 }
