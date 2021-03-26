@@ -7,14 +7,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-import { LoginComponent } from './components/login/login.component';
 import { CharactersComponent } from './components/characters/characters.component';
 import { CampaignsComponent } from './components/campaigns/campaigns.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { env } from '../environments/environment';
 import { ConditionsComponent } from './components/conditions/conditions.component';
-import { QuickRefComponent } from './quick-ref/quick-ref.component';
+import { QuickRefComponent } from './components/quick-ref/quick-ref.component';
 import { ConditionsDetailsComponent } from './components/conditions-details/conditions-details.component';
+import { env } from '../environments/environmentConnections';
+import { StoriesComponent } from './components/stories/stories.component';
+import { AddStoryComponent } from './components/stories/add-story/add-story.component';
 
 const appRoutes: Routes = [
   {
@@ -28,6 +29,14 @@ const appRoutes: Routes = [
   {
     path: 'conditions',
     component: ConditionsComponent
+  },
+  {
+  path: 'stories',
+    component: StoriesComponent
+  },
+  {
+    path: 'add-story',
+    component: AddStoryComponent
   }
 ]
 
@@ -35,13 +44,14 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NavMenuComponent,
-    LoginComponent,
     CharactersComponent,
     CampaignsComponent,
     UserProfileComponent,
     ConditionsComponent,
     QuickRefComponent,
-    ConditionsDetailsComponent
+    ConditionsDetailsComponent,
+    StoriesComponent,
+    AddStoryComponent
   ],
   imports: [
     BrowserModule,

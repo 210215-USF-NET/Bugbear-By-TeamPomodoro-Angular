@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { env } from '../../../src/environments/environment';
+import { env } from '../../../src/environments/environmentConnections';
 import { Observable } from 'rxjs';
 import { character } from '../models/character';
+import { story } from '../models/story';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,14 @@ export class BBRESTService {
 
   GetCharactersAsync(): Observable<character[]> {
     return this.http.get<character[]>(this.urlCharacter, this.httpOptions);
+  }
+
+  GetStoriesAsync(): Observable<story[]> {
+    return this.http.get<story[]>(this.urlStory, this.httpOptions);
+  }
+
+  AddStoryAsync(storyToAdd: story): Observable<story> {
+    return this.http.post<story>(this.urlStory, storyToAdd, this.httpOptions);
   }
 }
 
