@@ -17,6 +17,7 @@ export class CharactersComponent implements OnInit {
     this.BBService.GetCharactersAsync().subscribe(
       (result) => {
         this.characters = result;
+        console.log(result)
       }
     );
   }

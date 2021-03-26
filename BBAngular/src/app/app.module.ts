@@ -12,6 +12,9 @@ import { CharactersComponent } from './components/characters/characters.componen
 import { CampaignsComponent } from './components/campaigns/campaigns.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { env } from '../environments/environment';
+import { ConditionsComponent } from './components/conditions/conditions.component';
+import { QuickRefComponent } from './quick-ref/quick-ref.component';
+import { ConditionsDetailsComponent } from './components/conditions-details/conditions-details.component';
 
 const appRoutes: Routes = [
   {
@@ -21,6 +24,10 @@ const appRoutes: Routes = [
   {
     path: 'characters',
     component: CharactersComponent
+  },
+  {
+    path: 'conditions',
+    component: ConditionsComponent
   }
 ]
 
@@ -31,7 +38,10 @@ const appRoutes: Routes = [
     LoginComponent,
     CharactersComponent,
     CampaignsComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ConditionsComponent,
+    QuickRefComponent,
+    ConditionsDetailsComponent
   ],
   imports: [
     BrowserModule,

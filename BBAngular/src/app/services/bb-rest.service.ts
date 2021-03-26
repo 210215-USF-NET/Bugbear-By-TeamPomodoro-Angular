@@ -31,3 +31,5 @@ export class BBRESTService {
     return this.http.get<character[]>(this.urlCharacter, this.httpOptions);
   }
 }
+
+
