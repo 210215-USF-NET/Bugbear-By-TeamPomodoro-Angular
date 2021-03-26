@@ -8,8 +8,7 @@
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end" [ngClass]="{ show: isExpanded }">
                 <ul class="navbar-nav flex-grow">
-                    <li class="nav-item" [routerLinkActive]="['link-active']"
-                        [routerLinkActiveOptions]="{ exact: true }">
+                    <li class="nav-item">
                         <a class="nav-link text-dark" routerLink='/'>Home</a>
                     </li>
                     <li *ngIf="(auth.isAuthenticated$ | async) === false" class="nav-item" [routerLinkActive]="['link-active']">
@@ -18,14 +17,20 @@
                     <li *ngIf="auth.isAuthenticated$ | async" class="nav-item" [routerLinkActive]="['link-active']">
                         <a class="nav-link text-dark" (click)="auth.logout({ returnTo: document.location.origin })" style="cursor: pointer;">Log out</a>
                     </li>
-                    <li class="nav-item" [routerLinkActive]="['link-active']">
+                    <li class="nav-item" >
                         <a class="nav-link text-dark" routerLink='/characters'>Characters</a>
                     </li>
-                    <li class="nav-item" [routerLinkActive]="['link-active']">
+                    <li class="nav-item">
                         <a class="nav-link text-dark" routerLink='/campaigns'>Campaigns</a>
                     </li>
-                    <li class="nav-item" [routerLinkActive]="['link-active']">
-                        <a class="nav-link text-dark" routerLink='/stories'>Stories</a>
+                    <li class="nav-item">
+                        <div ngbDropdown class="d-inline-block">
+                            <a class = "nav-link text-dark" id="dropdownBasic1" ngbDropdownToggle>Story</a>
+                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                <a ngbDropdownItem class="nav-link text-dark" routerLink='/stories'>View Stories</a>
+                                <a ngbDropdownItem class="nav-link text-dark" routerLink='/add-story'>Add New Story</a>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>

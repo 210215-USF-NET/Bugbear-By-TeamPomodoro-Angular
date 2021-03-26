@@ -35,4 +35,8 @@ export class BBRESTService {
   GetStoriesAsync(): Observable<story[]> {
     return this.http.get<story[]>(this.urlStory, this.httpOptions);
   }
+
+  AddStoryAsync(storyToAdd: story): Observable<story> {
+    return this.http.post<story>(this.urlStory, storyToAdd, this.httpOptions);
+  }
 }

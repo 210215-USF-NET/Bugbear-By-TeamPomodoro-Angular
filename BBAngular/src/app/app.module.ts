@@ -12,6 +12,7 @@ import { CampaignsComponent } from './components/campaigns/campaigns.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { env } from '../environments/environmentConnections';
 import { StoriesComponent } from './components/stories/stories.component';
+import { AddStoryComponent } from './components/stories/add-story/add-story.component';
 
 const appRoutes: Routes = [
   {
@@ -25,6 +26,10 @@ const appRoutes: Routes = [
   {
     path: 'stories',
     component: StoriesComponent
+  },
+  {
+    path: 'add-story',
+    component: AddStoryComponent
   }
 ]
 
@@ -35,7 +40,8 @@ const appRoutes: Routes = [
     CharactersComponent,
     CampaignsComponent,
     UserProfileComponent,
-    StoriesComponent
+    StoriesComponent,
+    AddStoryComponent
   ],
   imports: [
     BrowserModule,
