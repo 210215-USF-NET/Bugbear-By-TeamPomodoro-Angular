@@ -9,7 +9,7 @@ import { BBRESTService } from '../../services/BB-rest.service';
   templateUrl: './character-details.component.html',
   styleUrls: ['./character-details.component.css']
 })
-export class CharacterDetailsComponent implements OnInit {
+export class CharactersDetailsComponent implements OnInit {
 
   character: character;
   //the activated route allows me to unpack my route, i.e. get the route parameters
