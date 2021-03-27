@@ -18,6 +18,7 @@ import { AddStoryComponent } from './components/stories/add-story/add-story.comp
 import { CharactersDetailsComponent } from './components/characters-details/characters-details.component';
 import { ConditionsComponent } from './components/conditions/conditions.component';
 import { ConditionsDetailsComponent } from './components/conditions-details/conditions-details.component';
+import { QuickRefComponent } from './components/quick-ref/quick-ref.component';
 
 const appRoutes: Routes = [
   {
@@ -55,6 +56,10 @@ const appRoutes: Routes = [
   {
     path: 'conditions-details',
     component: ConditionsDetailsComponent
+  },
+  {
+    path: 'quickRef',
+    component: QuickRefComponent
   }
 ]
 
@@ -73,7 +78,8 @@ const appRoutes: Routes = [
     CharactersDetailsComponent,
     ConditionsComponent,
     ConditionsDetailsComponent,
-    CharactersDetailsComponent
+    CharactersDetailsComponent,
+    QuickRefComponent
   ],
   imports: [
     BrowserModule,

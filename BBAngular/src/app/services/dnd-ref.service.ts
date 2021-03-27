@@ -16,7 +16,7 @@ export class DndRefService {
       }
     )
   }
-  url: string = "http://www.dnd5eapi.co/api";
+  url: string = "https://www.dnd5eapi.co/api";
 
   constructor(private http: HttpClient) { }
 
