@@ -20,17 +20,14 @@ export class ConditionsDetailsComponent implements OnInit {
       desc: [],
       url: ''
     }
-    
   }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(
       params => {
-        console.log(params)
         this.dndService.GetCondition(params["conditions"]).subscribe(
           foundCondition => {
             this.detail = foundCondition;
-            console.log(this.detail)
           }
         )
       }

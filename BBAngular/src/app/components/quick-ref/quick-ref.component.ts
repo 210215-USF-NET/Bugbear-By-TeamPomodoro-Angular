@@ -18,4 +18,8 @@ export class QuickRefComponent implements OnInit {
     this.router.navigate(['conditions']);
   }
 
+  GetRules(){
+    this.router.navigate(['rules']);
+  }
+
 }
