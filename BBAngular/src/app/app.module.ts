@@ -19,6 +19,8 @@ import { CharactersDetailsComponent } from './components/characters-details/char
 import { ConditionsComponent } from './components/conditions/conditions.component';
 import { ConditionsDetailsComponent } from './components/conditions-details/conditions-details.component';
 import { QuickRefComponent } from './components/quick-ref/quick-ref.component';
+import { RulesComponent } from './components/rules/rules.component';
+import { RulesDetailComponent } from './components/rules-detail/rules-detail.component';
 
 const appRoutes: Routes = [
   {
@@ -60,6 +62,14 @@ const appRoutes: Routes = [
   {
     path: 'quickRef',
     component: QuickRefComponent
+  },
+  {
+    path: 'rules',
+    component: RulesComponent
+  },
+  {
+    path: 'rules-details',
+    component: RulesDetailComponent
   }
 ]
 
@@ -79,7 +89,9 @@ const appRoutes: Routes = [
     ConditionsComponent,
     ConditionsDetailsComponent,
     CharactersDetailsComponent,
-    QuickRefComponent
+    QuickRefComponent,
+    RulesComponent,
+    RulesDetailComponent
   ],
   imports: [
     BrowserModule,

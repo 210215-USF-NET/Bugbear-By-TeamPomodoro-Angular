@@ -18,7 +18,6 @@ export class ConditionsComponent implements OnInit {
     this.dndService.GetConditions().subscribe(
       (result) =>{
         this.conditions = result["results"];
-        console.log(Object.keys(result))
       }
     );
   }
