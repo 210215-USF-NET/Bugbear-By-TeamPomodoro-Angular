@@ -9,6 +9,7 @@ import { story } from '../models/story';
 @Injectable({
   providedIn: 'root'
 })
+
 export class BBRESTService {
   httpOptions = {
     headers: new HttpHeaders(
@@ -17,6 +18,7 @@ export class BBRESTService {
       }
     )
   }
+
   urlCharacter: string = env.BB_REST + '/character';
   urlCampaign: string = env.BB_REST + '/campaign';
   urlEncounter: string = env.BB_REST + '/encounter';
