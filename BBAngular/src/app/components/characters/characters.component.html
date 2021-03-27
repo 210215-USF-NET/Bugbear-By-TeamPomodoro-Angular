@@ -1,7 +1,9 @@
 <div class="container transparent">
+    <button class="btn btn-primary" routerLink='/add-character'>Create Character</button>
+
     <h1>
-        User Characters
-    </h1>
+        Characters
+    </h1> 
 
     <table class="table">
         <thead>
@@ -10,7 +12,7 @@
             <th>XP Level</th>
         </thead>
         <tbody>
-            <tr *ngFor="let character of characters;">
+            <tr *ngFor="let character of characters;" (click)="GetCharacter(character.characterName)" style="cursor: pointer;">
                 <td>{{character.characterName}}</td>
                 <td>{{character.hp}}</td>
                 <td>{{character.xpLevel}}</td>

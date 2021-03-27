@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QuickRefComponent } from './quick-ref.component';
+import { CharactersDetailsComponent } from './characters-details.component';
 
-describe('QuickRefComponent', () => {
-  let component: QuickRefComponent;
-  let fixture: ComponentFixture<QuickRefComponent>;
+describe('CharactersDetailsComponent', () => {
+  let component: CharactersDetailsComponent;
+  let fixture: ComponentFixture<CharactersDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ QuickRefComponent ]
+      declarations: [ CharactersDetailsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(QuickRefComponent);
+    fixture = TestBed.createComponent(CharactersDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

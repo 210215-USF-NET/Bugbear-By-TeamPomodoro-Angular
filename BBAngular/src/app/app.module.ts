@@ -10,12 +10,14 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { CharactersComponent } from './components/characters/characters.component';
 import { CampaignsComponent } from './components/campaigns/campaigns.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { ConditionsComponent } from './components/conditions/conditions.component';
-import { QuickRefComponent } from './components/quick-ref/quick-ref.component';
-import { ConditionsDetailsComponent } from './components/conditions-details/conditions-details.component';
 import { env } from '../environments/environmentConnections';
+import { AddCharacterComponent } from './components/add-character/add-character.component';
+import { EditCharacterComponent } from './components/edit-character/edit-character.component';
 import { StoriesComponent } from './components/stories/stories.component';
 import { AddStoryComponent } from './components/stories/add-story/add-story.component';
+import { CharactersDetailsComponent } from './components/characters-details/characters-details.component';
+import { ConditionsComponent } from './components/conditions/conditions.component';
+import { ConditionsDetailsComponent } from './components/conditions-details/conditions-details.component';
 
 const appRoutes: Routes = [
   {
@@ -27,16 +29,28 @@ const appRoutes: Routes = [
     component: CharactersComponent
   },
   {
-    path: 'conditions',
-    component: ConditionsComponent
+    path: 'add-character',
+    component: AddCharacterComponent
   },
   {
-  path: 'stories',
+    path: 'character-details',
+    component: CharactersDetailsComponent
+  },
+  {
+    path: 'edit-character',
+    component: EditCharacterComponent
+  },
+  {
+    path: 'stories',
     component: StoriesComponent
   },
   {
     path: 'add-story',
     component: AddStoryComponent
+  },
+  {
+    path: 'conditions',
+    component: ConditionsComponent
   },
   {
     path: 'conditions-details',
@@ -51,11 +65,14 @@ const appRoutes: Routes = [
     CharactersComponent,
     CampaignsComponent,
     UserProfileComponent,
-    ConditionsComponent,
-    QuickRefComponent,
-    ConditionsDetailsComponent,
+    AddCharacterComponent,
+    CharactersDetailsComponent,
+    EditCharacterComponent,
     StoriesComponent,
-    AddStoryComponent
+    AddStoryComponent,
+    CharactersDetailsComponent,
+    ConditionsComponent,
+    ConditionsDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +82,8 @@ const appRoutes: Routes = [
     FormsModule,
     AuthModule.forRoot({
       domain: env.AUTH_DOMAIN,
-      clientId: env.CLIENT_ID
+      clientId: env.CLIENT_ID,
+      scope: 'openid email profile'
     }),
   ],
   bootstrap: [AppComponent]
