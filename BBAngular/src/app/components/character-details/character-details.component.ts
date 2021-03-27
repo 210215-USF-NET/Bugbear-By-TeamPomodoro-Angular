@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
-import { character } from 'src/app/models/character';
-import { BBRESTService } from 'src/app/services/BB-rest.service';
+import { character } from '../../models/character';
+import { BBRESTService } from '../../services/BB-rest.service';
 
 @Component({
   selector: 'app-character-details',
