@@ -16,11 +16,26 @@ import { EditCharacterComponent } from './components/edit-character/edit-charact
 import { StoriesComponent } from './components/stories/stories.component';
 import { AddStoryComponent } from './components/stories/add-story/add-story.component';
 import { CharactersDetailsComponent } from './components/characters-details/characters-details.component';
+import { AddCampaignComponent } from './components/campaigns/add-campaign/add-campaign.component';
+import { CampaignDetailsComponent } from './components/campaigns/campaign-details/campaign-details.component';
+import { EditCampaignComponent } from './components/campaigns/edit-campaign/edit-campaign.component';
 
 const appRoutes: Routes = [
   {
     path: 'campaigns',
     component: CampaignsComponent
+  },
+  {
+    path: 'add-campaign',
+    component: AddCampaignComponent
+  },
+  {
+    path: 'campaign-details',
+    component: CampaignDetailsComponent
+  },
+  {
+    path: 'edit-campaign',
+    component: EditCampaignComponent
   },
   {
     path: 'characters',
@@ -60,7 +75,10 @@ const appRoutes: Routes = [
     EditCharacterComponent,
     StoriesComponent,
     AddStoryComponent,
-    CharactersDetailsComponent
+    CharactersDetailsComponent,
+    AddCampaignComponent,
+    CampaignDetailsComponent,
+    EditCampaignComponent
   ],
   imports: [
     BrowserModule,

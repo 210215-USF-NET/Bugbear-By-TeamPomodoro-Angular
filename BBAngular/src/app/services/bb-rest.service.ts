@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { character } from '../models/character';
 import { user } from '../models/user';
 import { story } from '../models/story';
+import { campaign } from '../models/campaign';
 
 @Injectable({
   providedIn: 'root'
@@ -55,5 +56,20 @@ export class BBRESTService {
 
   AddStoryAsync(storyToAdd: story): Observable<story> {
     return this.http.post<story>(this.urlStory, storyToAdd, this.httpOptions);
+  }
+  GetCampaigns(): Observable<campaign[]> {
+    return this.http.get<campaign[]>(this.urlCampaign, this.httpOptions);
+  }
+  GetCampaign(campaignName: string): Observable<campaign> {
+    return this.http.get<campaign>(`${this.urlCampaign}/${campaignName}`, this.httpOptions);
+  }
+  AddCampaign(campaign2Add: campaign): Observable<campaign> {
+    return this.http.post<campaign>(this.urlCampaign, campaign2Add, this.httpOptions);
+  }
+  DeleteCampaign(campaign2BDeleted: string): Observable<any> {
+    return this.http.delete<any>(`${this.urlCampaign}/${campaign2BDeleted}`, this.httpOptions);
+  }
+  EditCampaign(campaign2BEdited: campaign): Observable<any> {
+    return this.http.put<any>(`${this.urlCampaign}/${campaign2BEdited.campaignID}`, campaign2BEdited, this.httpOptions);
   }
 }
