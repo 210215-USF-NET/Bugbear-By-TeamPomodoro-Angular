@@ -6,8 +6,8 @@ import { BBRESTService } from '../../services/bb-rest.service';
 
 @Component({
   selector: 'app-character-details',
-  templateUrl: './character-details.component.html',
-  styleUrls: ['./character-details.component.css']
+  templateUrl: './characters-details.component.html',
+  styleUrls: ['./characters-details.component.css']
 })
 export class CharactersDetailsComponent implements OnInit {
 
