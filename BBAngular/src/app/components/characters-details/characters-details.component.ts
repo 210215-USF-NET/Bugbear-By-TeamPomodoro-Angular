@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { character } from '../../models/character';
-import { BBRESTService } from '../../services/BB-rest.service';
+import { BBRESTService } from '../../services/bb-rest.service';
 
 @Component({
   selector: 'app-character-details',
   templateUrl: './character-details.component.html',
   styleUrls: ['./character-details.component.css']
 })
-export class CharacterDetailsComponent implements OnInit {
+export class CharactersDetailsComponent implements OnInit {
 
   character: character;
   //the activated route allows me to unpack my route, i.e. get the route parameters

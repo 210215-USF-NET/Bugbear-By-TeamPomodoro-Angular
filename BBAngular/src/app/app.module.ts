@@ -12,10 +12,10 @@ import { CampaignsComponent } from './components/campaigns/campaigns.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { env } from '../environments/environmentConnections';
 import { AddCharacterComponent } from './components/add-character/add-character.component';
-import { CharacterDetailsComponent } from './components/character-details/character-details.component';
 import { EditCharacterComponent } from './components/edit-character/edit-character.component';
 import { StoriesComponent } from './components/stories/stories.component';
 import { AddStoryComponent } from './components/stories/add-story/add-story.component';
+import { CharactersDetailsComponent } from './components/characters-details/characters-details.component';
 
 const appRoutes: Routes = [
   {
@@ -32,7 +32,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'character-details',
-    component: CharacterDetailsComponent
+    component: CharactersDetailsComponent
   },
   {
     path: 'edit-character',
@@ -56,10 +56,11 @@ const appRoutes: Routes = [
     CampaignsComponent,
     UserProfileComponent,
     AddCharacterComponent,
-    CharacterDetailsComponent,
+    CharactersDetailsComponent,
     EditCharacterComponent,
     StoriesComponent,
-    AddStoryComponent
+    AddStoryComponent,
+    CharactersDetailsComponent
   ],
   imports: [
     BrowserModule,
