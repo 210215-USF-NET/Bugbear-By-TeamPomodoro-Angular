@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { character } from 'src/app/models/character';
-import { BBRESTService } from 'src/app/services/bb-rest.service';
+import { character } from '../../models/character';
+import { BBRESTService } from '../../services/bb-rest.service';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
