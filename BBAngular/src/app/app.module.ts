@@ -72,7 +72,8 @@ const appRoutes: Routes = [
     AddStoryComponent,
     CharactersDetailsComponent,
     ConditionsComponent,
-    ConditionsDetailsComponent
+    ConditionsDetailsComponent,
+    CharactersDetailsComponent
   ],
   imports: [
     BrowserModule,
