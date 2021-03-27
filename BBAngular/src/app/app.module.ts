@@ -11,7 +11,6 @@ import { CharactersComponent } from './components/characters/characters.componen
 import { CampaignsComponent } from './components/campaigns/campaigns.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { env } from '../environments/environmentConnections';
-import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AddCharacterComponent } from './components/add-character/add-character.component';
 import { CharacterDetailsComponent } from './components/character-details/character-details.component';
 import { EditCharacterComponent } from './components/edit-character/edit-character.component';
@@ -74,15 +73,6 @@ const appRoutes: Routes = [
       scope: 'openid email profile'
     }),
   ],
-  providers: [
-    AUTH_PROVIDERS
-  ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  static forRoot(): ModuleWithProviders<AppModule> {
-    return {
-      ngModule: AppModule
-    };
-  }
-}
+export class AppModule { }
