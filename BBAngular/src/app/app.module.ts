@@ -11,14 +11,16 @@ import { CharactersComponent } from './components/characters/characters.componen
 import { CampaignsComponent } from './components/campaigns/campaigns.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { env } from '../environments/environmentConnections';
-import { AddCharacterComponent } from './components/add-character/add-character.component';
-import { EditCharacterComponent } from './components/edit-character/edit-character.component';
+import { AddCharacterComponent } from './components/characters/add-character/add-character.component';
+import { EditCharacterComponent } from './components/characters/edit-character/edit-character.component';
 import { StoriesComponent } from './components/stories/stories.component';
 import { AddStoryComponent } from './components/stories/add-story/add-story.component';
-import { CharactersDetailsComponent } from './components/characters-details/characters-details.component';
-import { AddCampaignComponent } from './components/campaigns/add-campaign/add-campaign.component';
-import { CampaignDetailsComponent } from './components/campaigns/campaign-details/campaign-details.component';
-import { EditCampaignComponent } from './components/campaigns/edit-campaign/edit-campaign.component';
+import { CharactersDetailsComponent } from './components/characters/characters-details/characters-details.component';
+import { ConditionsComponent } from './components/conditions/conditions.component';
+import { ConditionsDetailsComponent } from './components/conditions-details/conditions-details.component';
+import { QuickRefComponent } from './components/quick-ref/quick-ref.component';
+import { RulesComponent } from './components/rules/rules.component';
+import { RulesDetailComponent } from './components/rules-detail/rules-detail.component';
 
 const appRoutes: Routes = [
   {
@@ -60,6 +62,26 @@ const appRoutes: Routes = [
   {
     path: 'add-story',
     component: AddStoryComponent
+  },
+  {
+    path: 'conditions',
+    component: ConditionsComponent
+  },
+  {
+    path: 'conditions-details',
+    component: ConditionsDetailsComponent
+  },
+  {
+    path: 'quickRef',
+    component: QuickRefComponent
+  },
+  {
+    path: 'rules',
+    component: RulesComponent
+  },
+  {
+    path: 'rules-details',
+    component: RulesDetailComponent
   }
 ]
 
@@ -76,9 +98,12 @@ const appRoutes: Routes = [
     StoriesComponent,
     AddStoryComponent,
     CharactersDetailsComponent,
-    AddCampaignComponent,
-    CampaignDetailsComponent,
-    EditCampaignComponent
+    ConditionsComponent,
+    ConditionsDetailsComponent,
+    CharactersDetailsComponent,
+    QuickRefComponent,
+    RulesComponent,
+    RulesDetailComponent
   ],
   imports: [
     BrowserModule,

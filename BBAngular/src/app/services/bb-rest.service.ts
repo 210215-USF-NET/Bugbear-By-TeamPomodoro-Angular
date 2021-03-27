@@ -38,6 +38,9 @@ export class BBRESTService {
   GetUserByEmail(email : string): Observable<user>{
     return this.http.get<user>(`${this.urlUser}/${email}`, this.httpOptions);;
   }
+  AddUser(user2Add : user): Observable<user>{
+    return this.http.post<user>(this.urlUser, user2Add, this.httpOptions);
+  }
   AddCharacter(character2Add : character): Observable<character>{
     return this.http.post<character>(this.urlCharacter, character2Add, this.httpOptions);
   }
@@ -50,11 +53,11 @@ export class BBRESTService {
   EditCharacter(character2BEdited: character): Observable<any> {
     return this.http.put<any>(`${this.urlCharacter}/${character2BEdited.characterID}`, character2BEdited, this.httpOptions)
   }
-  GetStoriesAsync(): Observable<story[]> {
+  GetStories(): Observable<story[]> {
     return this.http.get<story[]>(this.urlStory, this.httpOptions);
   }
 
-  AddStoryAsync(storyToAdd: story): Observable<story> {
+  AddStory(storyToAdd: story): Observable<story> {
     return this.http.post<story>(this.urlStory, storyToAdd, this.httpOptions);
   }
   GetCampaigns(): Observable<campaign[]> {

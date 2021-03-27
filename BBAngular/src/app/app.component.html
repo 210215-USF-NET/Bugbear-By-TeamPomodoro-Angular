@@ -1,6 +1,9 @@
 <body>
   <app-nav-menu></app-nav-menu>
   <div class="container">
+    <h5 *ngIf="auth.isAuthenticated$ && auth.user$ | async as user" class="py-4 text-white">
+      User: {{ user.email }}
+    </h5>
   </div>
   <router-outlet></router-outlet>
 </body>

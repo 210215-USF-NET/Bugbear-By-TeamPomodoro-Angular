@@ -25,7 +25,7 @@ export class AddStoryComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.BBService.AddStoryAsync(this.storyToAdd).subscribe(
+    this.BBService.AddStory(this.storyToAdd).subscribe(
       (story) => {
         alert(`${story.storyTitle} was added!`);
         this.router.navigate(['stories']);

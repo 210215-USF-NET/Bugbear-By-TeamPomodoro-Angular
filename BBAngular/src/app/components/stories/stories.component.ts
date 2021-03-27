@@ -18,7 +18,7 @@ export class StoriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.BBService.GetStoriesAsync().subscribe(
+    this.BBService.GetStories().subscribe(
       (result) => {
         this.stories = result;
       }
