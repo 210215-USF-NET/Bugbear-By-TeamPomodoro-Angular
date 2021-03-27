@@ -17,6 +17,12 @@ import { CharacterDetailsComponent } from './components/character-details/charac
 import { EditCharacterComponent } from './components/edit-character/edit-character.component';
 import { StoriesComponent } from './components/stories/stories.component';
 import { AddStoryComponent } from './components/stories/add-story/add-story.component';
+declare module "@angular/core" {
+  interface ModuleWithProviders<T = any> {
+    ngModule: Type<T>;
+    providers?: Provider[];
+  }
+}
 
 const appRoutes: Routes = [
   {
