@@ -1,0 +1,16 @@
+<div class="container transparent">
+    <table class="table">
+        <thead>
+            <th>Condition Index</th>
+            <th>Condition Name</th>
+            <th>Url</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let condition of conditions" (click)="GetCondition(condition.index)">
+                <td>{{condition.index}}</td>
+                <td>{{condition.name}}</td>
+                <td>{{condition.url}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -16,6 +16,8 @@ import { EditCharacterComponent } from './components/edit-character/edit-charact
 import { StoriesComponent } from './components/stories/stories.component';
 import { AddStoryComponent } from './components/stories/add-story/add-story.component';
 import { CharactersDetailsComponent } from './components/characters-details/characters-details.component';
+import { ConditionsComponent } from './components/conditions/conditions.component';
+import { ConditionsDetailsComponent } from './components/conditions-details/conditions-details.component';
 
 const appRoutes: Routes = [
   {
@@ -45,6 +47,14 @@ const appRoutes: Routes = [
   {
     path: 'add-story',
     component: AddStoryComponent
+  },
+  {
+    path: 'conditions',
+    component: ConditionsComponent
+  },
+  {
+    path: 'conditions-details',
+    component: ConditionsDetailsComponent
   }
 ]
 
@@ -60,6 +70,9 @@ const appRoutes: Routes = [
     EditCharacterComponent,
     StoriesComponent,
     AddStoryComponent,
+    CharactersDetailsComponent,
+    ConditionsComponent,
+    ConditionsDetailsComponent,
     CharactersDetailsComponent
   ],
   imports: [
