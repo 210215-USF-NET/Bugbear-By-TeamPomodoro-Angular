@@ -21,6 +21,9 @@ import { ConditionsDetailsComponent } from './components/conditions-details/cond
 import { QuickRefComponent } from './components/quick-ref/quick-ref.component';
 import { RulesComponent } from './components/rules/rules.component';
 import { RulesDetailComponent } from './components/rules-detail/rules-detail.component';
+import { AddCampaignComponent } from './components/campaigns/add-campaign/add-campaign.component';
+import { CampaignDetailsComponent } from './components/campaigns/campaign-details/campaign-details.component';
+import { EditCampaignComponent } from './components/campaigns/edit-campaign/edit-campaign.component';
 
 const appRoutes: Routes = [
   {
