@@ -16,6 +16,11 @@ import { EditCharacterComponent } from './components/characters/edit-character/e
 import { StoriesComponent } from './components/stories/stories.component';
 import { AddStoryComponent } from './components/stories/add-story/add-story.component';
 import { CharactersDetailsComponent } from './components/characters/characters-details/characters-details.component';
+import { ConditionsComponent } from './components/conditions/conditions.component';
+import { ConditionsDetailsComponent } from './components/conditions-details/conditions-details.component';
+import { QuickRefComponent } from './components/quick-ref/quick-ref.component';
+import { RulesComponent } from './components/rules/rules.component';
+import { RulesDetailComponent } from './components/rules-detail/rules-detail.component';
 
 const appRoutes: Routes = [
   {
@@ -45,6 +50,26 @@ const appRoutes: Routes = [
   {
     path: 'add-story',
     component: AddStoryComponent
+  },
+  {
+    path: 'conditions',
+    component: ConditionsComponent
+  },
+  {
+    path: 'conditions-details',
+    component: ConditionsDetailsComponent
+  },
+  {
+    path: 'quickRef',
+    component: QuickRefComponent
+  },
+  {
+    path: 'rules',
+    component: RulesComponent
+  },
+  {
+    path: 'rules-details',
+    component: RulesDetailComponent
   }
 ]
 
@@ -60,7 +85,13 @@ const appRoutes: Routes = [
     EditCharacterComponent,
     StoriesComponent,
     AddStoryComponent,
-    CharactersDetailsComponent
+    CharactersDetailsComponent,
+    ConditionsComponent,
+    ConditionsDetailsComponent,
+    CharactersDetailsComponent,
+    QuickRefComponent,
+    RulesComponent,
+    RulesDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,13 @@
+<div class="container transparent">
+    <h2>Rules</h2>
+    <table class="table">
+        <thead>
+            <th>Rule Name</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rule of rules" (click)="GetRule(rule.index)">
+                <td>{{rule.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
