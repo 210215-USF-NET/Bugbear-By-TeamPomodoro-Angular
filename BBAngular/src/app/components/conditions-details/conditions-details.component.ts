@@ -10,21 +10,31 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ConditionsDetailsComponent implements OnInit {
 
-  detail: conditionDetail[] = [];
+  detail: conditionDetail;
 
 
-  constructor(private dndService: DndRefService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private dndService: DndRefService, private router: Router, private route: ActivatedRoute) {
+    this.detail = {
+      name: '',
+      index: '',
+      desc: [],
+      url: ''
+    }
+    
+  }
 
   ngOnInit(): void {
-    // this.route.queryParams.subscribe(
-    //   params => {
-    //     this.dndService.GetCondition(params).subscribe(
-    //       foundCondition => {
-    //         this.
-    //       }
-    //     )
-    //   }
-    // )
+    this.route.queryParams.subscribe(
+      params => {
+        console.log(params)
+        this.dndService.GetCondition(params["conditions"]).subscribe(
+          foundCondition => {
+            this.detail = foundCondition;
+            console.log(this.detail)
+          }
+        )
+      }
+    )
   }
 
 }

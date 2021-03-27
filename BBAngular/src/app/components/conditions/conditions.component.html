@@ -6,7 +6,7 @@
             <th>Url</th>
         </thead>
         <tbody>
-            <tr *ngFor="let condition of conditions">
+            <tr *ngFor="let condition of conditions" (click)="GetCondition(condition.index)">
                 <td>{{condition.index}}</td>
                 <td>{{condition.name}}</td>
                 <td>{{condition.url}}</td>

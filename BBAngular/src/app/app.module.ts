@@ -37,6 +37,10 @@ const appRoutes: Routes = [
   {
     path: 'add-story',
     component: AddStoryComponent
+  },
+  {
+    path: 'conditions-details',
+    component: ConditionsDetailsComponent
   }
 ]
 

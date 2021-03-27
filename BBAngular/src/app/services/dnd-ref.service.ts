@@ -24,8 +24,8 @@ export class DndRefService {
     return this.http.get<condition[]>(this.url + "/conditions", this.httpOptions);
   }
 
-  GetCondition(conditionName: string): Observable<conditionDetail[]>{
-    return this.http.get<conditionDetail[]>(this.url + "/conditions/" + conditionName, this.httpOptions);
+  GetCondition(conditionName: string): Observable<conditionDetail>{
+    return this.http.get<conditionDetail>(this.url + "/conditions/" + conditionName, this.httpOptions);
   }
 
 }

@@ -1,1 +1,10 @@
-<p>conditions-details works!</p>
+<div *ngIf="detail" class="container transparent">
+    <h2>{{detail.name}} Details</h2>
+    <table class="table">
+        <tbody>
+            <tr *ngFor="let condition of detail.desc">
+                <td>{{condition}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
