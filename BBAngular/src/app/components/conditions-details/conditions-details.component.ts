@@ -25,7 +25,6 @@ export class ConditionsDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(
       params => {
-        console.log(params)
         this.dndService.GetCondition(params["conditions"]).subscribe(
           foundCondition => {
             this.detail = foundCondition;
