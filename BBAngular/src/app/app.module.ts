@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule, Router } from '@angular/router';
 import { AuthModule } from '@auth0/auth0-angular';
@@ -79,4 +79,10 @@ const appRoutes: Routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  static forRoot(): ModuleWithProviders<AppModule> {
+    return {
+      ngModule: AppModule
+    };
+  }
+}
