@@ -13,9 +13,6 @@ import { BBRESTService } from 'src/app/services/bb-rest.service';
 
 export class AppComponent{
   title = 'BugBear';
-  user2Add : any;
-  @ViewChild('userEmail') userEmail : ElementRef;
-  assigned : boolean = false;
 
   constructor(@Inject(DOCUMENT) public document: Document, private BBService: BBRESTService, public auth: AuthService) {
     
