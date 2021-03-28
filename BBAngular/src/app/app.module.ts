@@ -131,7 +131,9 @@ const appRoutes: Routes = [
     RulesDetailComponent,
     GetEncountersComponent,
     AddEncountersComponent,
-    EditStoryComponent
+    EditStoryComponent,
+    AddCampaignComponent,
+    EditCampaignComponent
   ],
   imports: [
     BrowserModule,
