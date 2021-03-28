@@ -1,0 +1,18 @@
+<div *ngIf="campaign" class="container transparent">
+
+    <h2>{{campaign.campaignName}} Details</h2>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Name: </td>
+                <td>{{campaign.campaignName}}</td>
+            </tr>
+            <tr>
+                <td>Description: </td>
+                <td>{{campaign.description}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-warning" (click)="EditCampaign(campaign.campaignName)">Edit</button> |
+    <button class="btn btn-danger" (click)="DeleteCampaign(campaign.campaignName)">Delete</button>
+</div>

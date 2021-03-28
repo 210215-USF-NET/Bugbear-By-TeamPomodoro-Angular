@@ -1,0 +1,17 @@
+<div class="container transparent">
+    <form (ngSubmit)="onSubmit()" #campaignForm="ngForm">
+        <div class="form-group">
+            <label for="campaignName">Campaign's Name: </label>
+            <input type="text" [(ngModel)]="campaign2Add.campaignName" name="campaignName" id="campaignName"
+                #name="ngModel" class="form-control" placeholder="Enter campaign's name">
+        </div>
+        <div class="form-group">
+            <label for="description">Campaign's Description: </label>
+            <input type="text" [(ngModel)]="campaign2Add.description" name="description" id="description" #name="ngModel" class="form-control"
+                placeholder="Enter campaign's description">
+        </div>
+        <input *ngIf="auth.user$ | async as user" type="number" [(ngModel)]="campaign2Add.gameMasterID" name="gameMasterID"
+            id="gameMasterID" #name="ngModel" value={{user.id}} style="display:none;">
+        <button type="submit" class="mt-2 btn btn-secondary">Add campaign</button>
+    </form>
+</div>

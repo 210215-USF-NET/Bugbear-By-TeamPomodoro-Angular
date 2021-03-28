@@ -21,12 +21,30 @@ import { ConditionsDetailsComponent } from './components/conditions-details/cond
 import { QuickRefComponent } from './components/quick-ref/quick-ref.component';
 import { RulesComponent } from './components/rules/rules.component';
 import { RulesDetailComponent } from './components/rules-detail/rules-detail.component';
+import { AddCampaignComponent } from './components/campaigns/add-campaign/add-campaign.component';
+import { CampaignDetailsComponent } from './components/campaigns/campaign-details/campaign-details.component';
+import { EditCampaignComponent } from './components/campaigns/edit-campaign/edit-campaign.component';
+import { EditStoryComponent } from './components/stories/edit-story/edit-story.component';
+import { GetEncountersComponent } from './components/encounters/get-encounters/get-encounters.component';
+import { AddEncountersComponent } from './components/encounters/add-encounters/add-encounters.component';
 
 const appRoutes: Routes = [
   {
     path: 'campaigns',
     component: CampaignsComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'add-campaign',
+    component: AddCampaignComponent
+  },
+  {
+    path: 'campaign-details',
+    component: CampaignDetailsComponent
+  },
+  {
+    path: 'edit-campaign',
+    component: EditCampaignComponent
   },
   {
     path: 'characters',
@@ -59,6 +77,10 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'edit-story',
+    component: EditStoryComponent
+  },
+  {
     path: 'conditions',
     component: ConditionsComponent
   },
@@ -75,8 +97,16 @@ const appRoutes: Routes = [
     component: RulesComponent
   },
   {
+    path: 'get-encounters',
+    component: GetEncountersComponent
+  },
+  {
     path: 'rules-details',
     component: RulesDetailComponent
+  },
+  {
+    path: 'add-encounters',
+    component: AddEncountersComponent
   }
 ]
 
@@ -98,7 +128,12 @@ const appRoutes: Routes = [
     CharactersDetailsComponent,
     QuickRefComponent,
     RulesComponent,
-    RulesDetailComponent
+    RulesDetailComponent,
+    GetEncountersComponent,
+    AddEncountersComponent,
+    EditStoryComponent,
+    AddCampaignComponent,
+    EditCampaignComponent
   ],
   imports: [
     BrowserModule,
