@@ -1,0 +1,13 @@
+<div class="container mx-auto flex-center text-center">
+    <h1>
+        Welcome to Bugbear Campaign Manager!
+    </h1>
+
+    <h3 *ngIf="(auth.isAuthenticated$ | async) === false">
+        Please <a></a>login to continue
+    </h3>
+
+    <h3 *ngIf="auth.isAuthenticated$ | async">
+        P
+    </h3>
+</div>

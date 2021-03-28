@@ -27,8 +27,13 @@ import { EditCampaignComponent } from './components/campaigns/edit-campaign/edit
 import { EditStoryComponent } from './components/stories/edit-story/edit-story.component';
 import { GetEncountersComponent } from './components/encounters/get-encounters/get-encounters.component';
 import { AddEncountersComponent } from './components/encounters/add-encounters/add-encounters.component';
+import { HomeComponent } from './components/home/home.component';
 
 const appRoutes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
   {
     path: 'campaigns',
     component: CampaignsComponent,
@@ -133,7 +138,8 @@ const appRoutes: Routes = [
     AddEncountersComponent,
     EditStoryComponent,
     AddCampaignComponent,
-    EditCampaignComponent
+    EditCampaignComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
