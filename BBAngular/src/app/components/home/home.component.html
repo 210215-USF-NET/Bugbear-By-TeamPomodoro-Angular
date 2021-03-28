@@ -5,7 +5,7 @@
     </h1>
 
     <h3 *ngIf="(auth.isAuthenticated$ | async) === false">
-        Please <a id="login" (click)="login()">login</a> to continue!
+        Please <a id="login" (click)="auth.loginWithRedirect()">login</a> to continue!
     </h3>
 
     <div *ngIf="auth.isAuthenticated$ | async" class="d-flex py-4">
