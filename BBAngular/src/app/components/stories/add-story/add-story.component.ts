@@ -17,7 +17,8 @@ export class AddStoryComponent implements OnInit {
       storyDescription: '',
       dateCreated: new Date(Date.now()),
       campaignID: 0,
-      storyID: 0
+      storyID: 0,
+      userID: 0
     }
   }
 

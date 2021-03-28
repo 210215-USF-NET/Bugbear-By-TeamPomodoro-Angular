@@ -18,11 +18,6 @@ export class StoriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.BBService.GetStories().subscribe(
-      (result) => {
-        this.stories = result;
-      }
-    );
     this.auth.user$.subscribe(user => {
       this.BBService.GetUserByEmail(user.email).subscribe(
         user => {
