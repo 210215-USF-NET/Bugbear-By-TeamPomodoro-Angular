@@ -3,7 +3,7 @@
         <div class="container">
             <a class="navbar-brand" routerLink='/'>Bugbear</a>
             <button *ngIf="(auth.isAuthenticated$ | async) === false" class="btn-primary btn nav-item" [routerLinkActive]="['link-active']">
-                <a class="text-light" (click)="auth.loginWithRedirect()">Log in</a>
+                <a class="text-light" (click)="login()">Log in</a>
             </button>
             <button *ngIf="auth.isAuthenticated$ | async" class="btn-primary btn nav-item" [routerLinkActive]="['link-active']">
                 <a class="text-light" (click)="auth.logout({ returnTo: document.location.origin })">Log out</a>

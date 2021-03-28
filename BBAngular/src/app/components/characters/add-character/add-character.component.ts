@@ -11,7 +11,7 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class AddCharacterComponent implements OnInit {
   character2Add: character;
-  userIdentification : number;
+  
   constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService) {
     this.character2Add =
           {

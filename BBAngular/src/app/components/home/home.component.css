@@ -1,0 +1,15 @@
+#login:hover{
+    cursor: pointer;
+    color: black;
+    transition: all 1s;
+}
+
+.grid-section{
+    cursor: pointer;
+}
+
+.grid-section:hover{
+    cursor: pointer;
+    transition: all .7s;
+    transform: translateY(-13px);
+}
