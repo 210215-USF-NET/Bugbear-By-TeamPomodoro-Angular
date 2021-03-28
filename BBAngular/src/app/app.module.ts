@@ -103,6 +103,10 @@ const appRoutes: Routes = [
   {
     path: 'rules-details',
     component: RulesDetailComponent
+  },
+  {
+    path: 'add-encounters',
+    component: AddEncountersComponent
   }
 ]
 
