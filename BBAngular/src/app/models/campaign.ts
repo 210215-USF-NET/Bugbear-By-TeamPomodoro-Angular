@@ -4,5 +4,6 @@ export interface campaign{
     campaignName: string,
     description: string,
     gameMasterID: number,
-    campaignUsers: user[]
+    campaignUsers: user[],
+    userID : number
 }
