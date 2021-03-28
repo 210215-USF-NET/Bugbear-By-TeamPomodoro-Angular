@@ -3,5 +3,6 @@ export interface story{
     dateCreated: Date,
     storyTitle: string,
     storyDescription: string,
-    campaignID: number
+    campaignID: number,
+    userID : number
 }

@@ -23,6 +23,22 @@ export class StoriesComponent implements OnInit {
         this.stories = result;
       }
     );
+    this.auth.user$.subscribe(user => {
+      this.BBService.GetUserByEmail(user.email).subscribe(
+        user => {
+          this.BBService.GetStories().subscribe(
+            (result) => {
+              result.forEach(story => {
+                if(story.userID === user.userID)
+                {
+                  this.stories.push(story);
+                }
+              });
+            }
+          );
+        }
+      )
+    })
   }
 
   GetStory(storyTitle: string) {
