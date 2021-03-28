@@ -29,6 +29,13 @@ export class EditCharacterComponent implements OnInit {
       charisma: 0,
       itemList: []
     }
+    this.auth.user$.subscribe(user => {
+      this.BBService.GetUserByEmail(user.email).subscribe(
+        result => {
+          this.character2Edit.userID = result.userID
+        }
+      )
+    })
   }
 
   ngOnInit(): void {

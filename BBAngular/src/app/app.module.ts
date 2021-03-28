@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule, Router } from '@angular/router';
-import { AuthModule } from '@auth0/auth0-angular';
+import { AuthGuard, AuthModule } from '@auth0/auth0-angular';
 import { HttpClientModule } from "@angular/common/http";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
@@ -25,31 +25,38 @@ import { RulesDetailComponent } from './components/rules-detail/rules-detail.com
 const appRoutes: Routes = [
   {
     path: 'campaigns',
-    component: CampaignsComponent
+    component: CampaignsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'characters',
-    component: CharactersComponent
+    component: CharactersComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'add-character',
-    component: AddCharacterComponent
+    component: AddCharacterComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'character-details',
-    component: CharactersDetailsComponent
+    component: CharactersDetailsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'edit-character',
-    component: EditCharacterComponent
+    component: EditCharacterComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'stories',
-    component: StoriesComponent
+    component: StoriesComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'add-story',
-    component: AddStoryComponent
+    component: AddStoryComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'conditions',
