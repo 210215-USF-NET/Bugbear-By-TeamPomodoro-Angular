@@ -65,7 +65,7 @@ export class BBRESTService {
     return this.http.post<story>(this.urlStory, storyToAdd, this.httpOptions);
   }
   EditStory(storyToBeEdited: story): Observable<story> {
-    return this.http.post<story>(`${this.urlStory}/${storyToBeEdited.storyID}`, storyToBeEdited, this.httpOptions);
+    return this.http.put<story>(`${this.urlStory}/${storyToBeEdited.storyID}`, storyToBeEdited, this.httpOptions);
   }
 
   GetCampaigns(): Observable<campaign[]> {
