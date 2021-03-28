@@ -54,6 +54,7 @@ export class BBRESTService {
   EditCharacter(character2BEdited: character): Observable<any> {
     return this.http.put<any>(`${this.urlCharacter}/${character2BEdited.characterID}`, character2BEdited, this.httpOptions)
   }
+
   GetStories(): Observable<story[]> {
     return this.http.get<story[]>(this.urlStory, this.httpOptions);
   }
@@ -76,10 +77,13 @@ export class BBRESTService {
   EditCampaign(campaign2BEdited: campaign): Observable<any> {
     return this.http.put<any>(`${this.urlCampaign}/${campaign2BEdited.campaignID}`, campaign2BEdited, this.httpOptions);
   }
-  GetEncountersAsync(): Observable<encounter[]> {
+  EditStory(storyToBeEdited: story): Observable<story> {
+    return this.http.post<story>(`${this.urlStory}/${storyToBeEdited.storyID}`, storyToBeEdited, this.httpOptions);
+  }
+  GetEncounters(): Observable<encounter[]> {
     return this.http.get<encounter[]>(this.urlEncounter, this.httpOptions);
   }
-  AddEncounterAsync(encToAdd: encounter): Observable<encounter> {
+  AddEncounter(encToAdd: encounter): Observable<encounter> {
     return this.http.post<encounter>(this.urlEncounter, encToAdd, this.httpOptions);
   }
 }

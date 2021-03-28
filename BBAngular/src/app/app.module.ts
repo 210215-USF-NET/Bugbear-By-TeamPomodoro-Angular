@@ -24,6 +24,7 @@ import { RulesDetailComponent } from './components/rules-detail/rules-detail.com
 import { AddCampaignComponent } from './components/campaigns/add-campaign/add-campaign.component';
 import { CampaignDetailsComponent } from './components/campaigns/campaign-details/campaign-details.component';
 import { EditCampaignComponent } from './components/campaigns/edit-campaign/edit-campaign.component';
+import { EditStoryComponent } from './components/stories/edit-story/edit-story.component';
 import { GetEncountersComponent } from './components/encounters/get-encounters/get-encounters.component';
 import { AddEncountersComponent } from './components/encounters/add-encounters/add-encounters.component';
 
@@ -76,6 +77,10 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'edit-story',
+    component: EditStoryComponent
+  },
+  {
     path: 'conditions',
     component: ConditionsComponent
   },
@@ -90,6 +95,10 @@ const appRoutes: Routes = [
   {
     path: 'rules',
     component: RulesComponent
+  },
+  {
+    path: 'get-encounters',
+    component: GetEncountersComponent
   },
   {
     path: 'rules-details',
@@ -117,7 +126,8 @@ const appRoutes: Routes = [
     RulesComponent,
     RulesDetailComponent,
     GetEncountersComponent,
-    AddEncountersComponent
+    AddEncountersComponent,
+    EditStoryComponent
   ],
   imports: [
     BrowserModule,

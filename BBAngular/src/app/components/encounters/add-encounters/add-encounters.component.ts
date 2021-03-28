@@ -25,7 +25,7 @@ export class AddEncountersComponent implements OnInit {
   }
 
   onSubmit() {
-    this.BBService.AddEncounterAsync(this.encToAdd).subscribe(
+    this.BBService.AddEncounter(this.encToAdd).subscribe(
       (encounter) => {
         alert(`${encounter.encounterTitle} was added!`);
         this.router.navigate(['get-encounters']);

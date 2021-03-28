@@ -17,7 +17,7 @@ encounters: encounter[] = [];
   }
 
   ngOnInit(): void {
-    this.BBService.GetEncountersAsync().subscribe(
+    this.BBService.GetEncounters().subscribe(
       (result) => {
         this.encounters = result;
       }
