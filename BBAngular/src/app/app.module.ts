@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule, Router } from '@angular/router';
-import { AuthModule } from '@auth0/auth0-angular';
+import { AuthGuard, AuthModule } from '@auth0/auth0-angular';
 import { HttpClientModule } from "@angular/common/http";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
@@ -28,7 +28,8 @@ import { EditCampaignComponent } from './components/campaigns/edit-campaign/edit
 const appRoutes: Routes = [
   {
     path: 'campaigns',
-    component: CampaignsComponent
+    component: CampaignsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'add-campaign',
@@ -44,27 +45,33 @@ const appRoutes: Routes = [
   },
   {
     path: 'characters',
-    component: CharactersComponent
+    component: CharactersComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'add-character',
-    component: AddCharacterComponent
+    component: AddCharacterComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'character-details',
-    component: CharactersDetailsComponent
+    component: CharactersDetailsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'edit-character',
-    component: EditCharacterComponent
+    component: EditCharacterComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'stories',
-    component: StoriesComponent
+    component: StoriesComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'add-story',
-    component: AddStoryComponent
+    component: AddStoryComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'conditions',
