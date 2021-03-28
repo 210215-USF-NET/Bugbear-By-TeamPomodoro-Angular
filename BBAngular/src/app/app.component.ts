@@ -32,7 +32,7 @@ export class AppComponent implements OnInit{
     })
     if(this.isLoggedIn === undefined)
     {
-      console.log('user not logged in')
+      
     }
     else{
       this.auth.user$.subscribe(user => {

@@ -55,7 +55,9 @@ export class BBRESTService {
   GetStories(): Observable<story[]> {
     return this.http.get<story[]>(this.urlStory, this.httpOptions);
   }
-
+  GetCharactersByUserId(userID : number): Observable<character[]> {
+    return this.http.get<character[]>(`${this.urlCharacter}/${userID}`, this.httpOptions);
+  }
   AddStory(storyToAdd: story): Observable<story> {
     return this.http.post<story>(this.urlStory, storyToAdd, this.httpOptions);
   }
