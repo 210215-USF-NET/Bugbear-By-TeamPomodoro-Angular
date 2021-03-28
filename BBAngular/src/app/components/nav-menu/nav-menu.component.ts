@@ -10,13 +10,13 @@ import { user } from 'src/app/models/user';
   templateUrl: './nav-menu.component.html',
   styleUrls: ['./nav-menu.component.css']
 })
-export class NavMenuComponent{
+export class NavMenuComponent {
   isExpanded = false;
-  isLoggedIn : any;
-  error : any;
-  user2Add : user;
+  isLoggedIn: boolean;
+  error: any;
+  user2Add: user;
 
-  constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService, public router: Router, private BBService : BBRESTService) {
+  constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService, public router: Router, private BBService: BBRESTService) {
     this.user2Add =
     {
       userID: 0,
@@ -32,29 +32,23 @@ export class NavMenuComponent{
     this.isExpanded = !this.isExpanded;
   }
 
-  login(){
-    this.auth.loginWithRedirect();
-
+  ngOnInit(): void {
     this.auth.isAuthenticated$.subscribe(result => {
       this.isLoggedIn = result;
-    })
-    if(this.isLoggedIn === undefined)
-    {
-      
-    }
-    else{
-      this.auth.user$.subscribe(user => {
-        this.BBService.GetUserByEmail(user.email).subscribe(
-          result => result,
-          error => {
-            this.error = error.status;
-            if (this.error == 404) {
-              this.user2Add.email = user.email;
-              this.BBService.AddUser(this.user2Add).subscribe();
+      if (this.isLoggedIn == true) {
+        this.auth.user$.subscribe(user => {
+          this.BBService.GetUserByEmail(user.email).subscribe(
+            result => result,
+            error => {
+              this.error = error.status;
+              if (this.error == 404) {
+                this.user2Add.email = user.email;
+                this.BBService.AddUser(this.user2Add).subscribe();
+              }
             }
-          }
-        )
-      })
-    }
+          )
+        })
+      }
+    })
   }
 }
