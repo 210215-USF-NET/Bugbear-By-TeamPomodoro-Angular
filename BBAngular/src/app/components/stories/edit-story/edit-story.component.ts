@@ -26,7 +26,7 @@ export class EditStoryComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(
       params => {
-        this.BBService.GetStory(params.story.storyTitle).subscribe(
+        this.BBService.GetStory(params.story.storyID).subscribe(
           (storyFound) => {
             this.storyToEdit = storyFound;
           }
