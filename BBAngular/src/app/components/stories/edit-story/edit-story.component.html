@@ -1,0 +1,20 @@
+<div class="container text-white">
+    <form (ngSubmit)="onSubmit()" #storyForm="ngForm">
+        <div class="form-group">
+            <label for="storyTitle">Story Title: </label>
+            <input type="text" [(ngModel)]="storyToEdit.storyTitle" name="storyTitle" id="storyTitle" #name="ngModel"
+                class="form-control" placeholder="Enter Title">
+        </div>
+        <div class="form-group">
+            <label for="storyDescription">Story Description: </label>
+            <input type="text" [(ngModel)]="storyToEdit.storyDescription" name="storyDescription" id="storyDescription" #name="ngModel" 
+            class="form-control" placeholder="Enter Story Content">
+        </div>
+        <div class="form-group">
+            <label for="campaignID">Campaign Selector: </label>
+            <input type="number" [(ngModel)]="storyToEdit.campaignID" name="campaignID" id='campaignID' #name="ngModel"
+            class="form-control" placeholder="Enter the campaign id">
+        </div>
+        <button type="submit" class="mt-2 btn btn-secondary">Save</button>
+    </form>
+</div>

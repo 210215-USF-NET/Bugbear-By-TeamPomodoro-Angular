@@ -1,0 +1,25 @@
+<div class="container transparent">
+    <form (ngSubmit)="onSubmit()" #storyForm="ngForm">
+        <div class="form-group">
+            <label for="encounterTitle">Encounter Title: </label>
+            <input type="text" [(ngModel)]="encToAdd.encounterTitle" name="encounterTitle" id="encounterTitle" #name="ngModel"
+                class="form-control" placeholder="Enter Title">
+        </div>
+        <div class="form-group">
+            <label for="encounterDescription">Description: </label>
+            <input type="text" [(ngModel)]="encToAdd.encounterDescription" name="encounterDescription" id="encounterDescription" #name="ngModel" 
+            class="form-control" placeholder="Enter Story Content">
+        </div>
+        <div class="form-group">
+            <label for="campaignID">Campaign Selector: </label>
+            <input type="number" [(ngModel)]="encToAdd.campaignID" name="campaignID" id='campaignID' #name="ngModel"
+            class="form-control" placeholder="Enter the campaign id">
+        </div>
+        <div class="form-group">
+            <label for="locationID">Location Selector: </label>
+            <input type="number" [(ngModel)]="encToAdd.locationID" name="locationID" id='locationID' #name="ngModel"
+            class="form-control" placeholder="Enter the Location id">
+        </div>
+        <button type="submit" class="btn btn-warning">Add Story</button>
+    </form>
+</div>
