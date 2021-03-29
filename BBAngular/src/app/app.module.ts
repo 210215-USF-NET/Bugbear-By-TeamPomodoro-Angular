@@ -28,6 +28,7 @@ import { EditStoryComponent } from './components/stories/edit-story/edit-story.c
 import { GetEncountersComponent } from './components/encounters/get-encounters/get-encounters.component';
 import { AddEncountersComponent } from './components/encounters/add-encounters/add-encounters.component';
 import { HomeComponent } from './components/home/home.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 const appRoutes: Routes = [
   {
@@ -147,6 +148,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     NgbModule,
     FormsModule,
+    MarkdownModule.forRoot(),
     AuthModule.forRoot({
       domain: env.AUTH_DOMAIN,
       clientId: env.CLIENT_ID,

@@ -1,10 +1,12 @@
 <div *ngIf="detail" class="container transparent">
-    <h2>{{detail.name}} Details</h2>
     <table class="table">
         <tbody>
             <tr>
-                <td>{{detail.desc}}</td>
+                <td><div class="container transparent">
+                    <markdown [data]="detail.desc"></markdown>
+                </div></td>
             </tr>
         </tbody>
     </table>
 </div>
+
