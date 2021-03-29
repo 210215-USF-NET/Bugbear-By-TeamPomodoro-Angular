@@ -38,11 +38,14 @@ export class StoryDetailsComponent implements OnInit {
       );
   }
 
-  DeleteStory(storyToBeDeleted: number): void {
-    if (confirm(`Are you sure you want to delete ${storyToBeDeleted}?`).valueOf()) {
-      this.BBService.DeleteStory(storyToBeDeleted).subscribe(
+  DeleteStory(storyToBeDeleted: story): void {
+    if (confirm(`Are you sure you want to delete ${storyToBeDeleted.storyTitle}?`).valueOf()) {
+      console.log("1");
+      this.BBService.DeleteStory(storyToBeDeleted.storyID).subscribe(
         () => {
-          alert(`${storyToBeDeleted} has been deleted`);
+          console.log("2");
+          alert(`${storyToBeDeleted.storyTitle} has been deleted`);
+          console.log("3");
           this.router.navigate(['stories']);
         }
       );

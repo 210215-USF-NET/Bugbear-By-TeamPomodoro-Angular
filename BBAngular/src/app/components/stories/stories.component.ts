@@ -37,6 +37,6 @@ export class StoriesComponent implements OnInit {
   }
 
   GetStory(storyID: number) {
-    this.router.navigate(['story-details'], { queryParams: { story: storyID } })
+    this.router.navigate(['story-details'], { queryParams: { story: storyID } });
   }
 }

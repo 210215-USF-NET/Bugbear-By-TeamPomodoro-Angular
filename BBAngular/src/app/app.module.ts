@@ -29,6 +29,8 @@ import { GetEncountersComponent } from './components/encounters/get-encounters/g
 import { AddEncountersComponent } from './components/encounters/add-encounters/add-encounters.component';
 import { HomeComponent } from './components/home/home.component';
 import { StoryDetailsComponent } from './components/stories/story-details/story-details.component';
+import { EditEncountersComponent } from './components/encounters/edit-encounters/edit-encounters.component';
+import { EncountersDetailsComponent } from './components/encounters-details/encounters-details.component';
 
 const appRoutes: Routes = [
   {
@@ -80,6 +82,11 @@ const appRoutes: Routes = [
   {
     path: 'add-story',
     component: AddStoryComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'story-details',
+    component: StoryDetailsComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -143,7 +150,9 @@ const appRoutes: Routes = [
     AddCampaignComponent,
     EditCampaignComponent,
     HomeComponent,
-    StoryDetailsComponent
+    StoryDetailsComponent,
+    EditEncountersComponent,
+    EncountersDetailsComponent
   ],
   imports: [
     BrowserModule,

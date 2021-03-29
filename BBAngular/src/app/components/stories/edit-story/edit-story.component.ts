@@ -24,11 +24,12 @@ export class EditStoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(
+    this.route.queryParams
+    .subscribe(
       params => {
-        this.BBService.GetStory(params.story.storyID).subscribe(
-          (storyFound) => {
-            this.storyToEdit = storyFound;
+        this.BBService.GetStory(params.story).subscribe(
+          (foundStory) => {
+            this.storyToEdit = foundStory;
           }
         )
       }
@@ -43,5 +44,4 @@ export class EditStoryComponent implements OnInit {
       }
     )
   }
-
 }
