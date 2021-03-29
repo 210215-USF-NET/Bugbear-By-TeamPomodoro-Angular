@@ -1,6 +1,11 @@
 <div *ngIf="detail" class="container transparent">
-    <h2>{{detail.name}} Details</h2>
-    <table class="table">
+    <h2>Condition Details</h2>
+    <table class="table" summary="{{detail.name}} Details">
+        <thead>
+            <tr>
+                <th>{{detail.name}}</th>
+            </tr>
+        </thead>
         <tbody>
             <tr *ngFor="let condition of detail.desc">
                 <td>{{condition}}</td>

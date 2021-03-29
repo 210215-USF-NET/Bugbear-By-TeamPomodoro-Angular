@@ -1,8 +1,10 @@
 <div class="container transparent">
     <h2>Conditions</h2>
-    <table class="table">
+    <table class="table" summary="Table of conditions">
         <thead>
-            <th>Condition Name</th>
+            <tr>
+                <th id="condition name">Condition Name</th>
+            </tr>
         </thead>
         <tbody>
             <tr *ngFor="let condition of conditions" (click)="GetCondition(condition.index)">
