@@ -28,6 +28,9 @@ import { EditStoryComponent } from './components/stories/edit-story/edit-story.c
 import { GetEncountersComponent } from './components/encounters/get-encounters/get-encounters.component';
 import { AddEncountersComponent } from './components/encounters/add-encounters/add-encounters.component';
 import { HomeComponent } from './components/home/home.component';
+import { StoryDetailsComponent } from './components/stories/story-details/story-details.component';
+import { EditEncountersComponent } from './components/encounters/edit-encounters/edit-encounters.component';
+import { EncountersDetailsComponent } from './components/encounters-details/encounters-details.component';
 import { MarkdownModule } from 'ngx-markdown';
 
 const appRoutes: Routes = [
@@ -83,6 +86,11 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'story-details',
+    component: StoryDetailsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'edit-story',
     component: EditStoryComponent
   },
@@ -104,7 +112,8 @@ const appRoutes: Routes = [
   },
   {
     path: 'get-encounters',
-    component: GetEncountersComponent
+    component: GetEncountersComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'rules-details',
@@ -112,7 +121,8 @@ const appRoutes: Routes = [
   },
   {
     path: 'add-encounters',
-    component: AddEncountersComponent
+    component: AddEncountersComponent,
+    canActivate: [AuthGuard]
   }
 ]
 
@@ -140,7 +150,10 @@ const appRoutes: Routes = [
     EditStoryComponent,
     AddCampaignComponent,
     EditCampaignComponent,
-    HomeComponent
+    HomeComponent,
+    StoryDetailsComponent,
+    EditEncountersComponent,
+    EncountersDetailsComponent
   ],
   imports: [
     BrowserModule,
