@@ -29,6 +29,8 @@ import { GetEncountersComponent } from './components/encounters/get-encounters/g
 import { AddEncountersComponent } from './components/encounters/add-encounters/add-encounters.component';
 import { HomeComponent } from './components/home/home.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 const appRoutes: Routes = [
   {
@@ -148,12 +150,14 @@ const appRoutes: Routes = [
     HttpClientModule,
     NgbModule,
     FormsModule,
+    MatSidenavModule,
     MarkdownModule.forRoot(),
     AuthModule.forRoot({
       domain: env.AUTH_DOMAIN,
       clientId: env.CLIENT_ID,
       scope: 'openid email profile'
     }),
+    BrowserAnimationsModule,
   ],
   bootstrap: [AppComponent]
 })

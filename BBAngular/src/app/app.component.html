@@ -1,9 +1,60 @@
 <body>
   <app-nav-menu></app-nav-menu>
-  <div class="container">
+  <!-- <div class="container">
     <h5 *ngIf="auth.isAuthenticated$ && auth.user$ | async as user" class="py-4 text-white">
       User: {{ user.email }}
     </h5>
-  </div>
-  <router-outlet></router-outlet>
+  </div> -->
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side">
+      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+        <ul class="navbar-nav flex-grow">
+            <!-- <li class="nav-item" style="cursor:pointer;">
+                <div ngbDropdown class="d-inline-block">
+                    <a class = "nav-link text-light" id="dropdownBasic2" ngbDropdownToggle>Characters</a>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic2" class ="bg-dark">
+                        <a ngbDropdownItem class="nav-link text-light" routerLink='/characters'>View Characters</a>
+                        <a ngbDropdownItem class="nav-link text-light" routerLink='/add-character'>Add New Character</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item" style="cursor:pointer;">
+                <div ngbDropdown class="d-inline-block">
+                    <a class = "nav-link text-light" id="dropdownBasic1" ngbDropdownToggle>Campaigns</a>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class ="bg-dark">
+                        <a ngbDropdownItem class="nav-link text-light" routerLink='/campaigns'>View Campaigns</a>
+                        <a ngbDropdownItem class="nav-link text-light" routerLink='/add-campaign'>Add New Campaign</a>
+                    </div>
+                </div>
+            </li> -->
+            <li class="nav-item" style="cursor:pointer;">
+                <div ngbDropdown class="d-inline-block">
+                    <a class = "nav-link text-light" id="dropdownBasic1" ngbDropdownToggle>Story</a>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class ="bg-dark">
+                        <a ngbDropdownItem class="nav-link text-light" routerLink='/stories'>View Stories</a>
+                        <a ngbDropdownItem class="nav-link text-light" routerLink='/add-story'>Add New Story</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div ngbDropdown class="d-inline-block" style="cursor:pointer;">
+                    <a class = "nav-link text-light" id="dropdownBasic1" ngbDropdownToggle>Encounters</a>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class ="bg-dark">
+                        <a ngbDropdownItem class="nav-link text-light" routerLink='/get-encounters'>View Enc</a>
+                        <a ngbDropdownItem class="nav-link text-light" routerLink='/add-encounters'>Add New Enc</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+                <a class="nav-link text-light" routerLink='/quickRef'>Quick Ref</a>
+            </li>
+        </ul>
+    </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <button *ngIf="auth.isAuthenticated$ && auth.user$ | async as user" (click) = "sidenav.toggle()">Toggle</button>
+      <router-outlet></router-outlet>
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </body>
