@@ -24,7 +24,7 @@ export class StoriesComponent implements OnInit {
           this.BBService.GetStories().subscribe(
             (result) => {
               result.forEach(story => {
-                if(story.userID === user.userID)
+                if(/*story.userID*/0 === /*user.userID*/0)
                 {
                   this.stories.push(story)
                 }
@@ -36,7 +36,7 @@ export class StoriesComponent implements OnInit {
     })
   }
 
-  GetStory(storyTitle: string) {
-    this.router.navigate(['story-details'], { queryParams: { story: storyTitle } })
+  GetStory(storyID: number) {
+    this.router.navigate(['story-details'], { queryParams: { story: storyID } })
   }
 }

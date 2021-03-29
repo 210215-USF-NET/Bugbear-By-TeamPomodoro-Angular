@@ -64,8 +64,11 @@ export class BBRESTService {
   AddStory(storyToAdd: story): Observable<story> {
     return this.http.post<story>(this.urlStory, storyToAdd, this.httpOptions);
   }
-  EditStory(storyToBeEdited: story): Observable<story> {
+  EditStory(storyToBeEdited: story): Observable<any> {
     return this.http.put<story>(`${this.urlStory}/${storyToBeEdited.storyID}`, storyToBeEdited, this.httpOptions);
+  }
+  DeleteStory(storyToBeDeleted: number): Observable<any> {
+    return this.http.delete<any>(`${this.urlStory}/${storyToBeDeleted}`, this.httpOptions);
   }
 
   GetCampaigns(): Observable<campaign[]> {
