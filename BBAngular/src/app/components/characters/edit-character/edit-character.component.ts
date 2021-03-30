@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
-import { character } from '../../../models/character';
-import { BBRESTService } from '../../../services/bb-rest.service';
+import { character } from 'src/app/models/character';
+import { BBRESTService } from 'src/app/services/bb-rest.service';
 
 @Component({
   selector: 'app-edit-character',
@@ -29,13 +29,6 @@ export class EditCharacterComponent implements OnInit {
       charisma: 0,
       itemList: []
     }
-    this.auth.user$.subscribe(user => {
-      this.BBService.GetUserByEmail(user.email).subscribe(
-        result => {
-          this.character2Edit.userID = result.userID
-        }
-      )
-    })
   }
 
   ngOnInit(): void {

@@ -10,19 +10,31 @@ import { BBRESTService } from 'src/app/services/bb-rest.service';
   styleUrls: ['./campaigns.component.css']
 })
 export class CampaignsComponent implements OnInit {
-  campaign: campaign[] = [];
+  campaigns: campaign[] = [];
 
-  constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService) { }
-
-  ngOnInit(): void {
-    this.BBService.GetCampaigns().subscribe(
-      (result) => {
-        this.campaign = result;
-      }
-    );
+  constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService) {
+    
   }
 
-  GetCampaign(campaignName: string) {
-    this.router.navigate(['campaign-details'], {queryParams : { Campaign: campaignName }});
+  ngOnInit(): void {
+    this.auth.user$.subscribe(user => {
+      this.BBService.GetUserByEmail(user.email).subscribe(
+        currentUser => {
+          this.BBService.GetCampaigns().subscribe(
+            (result) => {
+              result.forEach(campaign => {
+                if(campaign.campaignUsers !== null && (campaign.campaignUsers.includes(currentUser.userID) || campaign.gameMasterID === currentUser.userID))
+                {
+                  this.campaigns.push(campaign)
+                }
+              })
+            }
+          )
+        }
+      )
+    })
+  }
+  GetCampaign(campaignID: number) {
+    this.router.navigate(['campaign-details'], { queryParams: { campaign: campaignID } })
   }
 }

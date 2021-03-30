@@ -28,6 +28,7 @@ import { EditStoryComponent } from './components/stories/edit-story/edit-story.c
 import { GetEncountersComponent } from './components/encounters/get-encounters/get-encounters.component';
 import { AddEncountersComponent } from './components/encounters/add-encounters/add-encounters.component';
 import { HomeComponent } from './components/home/home.component';
+import { ManageCampaignComponent } from './components/campaigns/manage-campaign/manage-campaign.component';
 
 const appRoutes: Routes = [
   {
@@ -50,6 +51,10 @@ const appRoutes: Routes = [
   {
     path: 'edit-campaign',
     component: EditCampaignComponent
+  },
+  {
+    path: 'manage-campaign',
+    component: ManageCampaignComponent
   },
   {
     path: 'characters',
@@ -139,7 +144,9 @@ const appRoutes: Routes = [
     EditStoryComponent,
     AddCampaignComponent,
     EditCampaignComponent,
-    HomeComponent
+    CampaignDetailsComponent,
+    HomeComponent,
+    ManageCampaignComponent
   ],
   imports: [
     BrowserModule,
