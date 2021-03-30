@@ -31,6 +31,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { NavSidebarComponent } from './components/nav-sidebar/nav-sidebar.component';
 
 const appRoutes: Routes = [
   {
@@ -142,7 +143,8 @@ const appRoutes: Routes = [
     EditStoryComponent,
     AddCampaignComponent,
     EditCampaignComponent,
-    HomeComponent
+    HomeComponent,
+    NavSidebarComponent
   ],
   imports: [
     BrowserModule,
