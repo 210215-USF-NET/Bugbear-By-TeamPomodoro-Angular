@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { campaign } from 'src/app/models/campaign';
-import { user } from 'src/app/models/user';
 import { BBRESTService } from 'src/app/services/bb-rest.service';
 
 @Component({
@@ -12,13 +11,20 @@ import { BBRESTService } from 'src/app/services/bb-rest.service';
 })
 export class EditCampaignComponent implements OnInit {
   campaign2Edit: campaign;
+
   constructor(private BBService: BBRESTService, private router: Router, private route: ActivatedRoute, public auth: AuthService) {
     this.campaign2Edit = {
       campaignID: 0,
       campaignName: "",
       description: "",
       gameMasterID: 0,
-      campaignUsers: []
+      campaignUsers: [],
+      campaignCharacters: [],
+      campaignEncounters: [],
+      campaignLocations:[],
+      campaignMaps: [],
+      campaignNPCs: [],
+      campaignStories:[]
     }
   }
 

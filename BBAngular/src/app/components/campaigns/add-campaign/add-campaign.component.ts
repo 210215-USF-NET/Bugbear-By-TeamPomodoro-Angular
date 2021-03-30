@@ -13,13 +13,18 @@ export class AddCampaignComponent implements OnInit {
   campaign2Add: campaign;
 
   constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService) {
-    this.campaign2Add =
-    {
+    this.campaign2Add = {
       campaignID: 0,
       campaignName: "",
       description: "",
       gameMasterID: 0,
-      campaignUsers: []
+      campaignUsers: [],
+      campaignCharacters: [],
+      campaignEncounters: [],
+      campaignLocations:[],
+      campaignMaps: [],
+      campaignNPCs: [],
+      campaignStories:[]
     }
     this.auth.user$.subscribe(user => {
       this.BBService.GetUserByEmail(user.email).subscribe(
@@ -36,6 +41,7 @@ export class AddCampaignComponent implements OnInit {
   onSubmit(): void {
     this.BBService.AddCampaign(this.campaign2Add).subscribe(
       (campaign) => {
+        console.log(campaign)
         alert(`${campaign.campaignName} was added!`)
         this.router.navigate(['campaigns'])
       }
