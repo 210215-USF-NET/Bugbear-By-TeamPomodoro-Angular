@@ -18,8 +18,7 @@ export class CampaignDetailsComponent implements OnInit {
       campaignName: "",
       description: "",
       gameMasterID: 0,
-      campaignUsers: [],
-      userID: 0
+      campaignUsers: []
     }
   }
 
@@ -27,26 +26,28 @@ export class CampaignDetailsComponent implements OnInit {
     this.route.queryParams
       .subscribe(
         params => {
-          this.BBService.GetCampaign(params["Campaign"]).subscribe(
+          this.BBService.GetCampaign(params.campaign).subscribe(
             foundCampaign => {
-              this.campaign = foundCampaign;
+              this.campaign = foundCampaign
             }
           )
         }
-      );
+      )
   }
-  DeleteCampaign(campaign2BDeleted: string): void {
-    if (confirm(`Are you sure you want to delete ${campaign2BDeleted}?`).valueOf()) {
-      console.log(campaign2BDeleted);
-      this.BBService.DeleteCampaign(campaign2BDeleted).subscribe(
+  DeleteCampaign(campaign2BDeletedName: string, campaign2BDeletedID : number): void {
+    if (confirm(`Are you sure you want to delete ${campaign2BDeletedName}?`).valueOf()) {
+      this.BBService.DeleteCampaign(campaign2BDeletedID).subscribe(
         () => {
-          alert(`${campaign2BDeleted} has been deleted`);
-          this.router.navigate(['campaigns']);
+          alert(`${campaign2BDeletedName} has been deleted`)
+          this.router.navigate(['campaigns'])
         }
       );
     }
   }
-  EditCampaign(campaignID: string): void {
-    this.router.navigate(['edit-campaign'], { queryParams: { campaign: campaignID } });
+  EditCampaign(campaignID: number): void {
+    this.router.navigate(['edit-campaign'], { queryParams: { campaign: campaignID } })
+  }
+  ManageCampaign(campaign: campaign) : void {
+    this.router.navigate(['manage-campaign'], { queryParams: { campaign: campaign }})
   }
 }

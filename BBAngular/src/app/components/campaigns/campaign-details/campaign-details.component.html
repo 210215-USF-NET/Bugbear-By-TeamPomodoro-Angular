@@ -1,7 +1,7 @@
-<div *ngIf="campaign" class="container transparent">
+<div *ngIf="campaign" class="container transparent text-white">
 
     <h2>{{campaign.campaignName}} Details</h2>
-    <table class="table">
+    <table class="table text-white">
         <tbody>
             <tr>
                 <td>Name: </td>
@@ -13,6 +13,7 @@
             </tr>
         </tbody>
     </table>
-    <button class="btn btn-warning" (click)="EditCampaign(campaign.campaignName)">Edit</button> |
-    <button class="btn btn-danger" (click)="DeleteCampaign(campaign.campaignName)">Delete</button>
+    <button class="btn btn-warning mr-2" (click)="EditCampaign(campaign.campaignID)">Edit</button>
+    <button class="btn btn-danger mr-2" (click)="DeleteCampaign(campaign.campaignName, campaign.campaignID)">Delete</button>
+    <button class="btn btn-primary" (click)="ManageCampaign(campaign)">Manage Campaign</button>
 </div>

@@ -45,14 +45,14 @@ export class BBRESTService {
   AddCharacter(character2Add : character): Observable<character>{
     return this.http.post<character>(this.urlCharacter, character2Add, this.httpOptions);
   }
-  GetCharacter(characterName: string): Observable<character> {
-    return this.http.get<character>(`${this.urlCharacter}/${characterName}`, this.httpOptions);
+  GetCharacter(characterID: number): Observable<character> {
+    return this.http.get<character>(`${this.urlCharacter}/${characterID}`, this.httpOptions);
   }
-  DeleteCharacter(character2BDeleted: string): Observable<any> {
-    return this.http.delete<any>(`${this.urlCharacter}/${character2BDeleted}`, this.httpOptions);
+  DeleteCharacter(character2BDeleted: number): Observable<character> {
+    return this.http.delete<character>(`${this.urlCharacter}/${character2BDeleted}`, this.httpOptions);
   }
-  EditCharacter(character2BEdited: character): Observable<any> {
-    return this.http.put<any>(`${this.urlCharacter}/${character2BEdited.characterID}`, character2BEdited, this.httpOptions)
+  EditCharacter(character2BEdited: character): Observable<character> {
+    return this.http.put<character>(`${this.urlCharacter}/${character2BEdited.characterID}`, character2BEdited, this.httpOptions)
   }
 
   GetStories(): Observable<story[]> {
@@ -74,17 +74,17 @@ export class BBRESTService {
   GetCampaigns(): Observable<campaign[]> {
     return this.http.get<campaign[]>(this.urlCampaign, this.httpOptions);
   }
-  GetCampaign(campaignName: string): Observable<campaign> {
-    return this.http.get<campaign>(`${this.urlCampaign}/${campaignName}`, this.httpOptions);
+  GetCampaign(campaignID: number): Observable<campaign> {
+    return this.http.get<campaign>(`${this.urlCampaign}/${campaignID}`, this.httpOptions);
   }
   AddCampaign(campaign2Add: campaign): Observable<campaign> {
     return this.http.post<campaign>(this.urlCampaign, campaign2Add, this.httpOptions);
   }
-  DeleteCampaign(campaign2BDeleted: string): Observable<any> {
-    return this.http.delete<any>(`${this.urlCampaign}/${campaign2BDeleted}`, this.httpOptions);
+  DeleteCampaign(campaign2BDeletedID: number): Observable<campaign> {
+    return this.http.delete<campaign>(`${this.urlCampaign}/${campaign2BDeletedID}`, this.httpOptions);
   }
-  EditCampaign(campaign2BEdited: campaign): Observable<any> {
-    return this.http.put<any>(`${this.urlCampaign}/${campaign2BEdited.campaignID}`, campaign2BEdited, this.httpOptions);
+  EditCampaign(campaign2BEdited: campaign): Observable<campaign> {
+    return this.http.put<campaign>(`${this.urlCampaign}/${campaign2BEdited.campaignID}`, campaign2BEdited, this.httpOptions);
   }
 
   GetEncounters(): Observable<encounter[]> {

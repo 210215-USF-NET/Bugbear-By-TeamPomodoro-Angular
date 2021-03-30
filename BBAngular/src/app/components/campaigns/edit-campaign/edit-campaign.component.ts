@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { campaign } from 'src/app/models/campaign';
+import { user } from 'src/app/models/user';
 import { BBRESTService } from 'src/app/services/bb-rest.service';
 
 @Component({
@@ -17,8 +18,7 @@ export class EditCampaignComponent implements OnInit {
       campaignName: "",
       description: "",
       gameMasterID: 0,
-      campaignUsers: [],
-      userID: 0
+      campaignUsers: []
     }
   }
 

@@ -1,15 +1,19 @@
 <div class="container transparent">
     
-    <h1>
-        Campaign
+    <h1 class="text-white">
+        Your Campaigns
     </h1> 
 
-    <table class="table">
+    <table class="table text-white">
         <thead>
             <th>Campaign Name</th>
         </thead>
         <tbody>
-            <tr *ngFor="let campaign of campaign;" (click)="GetCampaign(campaign.campaignName)" style="cursor: pointer">
+            <h5 *ngIf="campaigns.length === 0" class="text-white py-3">
+                You are not a part of any campaigns. :(
+            </h5>
+
+            <tr *ngFor="let campaign of campaigns" (click)="GetCampaign(campaign.campaignID)" style="cursor: pointer">
                 <td>{{campaign.campaignName}}</td>
             </tr>
         </tbody>
