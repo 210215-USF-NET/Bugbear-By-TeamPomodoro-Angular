@@ -33,6 +33,9 @@ import { StoryDetailsComponent } from './components/stories/story-details/story-
 import { EditEncountersComponent } from './components/encounters/edit-encounters/edit-encounters.component';
 import { EncountersDetailsComponent } from './components/encounters-details/encounters-details.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { NavSidebarComponent } from './components/nav-sidebar/nav-sidebar.component';
 
 const appRoutes: Routes = [
   {
@@ -155,12 +158,8 @@ const appRoutes: Routes = [
     EditStoryComponent,
     AddCampaignComponent,
     EditCampaignComponent,
-    CampaignDetailsComponent,
     HomeComponent,
-    ManageCampaignComponent,
-    StoryDetailsComponent,
-    EditEncountersComponent,
-    EncountersDetailsComponent
+    NavSidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -168,12 +167,14 @@ const appRoutes: Routes = [
     HttpClientModule,
     NgbModule,
     FormsModule,
+    MatSidenavModule,
     MarkdownModule.forRoot(),
     AuthModule.forRoot({
       domain: env.AUTH_DOMAIN,
       clientId: env.CLIENT_ID,
       scope: 'openid email profile'
     }),
+    BrowserAnimationsModule,
   ],
   bootstrap: [AppComponent]
 })
