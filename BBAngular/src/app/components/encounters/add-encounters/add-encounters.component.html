@@ -10,6 +10,21 @@
             <input type="text" [(ngModel)]="encToAdd.encounterDescription" name="encounterDescription" id="encounterDescription" #name="ngModel" 
             class="form-control" placeholder="Enter Story Content">
         </div>
+        <div class="form-group">
+            <label for="encounterLocationID">Location ID: </label>
+            <input type="text" [(ngModel)]="encToAdd.location.locationID" name="encounterLocationID" id="encounterLocationID" #name="ngModel"
+                class="form-control" placeholder="Enter Location ID">
+        </div>
+        <div class="form-group">
+            <label for="encounterLocationName">Location Name: </label>
+            <input type="text" [(ngModel)]="encToAdd.location.locationName" name="encounterLocationName" id="encounterLocationName" #name="ngModel"
+                class="form-control" placeholder="Enter Location Name">
+        </div>
+        <div class="form-group">
+            <label for="encounterLocationDescription">Location Description: </label>
+            <input type="text" [(ngModel)]="encToAdd.location.locationDescription" name="encounterLocationDescription" id="encounterLocationDescription" #name="ngModel"
+                class="form-control" placeholder="Enter Location Description">
+        </div>
         <button type="submit" class="btn btn-secondary">Add Story</button>
     </form>
 </div>

@@ -97,7 +97,7 @@ export class BBRESTService {
     return this.http.get<encounter>(`${this.urlEncounter}/${encounterID}`, this.httpOptions);
   }
   DeleteEncounter(encounterToBeDeleted: number): Observable<encounter> {
-    return this.http.delete<any>(`${this.urlStory}/${encounterToBeDeleted}`, this.httpOptions);
+    return this.http.delete<any>(`${this.urlEncounter}/${encounterToBeDeleted}`, this.httpOptions);
   }
   EditEncounter(encounterToBeEdited: encounter): Observable<encounter> {
     return this.http.put<encounter>(`${this.urlEncounter}/${encounterToBeEdited.encounterID}`, encounterToBeEdited, this.httpOptions);

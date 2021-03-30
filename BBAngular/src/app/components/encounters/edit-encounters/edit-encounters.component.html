@@ -1,1 +1,20 @@
-<p>edit-encounters works!</p>
+<div class="container text-white">
+    <form (ngSubmit)="onSubmit()" #encounterForm="ngForm">
+        <div class="form-group">
+            <label for="encounterTitle">Title: </label>
+            <input type="text" [(ngModel)]="encounterToEdit.encounterTitle" name="encounterTitle" id="encounterTitle" #name="ngModel"
+                class="form-control" placeholder="Enter Title">
+        </div>
+        <div class="form-group">
+            <label for="encounterDescription">Description: </label>
+            <textarea rows="5" cols=155 type="text" [(ngModel)]="encounterToEdit.encounterDescription" name="encounterDescription" id="encounterDescription" #name="ngModel" 
+            class="form-control" placeholder="Enter a Summary"></textarea>
+        </div>
+        <div>
+            <label for="encounterLocation">Location: </label>
+            <input type="text" [(ngModel)]="encounterToEdit.location.locationName" name="location.locationName" id="location.locationName" #name="ngModel"
+                class="form-control" placeholder="Enter Location Name">
+        </div>
+        <button type="submit" class="mt-2 btn btn-secondary">Save</button>
+    </form>
+</div>

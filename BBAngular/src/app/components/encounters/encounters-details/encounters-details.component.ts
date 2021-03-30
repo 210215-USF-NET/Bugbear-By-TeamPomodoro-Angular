@@ -5,11 +5,11 @@ import { BBRESTService } from 'src/app/services/bb-rest.service'
 import { AuthService } from '@auth0/auth0-angular'
 
 @Component({
-  selector: 'app-story-details',
-  templateUrl: './story-details.component.html',
-  styleUrls: ['./story-details.component.css']
+  selector: 'app-encounters-details',
+  templateUrl: './encounters-details.component.html',
+  styleUrls: ['./encounters-details.component.css']
 })
-export class EncounterDetailsComponent implements OnInit {
+export class EncountersDetailsComponent implements OnInit {
 
   encounter: encounter;
 
@@ -33,8 +33,8 @@ export class EncounterDetailsComponent implements OnInit {
       .subscribe(
         params => {
           this.BBService.GetEncounter(params.encounter).subscribe(
-            foundencounter => {
-              this.encounter = foundencounter;
+            foundEncounter => {
+              this.encounter = foundEncounter;
             }
           )
         }
@@ -49,7 +49,7 @@ export class EncounterDetailsComponent implements OnInit {
           console.log("2");
           alert(`${encounterToBeDeleted.encounterTitle} has been deleted`);
           console.log("3");
-          this.router.navigate(['stories']);
+          this.router.navigate(['get-encounters']);
         }
       );
     }

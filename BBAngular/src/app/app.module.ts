@@ -130,7 +130,7 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'edit-encounters',
+    path: 'edit-encounter',
     component: EditEncountersComponent
   },
   {
