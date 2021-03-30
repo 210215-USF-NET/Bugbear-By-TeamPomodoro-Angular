@@ -11,6 +11,7 @@ import { BBRESTService } from 'src/app/services/bb-rest.service';
 })
 export class EditCampaignComponent implements OnInit {
   campaign2Edit: campaign;
+
   constructor(private BBService: BBRESTService, private router: Router, private route: ActivatedRoute, public auth: AuthService) {
     this.campaign2Edit = {
       campaignID: 0,
@@ -18,7 +19,12 @@ export class EditCampaignComponent implements OnInit {
       description: "",
       gameMasterID: 0,
       campaignUsers: [],
-      userID: 0
+      campaignCharacters: [],
+      campaignEncounters: [],
+      campaignLocations:[],
+      campaignMaps: [],
+      campaignNPCs: [],
+      campaignStories:[]
     }
   }
 

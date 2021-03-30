@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
-import { character } from '../../../models/character';
-import { BBRESTService } from '../../../services/bb-rest.service';
+import { character } from 'src/app/models/character';
+import { BBRESTService } from 'src/app/services/bb-rest.service';
 
 @Component({
   selector: 'app-character-details',
@@ -19,8 +19,8 @@ export class CharactersDetailsComponent implements OnInit {
       characterID: 0,
       characterName: '',
       money: 0,
-      userID: 0,
       hp: 0,
+      userID: 0,
       xpLevel: 0,
       strength: 0,
       dexterity: 0,
@@ -28,7 +28,7 @@ export class CharactersDetailsComponent implements OnInit {
       intelligence: 0,
       wisdom: 0,
       charisma: 0,
-      itemList: []
+      items: []
     }
   }
 
@@ -38,23 +38,23 @@ export class CharactersDetailsComponent implements OnInit {
         params => {
           this.BBService.GetCharacter(params.character).subscribe(
             foundCharacter => {
-              this.character = foundCharacter;
+              this.character = foundCharacter
             }
           )
         }
-      );
+      )
   }
-  DeleteCharacter(character2BDeleted: string): void {
-    if (confirm(`Are you sure you want to delete ${character2BDeleted}?`).valueOf()) {
-      this.BBService.DeleteCharacter(character2BDeleted).subscribe(
+  DeleteCharacter(character2BDeletedName: string, character2BDeletedID: number): void {
+    if (confirm(`Are you sure you want to delete ${character2BDeletedName}?`).valueOf()) {
+      this.BBService.DeleteCharacter(character2BDeletedID).subscribe(
         () => {
-          alert(`${character2BDeleted} has been deleted`);
+          alert(`${character2BDeletedName} has been deleted`);
           this.router.navigate(['characters']);
         }
       );
     }
   }
-  EditCharacter(characterID: string): void {
+  EditCharacter(characterID: number): void {
     this.router.navigate(['edit-character'], { queryParams: { character: characterID } });
   }
 }

@@ -20,7 +20,8 @@ export class NavMenuComponent {
     this.user2Add =
     {
       userID: 0,
-      email: ''
+      email: '',
+      characters: []
     }
   }
 

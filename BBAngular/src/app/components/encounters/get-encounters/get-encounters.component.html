@@ -2,17 +2,20 @@
     <h1>
         Campaign Encounters
     </h1>
+    <span class="d-sm-inline-flex justify-content-end">
+        <button class="btn btn-primary" routerLink='/add-encounters'>Add New Encounter</button>
+    </span>
 
     <table class="table">
         <thead>
             <th>Title</th>
-            <th>Location ID</th>
+            <th>Location</th>
             <th>Summary</th>
         </thead>
         <tbody>
             <tr *ngFor="let encounters of encounters;">
                 <td>{{encounters.encounterTitle}}</td>
-                <td>{{encounters.locationID}}</td>
+                <td>{{encounters.location}}</td>
                 <td>{{encounters.encounterDescription}}</td>
             </tr>
         </tbody>

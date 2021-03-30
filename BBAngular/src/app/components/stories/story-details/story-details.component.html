@@ -1,0 +1,22 @@
+<div *ngIf="story" class="container transparent text-white">
+
+    <h2>{{story.storyTitle}} Details</h2>
+    <table class="table text-white">
+        <tbody>
+            <tr>
+                <td>Title: </td>
+                <td>{{story.storyTitle}}</td>
+            </tr>
+            <tr>
+                <td>Text: </td>
+                <td>{{story.storyDescription}}</td>
+            </tr>
+            <tr>
+                <td>Date: </td>
+                <td>{{story.dateCreated}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-warning" (click)="EditStory(story.storyID)">Edit</button> |
+    <button class="btn btn-danger" (click)="DeleteStory(story)">Delete</button>
+</div>

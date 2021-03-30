@@ -3,15 +3,13 @@
         <div class="form-group">
             <label for="campaignName">Campaign's Name: </label>
             <input type="text" [(ngModel)]="campaign2Edit.campaignName" name="campaignName" id="campaignName"
-                #name="ngModel" class="form-control" placeholder="Enter campaign's name">
+                #name="ngModel" class="form-control" placeholder="Enter campaign's name" required>
         </div>
         <div class="form-group">
             <label for="description">Campaign's description: </label>
             <input type="text" [(ngModel)]="campaign2Edit.description" name="description" id="description" #name="ngModel" class="form-control"
-                placeholder="Enter campaign's description">
+                placeholder="Enter campaign's description" required>
         </div>
-        <input *ngIf="auth.user$ | async as user" type="number" [(ngModel)]="campaign2Edit.gameMasterID" name="userID"
-            id="userID" #name="ngModel" value=user.id style="display:none;">
         <button type="submit" class="mt-2 btn btn-secondary">Save</button>
     </form>
 </div>

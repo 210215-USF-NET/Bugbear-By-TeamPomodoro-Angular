@@ -1,15 +1,18 @@
 <div class="container">
     <h1>
-        Campaign Summary
+        Campaign Stories
     </h1>
-
+    <span class="d-sm-inline-flex justify-content-end">
+        <button class="btn btn-primary" routerLink='/add-story'>Add New Story</button>
+    </span>
+    
     <table class="table">
         <thead>
             <th>Title</th>
             <th>Description</th>
         </thead>
         <tbody>
-            <tr *ngFor="let story of stories;">
+            <tr *ngFor="let story of stories;" (click)="GetStory(story.storyID)">
                 <td>{{story.storyTitle}}</td>
                 <td>{{story.storyDescription}}</td>
             </tr>

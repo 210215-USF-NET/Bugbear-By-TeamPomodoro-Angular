@@ -45,9 +45,7 @@
             <input type="number" [(ngModel)]="character2Edit.charisma" name="charisma" id="charisma" #name="ngModel"
                 class="form-control" placeholder="Enter character's charisma">
         </div>
-        <input *ngIf="auth.user$ | async as user" type="number" [(ngModel)]="character2Edit.userID" name="userID"
-            id="userID" #name="ngModel" value=user.id style="display:none;">
-        <input type="number" [(ngModel)]="character2Edit.itemList" name="itemList[]" id="itemList" #name="ngModel" value=character2Edit.itemList
+        <input type="number" [(ngModel)]="character2Edit.items" name="items[]" id="items" #name="ngModel" value=character2Edit.items
             style="display:none;">
         <input type="number" [(ngModel)]="character2Edit.money" name="money" id="money" #name="ngModel" value=character2Edit.money
             style="display:none;">

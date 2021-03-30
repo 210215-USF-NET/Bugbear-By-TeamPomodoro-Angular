@@ -37,7 +37,7 @@
             </tr>
             <tr>
                 <td>Items: </td>
-                <td>{{character.itemList}}</td>
+                <td>{{character.items}}</td>
             </tr>
             <tr>
                 <td>Money: </td>
@@ -45,6 +45,6 @@
             </tr>
         </tbody>
     </table>
-    <button class="btn btn-warning" (click)="EditCharacter(character.characterName)">Edit</button> |
-    <button class="btn btn-danger" (click)="DeleteCharacter(character.characterName)">Delete</button>
+    <button class="btn btn-warning mr-2" (click)="EditCharacter(character.characterID)">Edit</button>
+    <button class="btn btn-danger" (click)="DeleteCharacter(character.characterName, character.characterID)">Delete</button>
 </div>

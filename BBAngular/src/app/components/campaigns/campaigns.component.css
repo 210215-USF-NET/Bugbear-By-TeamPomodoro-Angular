@@ -1,4 +1,12 @@
-html, p, div{
+tr:hover {
+    background: rgb(134, 42, 42);
+    z-index: 1;
+    -webkit-box-shadow: 1px 1px 30px 4px rgba(97, 97, 97, 0.53);
+    box-shadow: 1px 1px 30px 4px rgba(97, 97, 97, 0.53);
+    cursor: pointer;
+}
+
+html, body, table, div{
     background-color: rgb(168,64,64);
     color: white
 }
