@@ -29,6 +29,10 @@ import { GetEncountersComponent } from './components/encounters/get-encounters/g
 import { AddEncountersComponent } from './components/encounters/add-encounters/add-encounters.component';
 import { HomeComponent } from './components/home/home.component';
 import { ManageCampaignComponent } from './components/campaigns/manage-campaign/manage-campaign.component';
+import { StoryDetailsComponent } from './components/stories/story-details/story-details.component';
+import { EditEncountersComponent } from './components/encounters/edit-encounters/edit-encounters.component';
+import { EncountersDetailsComponent } from './components/encounters-details/encounters-details.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 const appRoutes: Routes = [
   {
@@ -87,6 +91,11 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'story-details',
+    component: StoryDetailsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'edit-story',
     component: EditStoryComponent
   },
@@ -108,7 +117,8 @@ const appRoutes: Routes = [
   },
   {
     path: 'get-encounters',
-    component: GetEncountersComponent
+    component: GetEncountersComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'rules-details',
@@ -116,7 +126,8 @@ const appRoutes: Routes = [
   },
   {
     path: 'add-encounters',
-    component: AddEncountersComponent
+    component: AddEncountersComponent,
+    canActivate: [AuthGuard]
   }
 ]
 
@@ -146,7 +157,10 @@ const appRoutes: Routes = [
     EditCampaignComponent,
     CampaignDetailsComponent,
     HomeComponent,
-    ManageCampaignComponent
+    ManageCampaignComponent,
+    StoryDetailsComponent,
+    EditEncountersComponent,
+    EncountersDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -154,6 +168,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     NgbModule,
     FormsModule,
+    MarkdownModule.forRoot(),
     AuthModule.forRoot({
       domain: env.AUTH_DOMAIN,
       clientId: env.CLIENT_ID,

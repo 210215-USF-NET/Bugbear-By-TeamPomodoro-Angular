@@ -58,14 +58,17 @@ export class BBRESTService {
   GetStories(): Observable<story[]> {
     return this.http.get<story[]>(this.urlStory, this.httpOptions);
   }
-  GetStory(storyTitle: string): Observable<story> {
-    return this.http.get<story>(`${this.urlStory}/${storyTitle}`, this.httpOptions);
+  GetStory(storyID: number): Observable<story> {
+    return this.http.get<story>(`${this.urlStory}/${storyID}`, this.httpOptions);
   }
   AddStory(storyToAdd: story): Observable<story> {
     return this.http.post<story>(this.urlStory, storyToAdd, this.httpOptions);
   }
-  EditStory(storyToBeEdited: story): Observable<story> {
-    return this.http.post<story>(`${this.urlStory}/${storyToBeEdited.storyID}`, storyToBeEdited, this.httpOptions);
+  EditStory(storyToBeEdited: story): Observable<any> {
+    return this.http.put<story>(`${this.urlStory}/${storyToBeEdited.storyID}`, storyToBeEdited, this.httpOptions);
+  }
+  DeleteStory(storyToBeDeleted: number): Observable<any> {
+    return this.http.delete<any>(`${this.urlStory}/${storyToBeDeleted}`, this.httpOptions);
   }
 
   GetCampaigns(): Observable<campaign[]> {
