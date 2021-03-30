@@ -17,18 +17,8 @@ export class AddStoryComponent implements OnInit {
       storyTitle: '',
       storyDescription: '',
       dateCreated: new Date(Date.now()),
-      campaignID: 0,
-      storyID: 0,
-      userID: 0
+      storyID: 0
     }
-    this.auth.user$.subscribe(user => {
-      this.BBService.GetUserByEmail(user.email).subscribe(
-        result => {
-          this.storyToAdd.userID = result.userID
-        }
-      )
-    }
-    )
   }
 
   ngOnInit(): void {

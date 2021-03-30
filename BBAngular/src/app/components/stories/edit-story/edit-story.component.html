@@ -10,11 +10,6 @@
             <textarea rows="5" cols=155 type="text" [(ngModel)]="storyToEdit.storyDescription" name="storyDescription" id="storyDescription" #name="ngModel" 
             class="form-control" placeholder="Enter Story Content"></textarea>
         </div>
-        <div class="form-group">
-            <label for="campaignID">Campaign Selector: </label>
-            <input type="number" [(ngModel)]="storyToEdit.campaignID" name="campaignID" id='campaignID' #name="ngModel"
-            class="form-control" placeholder="Enter the campaign id">
-        </div>
         <button type="submit" class="mt-2 btn btn-secondary">Save</button>
     </form>
 </div>

@@ -19,9 +19,7 @@ export class StoryDetailsComponent implements OnInit {
       storyTitle: '',
       storyDescription: '',
       dateCreated: new Date(Date.now()),
-      campaignID: 0,
-      storyID: 0,
-      userID: 0
+      storyID: 0
     }
   }
 

@@ -23,7 +23,7 @@ export class CampaignsComponent implements OnInit {
           this.BBService.GetCampaigns().subscribe(
             (result) => {
               result.forEach(campaign => {
-                if(campaign.campaignUsers !== null && (campaign.campaignUsers.includes(currentUser.userID) || campaign.gameMasterID === currentUser.userID))
+                if(campaign.campaignUsers !== null && (campaign.campaignUsers.includes(currentUser) || campaign.gameMasterID === currentUser.userID))
                 {
                   this.campaigns.push(campaign)
                 }

@@ -18,8 +18,8 @@ export class EditCharacterComponent implements OnInit {
       characterID: 0,
       characterName: '',
       money: 0,
-      userID: 0,
       hp: 0,
+      userID: 0,
       xpLevel: 0,
       strength: 0,
       dexterity: 0,
@@ -27,7 +27,7 @@ export class EditCharacterComponent implements OnInit {
       intelligence: 0,
       wisdom: 0,
       charisma: 0,
-      itemList: []
+      items: []
     }
   }
 

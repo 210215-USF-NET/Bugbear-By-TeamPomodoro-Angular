@@ -18,7 +18,13 @@ export class CampaignDetailsComponent implements OnInit {
       campaignName: "",
       description: "",
       gameMasterID: 0,
-      campaignUsers: []
+      campaignUsers: [],
+      campaignCharacters: [],
+      campaignEncounters: [],
+      campaignLocations:[],
+      campaignMaps: [],
+      campaignNPCs: [],
+      campaignStories:[]
     }
   }
 

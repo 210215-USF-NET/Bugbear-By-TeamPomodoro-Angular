@@ -1,10 +1,11 @@
+import { campaign } from "./campaign";
 import { item } from "./item";
 export interface character{
     characterID: number,
     characterName: string,
     money: number,
-    userID: number,
     hp: number,
+    userID: number,
     xpLevel: number,
     strength: number,
     dexterity: number,
@@ -12,5 +13,5 @@ export interface character{
     intelligence: number,
     wisdom: number,
     charisma: number,
-    itemList: item[]
+    items: item[]
 }
