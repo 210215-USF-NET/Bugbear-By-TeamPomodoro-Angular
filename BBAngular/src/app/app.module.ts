@@ -6,14 +6,13 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-import { CharactersComponent } from './components/characters/characters.component';
-import { CampaignsComponent } from './components/campaigns/campaigns.component';
+import { NavMenuComponent } from './components/Nav/nav-menu/nav-menu.component';
+import { GetCharactersComponent } from './components/characters/get-characters/get-characters.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { env } from '../environments/environmentConnections';
 import { AddCharacterComponent } from './components/characters/add-character/add-character.component';
 import { EditCharacterComponent } from './components/characters/edit-character/edit-character.component';
-import { StoriesComponent } from './components/stories/stories.component';
+import { GetStoriesComponent } from './components/stories/get-stories/get-stories.component';
 import { AddStoryComponent } from './components/stories/add-story/add-story.component';
 import { CharactersDetailsComponent } from './components/characters/characters-details/characters-details.component';
 import { ConditionsComponent } from './components/conditions/conditions.component';
@@ -22,7 +21,6 @@ import { QuickRefComponent } from './components/quick-ref/quick-ref.component';
 import { RulesComponent } from './components/rules/rules.component';
 import { RulesDetailComponent } from './components/rules-detail/rules-detail.component';
 import { AddCampaignComponent } from './components/campaigns/add-campaign/add-campaign.component';
-import { CampaignDetailsComponent } from './components/campaigns/campaign-details/campaign-details.component';
 import { EditCampaignComponent } from './components/campaigns/edit-campaign/edit-campaign.component';
 import { EditStoryComponent } from './components/stories/edit-story/edit-story.component';
 import { GetEncountersComponent } from './components/encounters/get-encounters/get-encounters.component';
@@ -33,6 +31,11 @@ import { StoryDetailsComponent } from './components/stories/story-details/story-
 import { EditEncountersComponent } from './components/encounters/edit-encounters/edit-encounters.component';
 import { EncountersDetailsComponent } from './components/encounters/encounters-details/encounters-details.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { NavSidebarComponent } from './components/Nav/nav-sidebar/nav-sidebar.component';
+import { GetCampaignsComponent } from './components/campaigns/get-campaigns/get-campaigns.component';
+import { GetCampaignDetailsComponent } from './components/campaigns/get-campaign-details/get-campaign-details.component';
 
 const appRoutes: Routes = [
   {
@@ -40,8 +43,8 @@ const appRoutes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'campaigns',
-    component: CampaignsComponent,
+    path: 'get-campaigns',
+    component: GetCampaignsComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -49,8 +52,8 @@ const appRoutes: Routes = [
     component: AddCampaignComponent
   },
   {
-    path: 'campaign-details',
-    component: CampaignDetailsComponent
+    path: 'get-campaign-details',
+    component: GetCampaignDetailsComponent
   },
   {
     path: 'edit-campaign',
@@ -61,8 +64,8 @@ const appRoutes: Routes = [
     component: ManageCampaignComponent
   },
   {
-    path: 'characters',
-    component: CharactersComponent,
+    path: 'get-characters',
+    component: GetCharactersComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -82,7 +85,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'stories',
-    component: StoriesComponent,
+    component: GetStoriesComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -136,6 +139,11 @@ const appRoutes: Routes = [
   {
     path:'encounters-details',
     component: EncountersDetailsComponent
+  },
+  {
+    path: 'nav-sidebar',
+    component: NavSidebarComponent,
+    canActivate: [AuthGuard]
   }
 ]
 
@@ -143,13 +151,13 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NavMenuComponent,
-    CharactersComponent,
-    CampaignsComponent,
+    GetCharactersComponent,
+    GetCampaignsComponent,
     UserProfileComponent,
     AddCharacterComponent,
     CharactersDetailsComponent,
     EditCharacterComponent,
-    StoriesComponent,
+    GetStoriesComponent,
     AddStoryComponent,
     CharactersDetailsComponent,
     ConditionsComponent,
@@ -163,12 +171,9 @@ const appRoutes: Routes = [
     EditStoryComponent,
     AddCampaignComponent,
     EditCampaignComponent,
-    CampaignDetailsComponent,
     HomeComponent,
-    ManageCampaignComponent,
-    StoryDetailsComponent,
-    EditEncountersComponent,
-    EncountersDetailsComponent
+    NavSidebarComponent,
+    GetCampaignDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -176,12 +181,14 @@ const appRoutes: Routes = [
     HttpClientModule,
     NgbModule,
     FormsModule,
+    MatSidenavModule,
     MarkdownModule.forRoot(),
     AuthModule.forRoot({
       domain: env.AUTH_DOMAIN,
       clientId: env.CLIENT_ID,
       scope: 'openid email profile'
     }),
+    BrowserAnimationsModule,
   ],
   bootstrap: [AppComponent]
 })

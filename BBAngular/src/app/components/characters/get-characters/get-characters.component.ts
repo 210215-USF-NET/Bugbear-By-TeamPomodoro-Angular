@@ -5,11 +5,11 @@ import { BBRESTService } from 'src/app/services/bb-rest.service';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
-  selector: 'app-characters',
-  templateUrl: './characters.component.html',
-  styleUrls: ['./characters.component.css']
+  selector: 'app-get-characters',
+  templateUrl: './get-characters.component.html',
+  styleUrls: ['./get-characters.component.css']
 })
-export class CharactersComponent implements OnInit {
+export class GetCharactersComponent implements OnInit {
   characters: character[] = [];
 
   constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService) {

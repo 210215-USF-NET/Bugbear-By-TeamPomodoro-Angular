@@ -5,11 +5,11 @@ import { campaign } from 'src/app/models/campaign';
 import { BBRESTService } from 'src/app/services/bb-rest.service';
 
 @Component({
-  selector: 'app-campaign-details',
-  templateUrl: './campaign-details.component.html',
-  styleUrls: ['./campaign-details.component.css']
+  selector: 'app-nav-sidebar',
+  templateUrl: './nav-sidebar.component.html',
+  styleUrls: ['./nav-sidebar.component.css']
 })
-export class CampaignDetailsComponent implements OnInit {
+export class NavSidebarComponent implements OnInit {
   campaign: campaign;
 
   constructor(private BBService: BBRESTService, private router: Router, private route: ActivatedRoute, public auth: AuthService) {
@@ -34,26 +34,11 @@ export class CampaignDetailsComponent implements OnInit {
         params => {
           this.BBService.GetCampaign(params.campaign).subscribe(
             foundCampaign => {
+              console.log(foundCampaign)
               this.campaign = foundCampaign
             }
           )
         }
       )
-  }
-  DeleteCampaign(campaign2BDeletedName: string, campaign2BDeletedID : number): void {
-    if (confirm(`Are you sure you want to delete ${campaign2BDeletedName}?`).valueOf()) {
-      this.BBService.DeleteCampaign(campaign2BDeletedID).subscribe(
-        () => {
-          alert(`${campaign2BDeletedName} has been deleted`)
-          this.router.navigate(['campaigns'])
-        }
-      );
-    }
-  }
-  EditCampaign(campaignID: number): void {
-    this.router.navigate(['edit-campaign'], { queryParams: { campaign: campaignID } })
-  }
-  ManageCampaign(campaign: campaign) : void {
-    this.router.navigate(['manage-campaign'], { queryParams: { campaign: campaign }})
   }
 }

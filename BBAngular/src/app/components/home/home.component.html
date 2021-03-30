@@ -9,13 +9,13 @@
     </h3>
 
     <div *ngIf="auth.isAuthenticated$ | async" class="d-flex py-4">
-        <div class="mx-auto col-5 bg-dark mx-2 rounded-1 p-2 grid-section" routerLink='/characters'>
+        <div class="mx-auto col-5 bg-dark mx-2 rounded-1 p-2 grid-section" routerLink='/get-characters'>
             <h4>
                 View My Characters
             </h4>
         </div>
 
-        <div class="mx-auto col-5 bg-dark mx-2 rounded-1 p-2 grid-section" routerLink='/characters'>
+        <div class="mx-auto col-5 bg-dark mx-2 rounded-1 p-2 grid-section" routerLink='/get-campaigns'>
             <h4>
                 View My Campaigns
             </h4>
