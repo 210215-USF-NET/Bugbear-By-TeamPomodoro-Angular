@@ -5,11 +5,11 @@ import { BBRESTService } from 'src/app/services/bb-rest.service'
 import { AuthService } from '@auth0/auth0-angular'
 
 @Component({
-  selector: 'app-stories',
-  templateUrl: './stories.component.html',
-  styleUrls: ['./stories.component.css']
+  selector: 'app-get-stories',
+  templateUrl: './get-stories.component.html',
+  styleUrls: ['./get-stories.component.css']
 })
-export class StoriesComponent implements OnInit {
+export class GetStoriesComponent implements OnInit {
   stories: story[] = []
   storyID : number
 

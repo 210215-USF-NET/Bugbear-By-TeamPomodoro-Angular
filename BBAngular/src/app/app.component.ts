@@ -3,6 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { AuthService } from '@auth0/auth0-angular';
 import { BBRESTService } from 'src/app/services/bb-rest.service';
+import { user } from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,8 @@ export class AppComponent implements OnInit{
     this.user2Add =
     {
       userID: 0,
-      email: ''
+      email: '',
+      characters: []
     }
   }
 
