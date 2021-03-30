@@ -10,7 +10,7 @@
             <th>XP Level</th>
         </thead>
         <tbody>
-            <tr *ngFor="let character of characters;" (click)="GetCharacter(character.characterID)" style="cursor: pointer;">
+            <tr *ngFor="let character of characters;" (click)="GetCharacter(character.characterID)">
                 <td>{{character.characterName}}</td>
                 <td>{{character.hp}}</td>
                 <td>{{character.xpLevel}}</td>

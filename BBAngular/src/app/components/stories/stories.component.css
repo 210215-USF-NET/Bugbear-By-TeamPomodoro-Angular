@@ -3,6 +3,7 @@ tr:hover {
     z-index: 1;
     -webkit-box-shadow: 1px 1px 30px 4px rgba(97, 97, 97, 0.53);
     box-shadow: 1px 1px 30px 4px rgba(97, 97, 97, 0.53);
+    cursor: pointer;
 }
 
 html, p, div, table, body{

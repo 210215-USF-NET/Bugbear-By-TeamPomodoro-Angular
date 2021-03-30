@@ -12,7 +12,7 @@
             <th>Description</th>
         </thead>
         <tbody>
-            <tr *ngFor="let story of stories;" (click)="GetStory(story.storyID)" style="cursor: pointer;">
+            <tr *ngFor="let story of stories;" (click)="GetStory(story.storyID)">
                 <td>{{story.storyTitle}}</td>
                 <td>{{story.storyDescription}}</td>
             </tr>
