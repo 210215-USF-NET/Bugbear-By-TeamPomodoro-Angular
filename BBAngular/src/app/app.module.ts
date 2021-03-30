@@ -31,7 +31,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ManageCampaignComponent } from './components/campaigns/manage-campaign/manage-campaign.component';
 import { StoryDetailsComponent } from './components/stories/story-details/story-details.component';
 import { EditEncountersComponent } from './components/encounters/edit-encounters/edit-encounters.component';
-import { EncountersDetailsComponent } from './components/encounters-details/encounters-details.component';
+import { EncountersDetailsComponent } from './components/encounters/encounters-details/encounters-details.component';
 import { MarkdownModule } from 'ngx-markdown';
 
 const appRoutes: Routes = [
@@ -128,6 +128,14 @@ const appRoutes: Routes = [
     path: 'add-encounters',
     component: AddEncountersComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'edit-encounters',
+    component: EditEncountersComponent
+  },
+  {
+    path:'encounters-details',
+    component: EncountersDetailsComponent
   }
 ]
 
