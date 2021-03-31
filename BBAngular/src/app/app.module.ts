@@ -37,6 +37,9 @@ import { NavSidebarComponent } from './components/Nav/nav-sidebar/nav-sidebar.co
 import { GetCampaignsComponent } from './components/campaigns/get-campaigns/get-campaigns.component';
 import { GetCampaignDetailsComponent } from './components/campaigns/get-campaign-details/get-campaign-details.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { BbloggerComponent } from './components/logger/bblogger/bblogger.component';
+import { LogService } from './services/bb-logging.service';
+import { LogPublishersService } from 'src/app/services/bb-log-publisher.service'
 
 const appRoutes: Routes = [
   {
@@ -176,7 +179,8 @@ const appRoutes: Routes = [
     HomeComponent,
     NavSidebarComponent,
     GetCampaignDetailsComponent,
-    ChatComponent
+    ChatComponent,
+    BbloggerComponent
   ],
   imports: [
     BrowserModule,
@@ -193,6 +197,7 @@ const appRoutes: Routes = [
     }),
     BrowserAnimationsModule,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [LogService, LogPublishersService]
 })
 export class AppModule { }
