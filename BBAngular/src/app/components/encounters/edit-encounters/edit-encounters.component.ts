@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { BBRESTService } from '../../../services/bb-rest.service';
 import { encounter } from 'src/app/models/encounter';
+import { LogService } from 'src/app/services/bb-logging.service';
 
 @Component({
   selector: 'app-edit-encounters',
@@ -11,7 +12,7 @@ import { encounter } from 'src/app/models/encounter';
 })
 export class EditEncountersComponent implements OnInit {
   encounterToEdit : encounter;
-  constructor(private route: ActivatedRoute, private BBService: BBRESTService, private router: Router, public auth: AuthService) { 
+  constructor(private route: ActivatedRoute, private BBService: BBRESTService, private router: Router, public auth: AuthService, private logger: LogService) { 
     this.encounterToEdit = 
     {
       encounterID: 0,
@@ -43,6 +44,7 @@ export class EditEncountersComponent implements OnInit {
     this.BBService.EditEncounter(this.encounterToEdit).subscribe(
       () => {
         alert(`${this.encounterToEdit.encounterTitle}'s info was successfully edited`);
+        this.logger.log(`${this.encounterToEdit.encounterTitle}'s info was successfully edited`);
         this.router.navigate(['get-encounters']);
       }
     )

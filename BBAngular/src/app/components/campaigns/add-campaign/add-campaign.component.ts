@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { campaign } from 'src/app/models/campaign';
 import { BBRESTService } from 'src/app/services/bb-rest.service';
 import { AuthService } from '@auth0/auth0-angular';
-import { LogService } from 'src/app/services/bb-logging.service'
+import { LogService } from 'src/app/services/bb-logging.service';
 
 @Component({
   selector: 'app-add-campaign',

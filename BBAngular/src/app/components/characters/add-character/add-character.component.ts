@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { character } from 'src/app/models/character';
 import { BBRESTService } from 'src/app/services/bb-rest.service';
 import { AuthService } from '@auth0/auth0-angular';
+import { LogService } from 'src/app/services/bb-logging.service';
 
 @Component({
   selector: 'app-add-character',
@@ -12,7 +13,7 @@ import { AuthService } from '@auth0/auth0-angular';
 export class AddCharacterComponent implements OnInit {
   character2Add: character;
 
-  constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService) {
+  constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService, private logger: LogService) {
     this.character2Add =
     {
       characterID: 0,
@@ -45,6 +46,7 @@ export class AddCharacterComponent implements OnInit {
     this.BBService.AddCharacter(this.character2Add).subscribe(
       (character) => {
         alert(`${character.characterName} was added!`)
+        this.logger.log(`${character.characterName} added to Characters table.`);
         this.router.navigate(['characters'])
       }
     )
