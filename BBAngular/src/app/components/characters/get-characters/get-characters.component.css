@@ -6,7 +6,14 @@ tr:hover {
     cursor: pointer;
 }
 
-html, body, table, div{
+html, body, table, h1{
     background-color: rgb(168,64,64);
     color: white
+}
+
+.grid-section:hover{
+    cursor: pointer;
+    transition: all .7s;
+    transform: translateY(-13px);
+    box-shadow: 2px 7px 10px 2px rgba(0,0,0,0.35);
 }
