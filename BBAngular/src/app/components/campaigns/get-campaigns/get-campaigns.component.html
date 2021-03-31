@@ -1,23 +1,19 @@
 <div class="container transparent">
     
-    <h1 class="text-white">
+    <h1 class="text-white" style="text-align: center;">
         Your Campaigns
     </h1> 
 
-    <table class="table text-white">
-        <thead>
-            <th>Campaign Name</th>
-        </thead>
-        <tbody>
-            <h5 *ngIf="campaigns.length === 0" class="text-white py-3">
-                You are not a part of any campaigns. :(
-            </h5>
-
-            <tr *ngFor="let campaign of campaigns" (click)="GetCampaign(campaign.campaignID)" style="cursor: pointer">
-                <td>{{campaign.campaignName}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row" style="text-align: center;">
+        <h5 *ngIf="campaigns.length === 0" class="text-white py-3">
+            You are not a part of any campaigns. :(
+        </h5>
+        <div class="card text-white bg-dark mb-3 grid-section" style="max-width: 18rem;margin-left: 20px; margin-right: 20px;" *ngFor="let campaign of campaigns" (click)="GetCampaign(campaign.campaignID)">
+            <div class="card-body">
+                <h5 class="card-title">{{campaign.campaignName}}</h5>
+            </div>
+        </div>
+    </div>
 
     <button class="btn btn-primary" routerLink='/add-campaign'>Create Campaign</button>
 </div>
