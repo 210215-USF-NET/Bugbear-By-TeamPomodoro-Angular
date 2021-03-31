@@ -13,7 +13,12 @@ export class BbloggerComponent implements OnInit {
   }
 
   testLog(): void {
-      this.logger.log("Test the `log()` Method");
+    this.logger.log("Test the `log()` Method");
+    this.logger.log("Test 2 Parameters", "Paul", "Smith");
+    this.logger.debug("Test Mixed Parameters", true, false, "Paul", "Smith");
+    
+    let values = ["1", "Paul", "Smith"];
+    this.logger.warn("Test String and Array", "Some log entry", values);
   }
 
   ngOnInit(): void {

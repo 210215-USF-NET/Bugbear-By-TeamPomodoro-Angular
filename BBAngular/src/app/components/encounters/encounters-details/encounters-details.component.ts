@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { encounter } from 'src/app/models/encounter'
 import { BBRESTService } from 'src/app/services/bb-rest.service'
 import { AuthService } from '@auth0/auth0-angular'
+import { LogService } from 'src/app/services/bb-logging.service'
 
 @Component({
   selector: 'app-encounters-details',
@@ -10,8 +11,9 @@ import { AuthService } from '@auth0/auth0-angular'
   styleUrls: ['./encounters-details.component.css']
 })
 export class EncountersDetailsComponent implements OnInit {
-
+  logger: LogService;
   encounter: encounter;
+  
   constructor(private BBService: BBRESTService, private route: ActivatedRoute, private router: Router, public auth: AuthService) { 
     this.encounter = 
     {
@@ -42,10 +44,10 @@ export class EncountersDetailsComponent implements OnInit {
 
   DeleteEncounter(encounterToBeDeleted: encounter): void {
     if (confirm(`Are you sure you want to delete ${encounterToBeDeleted.encounterTitle}?`).valueOf()) {
-      console.log("1");
+      this.logger.log('1');
       this.BBService.DeleteEncounter(encounterToBeDeleted.encounterID).subscribe(
         () => {
-          console.log("2");
+          console.log("2nd message", 'third message');
           alert(`${encounterToBeDeleted.encounterTitle} has been deleted`);
           console.log("3");
           this.router.navigate(['get-encounters']);
