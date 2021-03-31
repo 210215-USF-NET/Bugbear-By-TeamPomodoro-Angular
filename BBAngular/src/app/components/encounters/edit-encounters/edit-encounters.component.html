@@ -8,9 +8,9 @@
         <div class="form-group">
             <label for="encounterDescription">Description: </label>
             <textarea rows="5" cols=155 type="text" [(ngModel)]="encounterToEdit.encounterDescription" name="encounterDescription" id="encounterDescription" #name="ngModel" 
-            class="form-control" placeholder="Enter a Summary"></textarea>
+                class="form-control" placeholder="Enter a Summary"></textarea>
         </div>
-        <div>
+        <div class="form-group">
             <label for="encounterLocation">Location: </label>
             <input type="text" [(ngModel)]="encounterToEdit.location.locationName" name="location.locationName" id="location.locationName" #name="ngModel"
                 class="form-control" placeholder="Enter Location Name">

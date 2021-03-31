@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { encounter } from 'src/app/models/encounter';
+import { location } from 'src/app/models/location';
 import { BBRESTService } from 'src/app/services/bb-rest.service';
 
 @Component({
@@ -10,18 +11,19 @@ import { BBRESTService } from 'src/app/services/bb-rest.service';
 })
 export class AddEncountersComponent implements OnInit {
   encToAdd : encounter;
+  setting: location;
   constructor(private BBService: BBRESTService, private router: Router) { 
+    this.setting = {
+      locationID: 0,
+      locationName: '',
+      locationDescription: ''
+    }
     this.encToAdd = 
     {
       encounterID: 0,
       encounterTitle: '',
       encounterDescription: '',
-      location: 
-        {
-          locationID: 0,
-          locationName: '',
-          locationDescription: ''
-        }
+      location: this.setting
     }
   }
 

@@ -168,6 +168,7 @@ const appRoutes: Routes = [
     RulesDetailComponent,
     GetEncountersComponent,
     AddEncountersComponent,
+    EditEncountersComponent,
     EditStoryComponent,
     AddCampaignComponent,
     EditCampaignComponent,
