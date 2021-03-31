@@ -1,0 +1,26 @@
+<div *ngIf="encounter" class="container transparent text-white">
+
+    <h2>{{encounter.encounterTitle}} Details</h2>
+    <table class="table text-white">
+        <tbody>
+            <tr>
+                <td>Title: </td>
+                <td>{{encounter.encounterTitle}}</td>
+            </tr>
+            <tr>
+                <td>Text: </td>
+                <td>{{encounter.encounterDescription}}</td>
+            </tr>
+            <tr>
+                <td>Location Name: </td>
+                <td>{{encounter.location.locationName}}</td>
+            </tr>
+            <tr>
+                <td>Location Description: </td>
+                <td>{{encounter.location.locationDescription}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-warning" (click)="EditEncounter(encounter.encounterID)">Edit</button> |
+    <button class="btn btn-danger" (click)="DeleteEncounter(encounter)">Delete</button>
+</div>

@@ -93,4 +93,13 @@ export class BBRESTService {
   AddEncounter(encToAdd: encounter): Observable<encounter> {
     return this.http.post<encounter>(this.urlEncounter, encToAdd, this.httpOptions);
   }
+  GetEncounter(encounterID: number): Observable<encounter> {
+    return this.http.get<encounter>(`${this.urlEncounter}/${encounterID}`, this.httpOptions);
+  }
+  DeleteEncounter(encounterToBeDeleted: number): Observable<encounter> {
+    return this.http.delete<any>(`${this.urlEncounter}/${encounterToBeDeleted}`, this.httpOptions);
+  }
+  EditEncounter(encounterToBeEdited: encounter): Observable<encounter> {
+    return this.http.put<encounter>(`${this.urlEncounter}/${encounterToBeEdited.encounterID}`, encounterToBeEdited, this.httpOptions);
+  }
 }

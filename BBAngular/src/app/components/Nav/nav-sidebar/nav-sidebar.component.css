@@ -1,0 +1,20 @@
+mat-sidenav-container {
+    height: 100%;
+    position: absolute;
+}
+mat-sidenav, mat-sidenav-content {
+    padding: 16px;
+}
+
+mat-sidenav {
+    width: 200px;
+
+}
+
+mat-sidenav-content {
+    background-color: rgb(168,64,64);
+}
+
+.dropdown-menu {
+    padding: .5rem .5rem;
+}

@@ -43,7 +43,7 @@ export class EditCampaignComponent implements OnInit {
     this.BBService.EditCampaign(this.campaign2Edit).subscribe(
       () => {
         alert(`${this.campaign2Edit.campaignName}'s info was successfully edited`);
-        this.router.navigate(['campaigns']);
+        this.router.navigate(['get-campaigns']);
       }
     )
   }

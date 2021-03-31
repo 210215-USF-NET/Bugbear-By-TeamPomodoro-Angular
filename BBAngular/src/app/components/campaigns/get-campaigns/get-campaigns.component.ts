@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { campaign } from 'src/app/models/campaign';
 import { BBRESTService } from 'src/app/services/bb-rest.service';
 
 @Component({
-  selector: 'app-campaigns',
-  templateUrl: './campaigns.component.html',
-  styleUrls: ['./campaigns.component.css']
+  selector: 'app-get-campaigns',
+  templateUrl: './get-campaigns.component.html',
+  styleUrls: ['./get-campaigns.component.css']
 })
-export class CampaignsComponent implements OnInit {
+export class GetCampaignsComponent implements OnInit {
   campaigns: campaign[] = [];
 
-  constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService) {
+  constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService, private route: ActivatedRoute) {
     
   }
 
@@ -35,6 +35,6 @@ export class CampaignsComponent implements OnInit {
     })
   }
   GetCampaign(campaignID: number) {
-    this.router.navigate(['campaign-details'], { queryParams: { campaign: campaignID } })
+    this.router.navigate(['get-campaign-details'], { queryParams: { campaign: campaignID } })
   }
 }

@@ -11,20 +11,28 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class GetEncountersComponent implements OnInit {
 encounters: encounter[] = [];
+encounterID : number;
 
   constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService) { 
     auth.user$.toPromise
   }
 
   ngOnInit(): void {
-    this.BBService.GetEncounters().subscribe(
-      (result) => {
-        this.encounters = result;
-      }
-    );
+    this.auth.user$.subscribe(user => {
+      this.BBService.GetEncounters().subscribe(
+        (result) => {
+          result.forEach(story => {
+            if(/*story.userID*/0 === /*user.userID*/0)
+            {
+              this.encounters.push(story)
+            }
+          })
+        }
+      )
+    })
   }
 
-  GetEncounters(encounterTitle: string) {
-    this.router.navigate(['encounter-details'], { queryParams: { encounter: encounterTitle } });
+  GetEncounter(encounterID: number) {
+    this.router.navigate(['encounters-details'], { queryParams: { encounter: encounterID } });
   }
 }

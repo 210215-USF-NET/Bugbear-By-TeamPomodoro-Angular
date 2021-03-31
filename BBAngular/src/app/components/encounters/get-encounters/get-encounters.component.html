@@ -1,3 +1,4 @@
+<app-nav-sidebar></app-nav-sidebar>
 <div class="container transparent">
     <h1>
         Campaign Encounters
@@ -13,10 +14,10 @@
             <th>Summary</th>
         </thead>
         <tbody>
-            <tr *ngFor="let encounters of encounters;">
-                <td>{{encounters.encounterTitle}}</td>
-                <td>{{encounters.location}}</td>
-                <td>{{encounters.encounterDescription}}</td>
+            <tr *ngFor="let encounter of encounters;" (click)=GetEncounter(encounter.encounterID) style="cursor: pointer">
+                <td>{{encounter.encounterTitle}}</td>
+                <td>{{encounter.location}}</td>
+                <td>{{encounter.encounterDescription}}</td>
             </tr>
         </tbody>
     </table>

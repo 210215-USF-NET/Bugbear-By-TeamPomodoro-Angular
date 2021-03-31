@@ -1,19 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CharactersComponent } from './characters.component';
 
-describe('CharactersComponent', () => {
-  let component: CharactersComponent;
-  let fixture: ComponentFixture<CharactersComponent>;
+import { GetCampaignsComponent } from './get-campaigns.component';
+
+describe('GetCampaignsComponent', () => {
+  let component: GetCampaignsComponent;
+  let fixture: ComponentFixture<GetCampaignsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CharactersComponent ]
+      declarations: [ GetCampaignsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CharactersComponent);
+    fixture = TestBed.createComponent(GetCampaignsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

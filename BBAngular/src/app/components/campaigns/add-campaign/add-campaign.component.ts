@@ -43,7 +43,7 @@ export class AddCampaignComponent implements OnInit {
       (campaign) => {
         console.log(campaign)
         alert(`${campaign.campaignName} was added!`)
-        this.router.navigate(['campaigns'])
+        this.router.navigate(['get-campaigns'])
       }
     )
   }
