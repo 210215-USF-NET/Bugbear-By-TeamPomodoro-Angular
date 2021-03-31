@@ -33,7 +33,6 @@ export class GetCampaignDetailsComponent implements OnInit {
         params => {
           this.BBService.GetCampaign(params.campaign).subscribe(
             foundCampaign => {
-              console.log(foundCampaign)
               this.campaign = foundCampaign
             }
           )

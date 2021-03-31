@@ -34,7 +34,6 @@ export class NavSidebarComponent implements OnInit {
         params => {
           this.BBService.GetCampaign(params.campaign).subscribe(
             foundCampaign => {
-              console.log(foundCampaign)
               this.campaign = foundCampaign
             }
           )
