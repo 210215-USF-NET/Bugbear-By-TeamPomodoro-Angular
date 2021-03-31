@@ -1,0 +1,17 @@
+<div class="chat-box">
+    <h2 class="text-center text-white">
+        Campaign Chat
+    </h2>
+    <div class="chat-body">
+        <div class="msg-box">
+            <ul>
+                <li *ngFor="let mObj of msgInboxArray" [ngClass]="mObj.user === msgDto.user ? 'in-msg' : 'ex-msg'">
+                    {{mObj.user}} :<br /><span class="msg-italic-style">{{mObj.msgText}}</span></li>
+            </ul>
+        </div>
+        <div class="message-area">
+            <textarea cols=6 placeholder="Type message here" class="msg-input" [(ngModel)]="msgDto.msgText" ></textarea>
+            <button class="send-btn" (click)="send()">SEND</button>
+        </div>
+    </div>
+</div>

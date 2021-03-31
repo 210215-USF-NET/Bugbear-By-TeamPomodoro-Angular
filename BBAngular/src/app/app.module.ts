@@ -36,6 +36,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { NavSidebarComponent } from './components/Nav/nav-sidebar/nav-sidebar.component';
 import { GetCampaignsComponent } from './components/campaigns/get-campaigns/get-campaigns.component';
 import { GetCampaignDetailsComponent } from './components/campaigns/get-campaign-details/get-campaign-details.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 const appRoutes: Routes = [
   {
@@ -174,7 +175,8 @@ const appRoutes: Routes = [
     EditCampaignComponent,
     HomeComponent,
     NavSidebarComponent,
-    GetCampaignDetailsComponent
+    GetCampaignDetailsComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
