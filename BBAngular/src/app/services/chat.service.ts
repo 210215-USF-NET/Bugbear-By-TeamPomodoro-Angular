@@ -9,15 +9,19 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ChatService {
 
-  private connection = new signalR.HubConnectionBuilder()
-    .configureLogging(signalR.LogLevel.Debug)
-    .withUrl("https://https://bugbear-api.azurewebsites.net/chatsocket", {
-      skipNegotiation: true,
-      transport: signalR.HttpTransportType.WebSockets
-    })
+  private connection: any = new signalR.HubConnectionBuilder().withUrl("https://bugbear-api.azurewebsites.net/chatsocket")
+    .configureLogging(signalR.LogLevel.Information)
     .build();
+
+    // private connection = new signalR.HubConnectionBuilder()
+    // .configureLogging(signalR.LogLevel.Debug)
+    // .withUrl("https://bugbear-api.azurewebsites.net/chatsocket", {
+    //   skipNegotiation: true,
+    //   transport: signalR.HttpTransportType.WebSockets
+    // })
+    // .build();
     
-  readonly POST_URL = "https://https://bugbear-api.azurewebsites.net/api/chat/send"
+  readonly POST_URL = "https://bugbear-api.azurewebsites.net/api/chat/send"
 
   private receivedMessageObject: MessageDto = new MessageDto();
   private sharedObj = new Subject<MessageDto>();
@@ -30,8 +34,6 @@ export class ChatService {
     this.start();
   }
 
-
-  // Strart the connection
   public async start() {
     try {
       await this.connection.start();
