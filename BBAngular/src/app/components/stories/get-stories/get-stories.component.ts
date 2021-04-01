@@ -23,14 +23,12 @@ export class GetStoriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.sharingService.getData())
     this.auth.user$.subscribe(user => {
       this.BBService.GetUserByEmail(user.email).subscribe(
         user => {
           this.BBService.GetStories().subscribe(
             (result) => {
               result.forEach(story => {
-                console.log(story)
                 if(this.campaign.campaignStories.some(s => s.storyID == story.storyID))
                 {
                   this.stories.push(story)

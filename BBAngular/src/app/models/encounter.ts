@@ -4,5 +4,6 @@ export interface encounter{
     encounterID: number,
     encounterTitle: string,
     encounterDescription: string,
-    location: location
+    location: location,
+    campaignID: number
 }

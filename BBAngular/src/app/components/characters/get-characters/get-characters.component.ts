@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { character } from 'src/app/models/character';
 import { BBRESTService } from 'src/app/services/bb-rest.service';
 import { AuthService } from '@auth0/auth0-angular';
+import { SharingDataService } from 'src/app/services/sharing-data.service';
+import { campaign } from 'src/app/models/campaign';
 
 @Component({
   selector: 'app-get-characters',
@@ -11,9 +13,10 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class GetCharactersComponent implements OnInit {
   characters: character[] = [];
+  campaign: campaign;
 
-  constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService) {
-    
+  constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService, private sharingService: SharingDataService) {
+    this.campaign = this.sharingService.getData();
   }
 
   ngOnInit(): void {
@@ -23,7 +26,7 @@ export class GetCharactersComponent implements OnInit {
           this.BBService.GetCharacters().subscribe(
             (result) => {
               result.forEach(character => {
-                if(character.userID === currentUser.userID)
+                if(character.campaignID == this.campaign.campaignID)
                 {
                   this.characters.push(character);
                 }

@@ -28,7 +28,8 @@ export class EditCharacterComponent implements OnInit {
       intelligence: 0,
       wisdom: 0,
       charisma: 0,
-      items: []
+      items: [],
+      campaignID: 0
     }
   }
 

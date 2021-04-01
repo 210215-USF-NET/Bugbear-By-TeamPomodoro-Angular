@@ -29,17 +29,13 @@ export class AddStoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.sharingService.getData())
     this.campaign = this.sharingService.getData();
     this.storyToAdd.campaignID = this.campaign.campaignID;
   }
 
   onSubmit(): void {
-    console.log(this.storyToAdd)
-    debugger;
     this.BBService.AddStory(this.storyToAdd).subscribe(
       (story) => {
-        debugger;
         this.story = story;
         this.addStoryToCampaign();
         alert(`${story.storyTitle} was added!`);

@@ -2,6 +2,15 @@
     <mat-sidenav #sidenav mode="side">
         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
             <ul class="navbar-nav flex-grow">
+                <li class="nav-item" style="cursor:pointer;">
+                    <div ngbDropdown class="d-inline-block">
+                        <a class = "nav-link text-light" id="dropdownBasic2" ngbDropdownToggle>Characters</a>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic2" class ="bg-dark">
+                            <a ngbDropdownItem class="nav-link text-light" routerLink='/get-characters'>View Characters</a>
+                            <a ngbDropdownItem class="nav-link text-light" routerLink='/add-character'>Add New Character</a>
+                        </div>
+                    </div>
+                </li>
                 <li class="nav-item">
                     <div ngbDropdown class="d-inline-block" style="cursor:pointer;">
                         <a class = "nav-link text-light" id="dropdownBasic1" ngbDropdownToggle>Story</a>

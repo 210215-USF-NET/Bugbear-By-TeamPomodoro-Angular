@@ -20,11 +20,13 @@ export class EncountersDetailsComponent implements OnInit {
       encounterID: 0,
       encounterTitle: '',
       encounterDescription: '',
+      campaignID: 0,
       location: 
         {
           locationID: 0,
           locationName: '',
-          locationDescription: ''
+          locationDescription: '',
+          campaignID: 0
         }
     }
   }

@@ -1,5 +1,6 @@
 export interface location{
     locationID: number,
     locationName: string,
-    locationDescription: string
+    locationDescription: string,
+    campaignID: number
 }

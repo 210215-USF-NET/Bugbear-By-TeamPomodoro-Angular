@@ -4,6 +4,8 @@ import { encounter } from 'src/app/models/encounter';
 import { location } from 'src/app/models/location';
 import { BBRESTService } from 'src/app/services/bb-rest.service';
 import { LogService } from 'src/app/services/bb-logging.service';
+import { SharingDataService } from 'src/app/services/sharing-data.service';
+import { campaign } from 'src/app/models/campaign';
 
 @Component({
   selector: 'app-add-encounters',
@@ -13,31 +15,48 @@ import { LogService } from 'src/app/services/bb-logging.service';
 export class AddEncountersComponent implements OnInit {
   encToAdd : encounter;
   setting: location;
-  constructor(private BBService: BBRESTService, private router: Router, private logger: LogService) { 
+  campaign: campaign;
+
+  constructor(private BBService: BBRESTService, private router: Router, private logger: LogService, private sharingService: SharingDataService) { 
     this.setting = {
       locationID: 0,
       locationName: '',
-      locationDescription: ''
+      locationDescription: '',
+      campaignID: 0
     }
     this.encToAdd = 
     {
       encounterID: 0,
       encounterTitle: '',
       encounterDescription: '',
-      location: this.setting
+      location: this.setting,
+      campaignID: 0
     }
   }
 
   ngOnInit(): void {
+    this.campaign = this.sharingService.getData();
+    this.setting.campaignID = this.campaign.campaignID;
+    this.encToAdd.campaignID = this.campaign.campaignID;
   }
 
   onSubmit() {
     this.BBService.AddEncounter(this.encToAdd).subscribe(
       (encounter) => {
+        this.addEncounterToCampaign(encounter);
         alert(`${encounter.encounterTitle} was added!`);
         this.logger.log(`${encounter.encounterTitle} added to Encounter table.`);
         this.router.navigate(['get-encounters']);
       }
     )
+  }
+
+  addEncounterToCampaign(encounter: encounter) : void {
+    this.campaign.campaignEncounters.push(encounter);
+    this.BBService.EditCampaign(this.campaign).subscribe(
+      (campaign) => {
+        this.sharingService.setData(campaign);
+      }
+    );
   }
 }

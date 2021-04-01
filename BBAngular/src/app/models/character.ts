@@ -12,5 +12,6 @@ export interface character{
     intelligence: number,
     wisdom: number,
     charisma: number,
-    items: item[]
+    items: item[],
+    campaignID: number
 }
