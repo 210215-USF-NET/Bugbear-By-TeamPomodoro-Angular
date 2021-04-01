@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BbloggerComponent } from './bblogger.component';
+import { LocationDetailsComponent } from './location-details.component';
 
-describe('BbloggerComponent', () => {
-  let component: BbloggerComponent;
-  let fixture: ComponentFixture<BbloggerComponent>;
+describe('LocationDetailsComponent', () => {
+  let component: LocationDetailsComponent;
+  let fixture: ComponentFixture<LocationDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BbloggerComponent ]
+      declarations: [ LocationDetailsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BbloggerComponent);
+    fixture = TestBed.createComponent(LocationDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

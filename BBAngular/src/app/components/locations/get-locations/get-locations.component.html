@@ -1,0 +1,22 @@
+<app-nav-sidebar></app-nav-sidebar>
+<div class="container">
+    <h1>
+        Locations
+    </h1>
+    <span class="d-sm-inline-flex justify-content-end">
+        <button class="btn btn-primary" routerLink='/add-locations'>Add New Location</button>
+    </span>
+    
+    <table class="table">
+        <thead>
+            <th>Name</th>
+            <th>Description</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let location of locations;" (click)="GetLocation(location.locationID)">
+                <td>{{location.locationName}}</td>
+                <td>{{location.locationDescription}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

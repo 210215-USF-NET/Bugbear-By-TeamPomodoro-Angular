@@ -1,0 +1,15 @@
+<div class="container text-white">
+    <form (ngSubmit)="onSubmit()" #itemForm="ngForm">
+        <div class="form-group">
+            <label for="itemName">Item Name: </label>
+            <input type="text" [(ngModel)]="itemToEdit.itemName" name="itemName" id="itemName" #name="ngModel"
+                class="form-control" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <label for="itemDescription">Item Description: </label>
+            <textarea rows="5" cols=155 type="text" [(ngModel)]="itemToEdit.itemDescription" name="itemDescription" id="itemDescription" #name="ngModel" 
+            class="form-control" placeholder="Enter Item Description"></textarea>
+        </div>
+        <button type="submit" class="mt-2 btn btn-secondary">Save</button>
+    </form>
+</div>

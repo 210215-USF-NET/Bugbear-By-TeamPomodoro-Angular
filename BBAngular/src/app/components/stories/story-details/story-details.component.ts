@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { story } from 'src/app/models/story'
 import { BBRESTService } from 'src/app/services/bb-rest.service'
 import { AuthService } from '@auth0/auth0-angular'
+import { LogService } from 'src/app/services/bb-logging.service';
 
 @Component({
   selector: 'app-story-details',
@@ -13,7 +14,7 @@ export class StoryDetailsComponent implements OnInit {
 
   story: story;
 
-  constructor(private BBService: BBRESTService, private route: ActivatedRoute, private router: Router, public auth: AuthService) { 
+  constructor(private BBService: BBRESTService, private route: ActivatedRoute, private router: Router, public auth: AuthService, private logger: LogService) { 
     this.story = 
     {
       storyTitle: '',
@@ -38,12 +39,10 @@ export class StoryDetailsComponent implements OnInit {
 
   DeleteStory(storyToBeDeleted: story): void {
     if (confirm(`Are you sure you want to delete ${storyToBeDeleted.storyTitle}?`).valueOf()) {
-      console.log("1");
       this.BBService.DeleteStory(storyToBeDeleted.storyID).subscribe(
         () => {
-          console.log("2");
           alert(`${storyToBeDeleted.storyTitle} has been deleted`);
-          console.log("3");
+          this.logger.info(`${storyToBeDeleted.storyTitle} deleted`)
           this.router.navigate(['stories']);
         }
       );

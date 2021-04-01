@@ -1,0 +1,18 @@
+<div *ngIf="location" class="container transparent text-white">
+
+    <h2>{{location.locationName}} Details</h2>
+    <table class="table text-white">
+        <tbody>
+            <tr>
+                <td>Name: </td>
+                <td>{{location.locationName}}</td>
+            </tr>
+            <tr>
+                <td>Description: </td>
+                <td>{{location.locationDescription}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-warning" (click)="EditLocation(location.locationID)">Edit</button> |
+    <button class="btn btn-danger" (click)="DeleteLocation(location)">Delete</button>
+</div>

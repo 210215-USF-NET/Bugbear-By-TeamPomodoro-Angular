@@ -1,0 +1,22 @@
+<app-nav-sidebar></app-nav-sidebar>
+<div class="container">
+    <h1>
+        Items
+    </h1>
+    <span class="d-sm-inline-flex justify-content-end">
+        <button class="btn btn-primary" routerLink='/add-items'>Add New Item</button>
+    </span>
+    
+    <table class="table">
+        <thead>
+            <th>Name</th>
+            <th>Description</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items;" (click)="GetItem(item.itemID)">
+                <td>{{item.itemName}}</td>
+                <td>{{item.itemDescription}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

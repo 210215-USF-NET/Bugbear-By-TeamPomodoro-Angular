@@ -7,6 +7,8 @@ import { user } from '../models/user';
 import { story } from '../models/story';
 import { campaign } from '../models/campaign';
 import { encounter } from '../models/encounter';
+import { item } from '../models/item';
+import { location } from '../models/location';
 
 @Injectable({
   providedIn: 'root'
@@ -101,5 +103,37 @@ export class BBRESTService {
   }
   EditEncounter(encounterToBeEdited: encounter): Observable<encounter> {
     return this.http.put<encounter>(`${this.urlEncounter}/${encounterToBeEdited.encounterID}`, encounterToBeEdited, this.httpOptions);
+  }
+
+  GetItems(): Observable<item[]> {
+    return this.http.get<item[]>(this.urlItem, this.httpOptions);
+  }
+  AddItem(itemToAdd: item): Observable<item> {
+    return this.http.post<item>(this.urlItem, itemToAdd, this.httpOptions);
+  }
+  GetItem(itemID: number): Observable<item> {
+    return this.http.get<item>(`${this.urlItem}/${itemID}`, this.httpOptions);
+  }
+  DeleteItem(itemIDToBeDeleted: number): Observable<item> {
+    return this.http.delete<any>(`${this.urlItem}/${itemIDToBeDeleted}`, this.httpOptions);
+  }
+  EditItem(itemToBeEdited: item): Observable<item> {
+    return this.http.put<item>(`${this.urlItem}/${itemToBeEdited.itemID}`, itemToBeEdited, this.httpOptions);
+  }
+
+  GetLocations(): Observable<location[]> {
+    return this.http.get<location[]>(this.urlLocation, this.httpOptions);
+  }
+  AddLocation(locationToAdd: location): Observable<location> {
+    return this.http.post<location>(this.urlLocation, locationToAdd, this.httpOptions);
+  }
+  GetLocation(locationID: number): Observable<location> {
+    return this.http.get<location>(`${this.urlLocation}/${locationID}`, this.httpOptions);
+  }
+  DeleteLocation(locationIDToBeDeleted: number): Observable<location> {
+    return this.http.delete<any>(`${this.urlLocation}/${locationIDToBeDeleted}`, this.httpOptions);
+  }
+  EditLocation(locationToBeEdited: location): Observable<location> {
+    return this.http.put<location>(`${this.urlLocation}/${locationToBeEdited.locationID}`, locationToBeEdited, this.httpOptions);
   }
 }

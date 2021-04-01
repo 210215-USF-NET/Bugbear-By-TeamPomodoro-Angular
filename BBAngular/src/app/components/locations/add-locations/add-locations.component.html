@@ -1,0 +1,16 @@
+<app-nav-sidebar></app-nav-sidebar>
+<div class="container transparent">
+    <form (ngSubmit)="onSubmit()" #locationForm="ngForm">
+        <div class="form-group">
+            <label for="locationName">Location Name: </label>
+            <input type="text" [(ngModel)]="locationToAdd.locationName" name="locationName" id="locationName" #name="ngModel"
+                class="form-control" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <label for="locationDescription">Location Description: </label>
+            <textarea rows="3" cols=155 type="text" [(ngModel)]="locationToAdd.locationDescription" name="locationDescription" id="locationDescription" #name="ngModel" 
+            class="form-control" placeholder="Enter Location Description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-secondary">Add New Location</button>
+    </form>
+</div>
