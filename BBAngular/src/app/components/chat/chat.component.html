@@ -10,7 +10,7 @@
         </div>
         <div class="message-area">
             <textarea id="chat-context" cols=6 placeholder="Type message here" class="msg-input"
-                id="chatMessage" [(ngModel)]="msgDto.message"></textarea>
+                id="chatMessage" [(ngModel)]="msgDto.message" (keyup.enter)="send()" autofocus></textarea>
             <button type="submit" class="send-btn" (click)="send()">SEND</button>
         </div>
     </div>

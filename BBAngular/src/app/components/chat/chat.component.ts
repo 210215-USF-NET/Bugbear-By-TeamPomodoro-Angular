@@ -56,7 +56,7 @@ export class ChatComponent implements OnInit {
     this.signalRService.retrieveMappedObject().subscribe( (receivedObj: chat) => { this.addToInbox(receivedObj)})
   }
 
-  send(): void {
+  public send(): void {
     this.auth.user$.subscribe(user => {
       this.msgDto.userEmail = user.email.substring(0, user.email.lastIndexOf("@"))
     })
