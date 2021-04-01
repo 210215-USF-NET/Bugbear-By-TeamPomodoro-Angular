@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { campaign } from 'src/app/models/campaign';
@@ -28,6 +28,7 @@ export class NavSidebarComponent implements OnInit {
     }
   }
 
+  
   ngOnInit(): void {
     this.route.queryParams
       .subscribe(

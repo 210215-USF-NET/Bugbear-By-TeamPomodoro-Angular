@@ -20,7 +20,8 @@ export class StoryDetailsComponent implements OnInit {
       storyTitle: '',
       storyDescription: '',
       dateCreated: new Date(Date.now()),
-      storyID: 0
+      storyID: 0,
+      campaignID: 0
     }
   }
 
