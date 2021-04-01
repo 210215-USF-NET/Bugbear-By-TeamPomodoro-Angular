@@ -18,6 +18,7 @@ export class AddEncountersComponent implements OnInit {
   campaign: campaign;
 
   constructor(private BBService: BBRESTService, private router: Router, private logger: LogService, private sharingService: SharingDataService) { 
+    allSettings: location[] = [];
     this.setting = {
       locationID: 0,
       locationName: '',
