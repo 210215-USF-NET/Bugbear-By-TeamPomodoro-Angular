@@ -26,11 +26,11 @@
 
         <button class="btn btn-dark" (click)="rollDice()">Roll</button>
         <p class="ml-2">
-            Size of dice: <input class="dice-value ml-2" type="number" [(ngModel)]="rollOutOf" value="20" style="width: 75px; outline:none;">
+            Size of dice: <input class="dice-value ml-2" type="number" [(ngModel)]="rollOutOf" value="20" min=1 style="width: 75px; outline:none;">
         </p>
 
         <p class="ml-2">
-            You rolled: <input class="dice-output" [(ngModel)]="rollOutput" value="0" disabled>
+            You rolled: <input class="dice-output" [(ngModel)]="rollOutput" value="0" disabled style="width: 75px;">
         </p>
     </div>
     </div>
