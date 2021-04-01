@@ -4,6 +4,7 @@ import { DOCUMENT } from '@angular/common';
 import { AuthService } from '@auth0/auth0-angular';
 import { BBRESTService } from 'src/app/services/bb-rest.service';
 import { user } from './models/user';
+import { campaign } from './models/campaign';
 
 @Component({
   selector: 'app-root',
