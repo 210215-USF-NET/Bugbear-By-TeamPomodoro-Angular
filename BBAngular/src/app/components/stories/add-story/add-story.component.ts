@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { story } from 'src/app/models/story';
 import { BBRESTService } from 'src/app/services/bb-rest.service';
 import { AuthService } from '@auth0/auth0-angular';
+import { LogService } from 'src/app/services/bb-logging.service';
 
 @Component({
   selector: 'app-add-story',
@@ -11,7 +12,7 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class AddStoryComponent implements OnInit {
   storyToAdd : story;
-  constructor(private BBService: BBRESTService, public auth: AuthService, private router: Router) {
+  constructor(private BBService: BBRESTService, public auth: AuthService, private router: Router, private logger:LogService) {
     this.storyToAdd = 
     {
       storyTitle: '',

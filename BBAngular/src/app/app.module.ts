@@ -38,7 +38,11 @@ import { GetCampaignsComponent } from './components/campaigns/get-campaigns/get-
 import { GetCampaignDetailsComponent } from './components/campaigns/get-campaign-details/get-campaign-details.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { LogService } from './services/bb-logging.service';
-import { LogPublishersService } from 'src/app/services/bb-log-publisher.service'
+import { LogPublishersService } from 'src/app/services/bb-log-publisher.service';
+import { GetItemsComponent } from './components/items/get-items/get-items.component';
+import { AddItemsComponent } from './components/items/add-items/add-items.component';
+import { ItemDetailsComponent } from './components/items/item-details/item-details.component';
+import { EditItemsComponent } from './components/items/edit-items/edit-items.component'
 
 const appRoutes: Routes = [
   {
@@ -147,6 +151,22 @@ const appRoutes: Routes = [
     path: 'nav-sidebar',
     component: NavSidebarComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path:'get-items',
+    component: GetItemsComponent
+  },
+  {
+    path:'add-items',
+    component: AddItemsComponent
+  },
+  {
+    path:'edit-items',
+    component: EditItemsComponent
+  },
+  {
+    path:'item-details',
+    component: ItemDetailsComponent
   }
 ]
 
@@ -179,6 +199,10 @@ const appRoutes: Routes = [
     NavSidebarComponent,
     GetCampaignDetailsComponent,
     ChatComponent,
+    GetItemsComponent,
+    AddItemsComponent,
+    ItemDetailsComponent,
+    EditItemsComponent,
   ],
   imports: [
     BrowserModule,

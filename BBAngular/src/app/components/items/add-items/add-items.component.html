@@ -1,0 +1,16 @@
+<app-nav-sidebar></app-nav-sidebar>
+<div class="container transparent">
+    <form (ngSubmit)="onSubmit()" #itemForm="ngForm">
+        <div class="form-group">
+            <label for="itemName">Item Name: </label>
+            <input type="text" [(ngModel)]="itemToAdd.itemName" name="itemName" id="itemName" #name="ngModel"
+                class="form-control" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+            <label for="itemDescription">Item Description: </label>
+            <textarea rows="3" cols=155 type="text" [(ngModel)]="itemToAdd.itemDescription" name="itemDescription" id="itemDescription" #name="ngModel" 
+            class="form-control" placeholder="Enter Item Description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-secondary">Add New Item</button>
+    </form>
+</div>

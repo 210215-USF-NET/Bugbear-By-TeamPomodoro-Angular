@@ -3,6 +3,7 @@ import { Router } from '@angular/router'
 import { story } from 'src/app/models/story'
 import { BBRESTService } from 'src/app/services/bb-rest.service'
 import { AuthService } from '@auth0/auth0-angular'
+import { LogService } from 'src/app/services/bb-logging.service'
 
 @Component({
   selector: 'app-get-stories',
@@ -13,7 +14,7 @@ export class GetStoriesComponent implements OnInit {
   stories: story[] = []
   storyID : number
 
-  constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService) {
+  constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService, private logger: LogService) {
     auth.user$.toPromise
   }
 

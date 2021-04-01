@@ -1,0 +1,18 @@
+<div *ngIf="item" class="container transparent text-white">
+
+    <h2>{{item.itemName}} Details</h2>
+    <table class="table text-white">
+        <tbody>
+            <tr>
+                <td>Name: </td>
+                <td>{{item.itemName}}</td>
+            </tr>
+            <tr>
+                <td>Description: </td>
+                <td>{{item.itemDescription}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-warning" (click)="EditItem(item.itemID)">Edit</button> |
+    <button class="btn btn-danger" (click)="DeleteItem(item)">Delete</button>
+</div>
