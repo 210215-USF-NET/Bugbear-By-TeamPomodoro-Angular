@@ -1,6 +1,6 @@
 <app-nav-sidebar></app-nav-sidebar>
 <div class="container transparent">
-    <form (ngSubmit)="onSubmit()" #storyForm="ngForm">
+    <form (ngSubmit)="onSubmit()" (ngSubmit)="addStoryToCampaign()" #storyForm="ngForm">
         <div class="form-group">
             <label for="storyTitle">Story Title: </label>
             <input type="text" [(ngModel)]="storyToAdd.storyTitle" name="storyTitle" id="storyTitle" #name="ngModel"

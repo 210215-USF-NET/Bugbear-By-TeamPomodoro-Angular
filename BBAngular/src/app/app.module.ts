@@ -37,6 +37,16 @@ import { NavSidebarComponent } from './components/Nav/nav-sidebar/nav-sidebar.co
 import { GetCampaignsComponent } from './components/campaigns/get-campaigns/get-campaigns.component';
 import { GetCampaignDetailsComponent } from './components/campaigns/get-campaign-details/get-campaign-details.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { LogService } from './services/bb-logging.service';
+import { LogPublishersService } from 'src/app/services/bb-log-publisher.service';
+import { GetItemsComponent } from './components/items/get-items/get-items.component';
+import { AddItemsComponent } from './components/items/add-items/add-items.component';
+import { ItemDetailsComponent } from './components/items/item-details/item-details.component';
+import { EditItemsComponent } from './components/items/edit-items/edit-items.component';
+import { GetLocationsComponent } from './components/locations/get-locations/get-locations.component';
+import { AddLocationsComponent } from './components/locations/add-locations/add-locations.component';
+import { EditLocationsComponent } from './components/locations/edit-locations/edit-locations.component';
+import { LocationDetailsComponent } from './components/locations/location-details/location-details.component'
 
 const appRoutes: Routes = [
   {
@@ -145,6 +155,38 @@ const appRoutes: Routes = [
     path: 'nav-sidebar',
     component: NavSidebarComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path:'get-items',
+    component: GetItemsComponent
+  },
+  {
+    path:'add-items',
+    component: AddItemsComponent
+  },
+  {
+    path:'edit-items',
+    component: EditItemsComponent
+  },
+  {
+    path:'item-details',
+    component: ItemDetailsComponent
+  },
+  {
+    path:'get-locations',
+    component: GetLocationsComponent
+  },
+  {
+    path:'add-locations',
+    component: AddLocationsComponent
+  },
+  {
+    path:'edit-locations',
+    component: EditLocationsComponent
+  },
+  {
+    path:'location-details',
+    component: LocationDetailsComponent
   }
 ]
 
@@ -176,7 +218,15 @@ const appRoutes: Routes = [
     HomeComponent,
     NavSidebarComponent,
     GetCampaignDetailsComponent,
-    ChatComponent
+    ChatComponent,
+    GetItemsComponent,
+    AddItemsComponent,
+    ItemDetailsComponent,
+    EditItemsComponent,
+    GetLocationsComponent,
+    AddLocationsComponent,
+    EditLocationsComponent,
+    LocationDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -193,6 +243,7 @@ const appRoutes: Routes = [
     }),
     BrowserAnimationsModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [LogService, LogPublishersService]
 })
 export class AppModule { }

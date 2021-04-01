@@ -10,6 +10,7 @@ import { BBRESTService } from 'src/app/services/bb-rest.service';
   styleUrls: ['./get-campaigns.component.css']
 })
 export class GetCampaignsComponent implements OnInit {
+
   campaigns: campaign[] = [];
 
   constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService, private route: ActivatedRoute) {

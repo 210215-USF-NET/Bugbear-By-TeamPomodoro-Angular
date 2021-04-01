@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { campaign } from 'src/app/models/campaign';
 import { BBRESTService } from 'src/app/services/bb-rest.service';
+import { SharingDataService } from 'src/app/services/sharing-data.service';
 
 @Component({
   selector: 'app-get-campaign-details',
@@ -12,7 +13,7 @@ import { BBRESTService } from 'src/app/services/bb-rest.service';
 export class GetCampaignDetailsComponent implements OnInit {
   campaign: campaign;
 
-  constructor(private BBService: BBRESTService, private router: Router, private route: ActivatedRoute, public auth: AuthService) {
+  constructor(private BBService: BBRESTService, private router: Router, private route: ActivatedRoute, public auth: AuthService, private sharingService: SharingDataService) {
     this.campaign = {
       campaignID: 0,
       campaignName: "",
@@ -34,9 +35,10 @@ export class GetCampaignDetailsComponent implements OnInit {
         params => {
           this.BBService.GetCampaign(params.campaign).subscribe(
             foundCampaign => {
-              this.campaign = foundCampaign
+              this.campaign = foundCampaign;
+              this.sharingService.setData(foundCampaign);
             }
-          )
+          );
         }
       )
   }
@@ -52,6 +54,7 @@ export class GetCampaignDetailsComponent implements OnInit {
     }
   }
   EditCampaign(campaignID: number): void {
+    console.log(this.sharingService.getData())
     this.router.navigate(['edit-campaign'], { queryParams: { campaign: campaignID } })
   }
   ManageCampaign(campaign: campaign) : void {

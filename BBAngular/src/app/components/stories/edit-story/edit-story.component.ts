@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { BBRESTService } from '../../../services/bb-rest.service';
 import { story } from 'src/app/models/story';
+import { LogService } from 'src/app/services/bb-logging.service';
 
 @Component({
   selector: 'app-edit-story',
@@ -11,13 +12,14 @@ import { story } from 'src/app/models/story';
 })
 export class EditStoryComponent implements OnInit {
   storyToEdit : story;
-  constructor(private route: ActivatedRoute, private BBService: BBRESTService, private router: Router, public auth: AuthService) { 
+  constructor(private route: ActivatedRoute, private BBService: BBRESTService, private router: Router, public auth: AuthService, private logger: LogService) { 
     this.storyToEdit = 
     {
       storyTitle: '',
       storyDescription: '',
       dateCreated: new Date(Date.now()),
-      storyID: 0
+      storyID: 0,
+      campaignID: 0
     }
   }
 

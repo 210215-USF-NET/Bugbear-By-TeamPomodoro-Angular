@@ -1,21 +1,16 @@
 <div class="container transparent">
-    <h1>
+    <h1 style="text-align: center;">
         Your Characters
     </h1> 
 
-    <table class="table">
-        <thead>
-            <th>Character Name</th>
-            <th>HP</th>
-            <th>XP Level</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let character of characters;" (click)="GetCharacter(character.characterID)">
-                <td>{{character.characterName}}</td>
-                <td>{{character.hp}}</td>
-                <td>{{character.xpLevel}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row" style="text-align: center;">
+        <div class="card text-white bg-dark mb-3 grid-section" style="max-width: 18rem;margin-left: 20px; margin-right: 20px;" *ngFor="let character of characters;" (click)="GetCharacter(character.characterID)">
+            <div class="card-header" style="font-size: 25px;">{{character.characterName}}</div>
+            <div class="card-body">
+                <h5 class="card-title">Level: {{character.xpLevel}}</h5>
+                <p class="card-text">HP: {{character.hp}}</p>
+            </div>
+        </div>
+    </div>
     <button class="btn btn-primary" routerLink='/add-character'>Create Character</button>
 </div>

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { character } from 'src/app/models/character';
 import { BBRESTService } from 'src/app/services/bb-rest.service';
+import { LogService } from 'src/app/services/bb-logging.service';
 
 @Component({
   selector: 'app-edit-character',
@@ -12,7 +13,7 @@ import { BBRESTService } from 'src/app/services/bb-rest.service';
 export class EditCharacterComponent implements OnInit {
 
   character2Edit: character;
-  constructor(private route: ActivatedRoute, private BBService: BBRESTService, private router: Router, public auth: AuthService) {
+  constructor(private route: ActivatedRoute, private BBService: BBRESTService, private router: Router, public auth: AuthService, private logger: LogService) {
     this.character2Edit =
     {
       characterID: 0,
@@ -46,6 +47,7 @@ export class EditCharacterComponent implements OnInit {
     this.BBService.EditCharacter(this.character2Edit).subscribe(
       () => {
         alert(`${this.character2Edit.characterName}'s info was successfully edited`);
+        this.logger.log(`${this.character2Edit.characterName} edited in Characters table.`);
         this.router.navigate(['characters']);
       }
     )

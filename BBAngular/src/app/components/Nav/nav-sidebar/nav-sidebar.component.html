@@ -2,8 +2,8 @@
     <mat-sidenav #sidenav mode="side">
         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
             <ul class="navbar-nav flex-grow">
-                <li class="nav-item" style="cursor:pointer;">
-                    <div ngbDropdown class="d-inline-block">
+                <li class="nav-item">
+                    <div ngbDropdown class="d-inline-block" style="cursor:pointer;">
                         <a class = "nav-link text-light" id="dropdownBasic1" ngbDropdownToggle>Story</a>
                         <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class ="bg-dark">
                             <a ngbDropdownItem class="nav-link text-light" routerLink='/stories'>View Stories</a>
@@ -20,6 +20,24 @@
                         </div>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <div ngbDropdown class="d-inline-block" style="cursor:pointer;">
+                        <a class = "nav-link text-light" id="dropdownBasic1" ngbDropdownToggle>Items</a>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class ="bg-dark">
+                            <a ngbDropdownItem class="nav-link text-light" routerLink='/get-items'>View Items</a>
+                            <a ngbDropdownItem class="nav-link text-light" routerLink='/add-items'>Add New Item</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div ngbDropdown class="d-inline-block" style="cursor:pointer;">
+                        <a class = "nav-link text-light" id="dropdownBasic1" ngbDropdownToggle>Locations</a>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class ="bg-dark">
+                            <a ngbDropdownItem class="nav-link text-light" routerLink='/get-locations'>View Locations</a>
+                            <a ngbDropdownItem class="nav-link text-light" routerLink='/add-locations'>Add New Location</a>
+                        </div>
+                    </div>
+                </li>
                 <li class="nav-item" [routerLinkActive]="['link-active']">
                     <a class="nav-link text-light" routerLink='/quickRef'>Quick Ref</a>
                 </li>
@@ -28,6 +46,5 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <button (click) = "sidenav.toggle()">Toggle</button>
-        <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
