@@ -1,6 +1,14 @@
-.chat-box{
+.chat-container{
     width: 600px;
     position: fixed;
+    bottom: 40px;
+    right: 40px;
+    height: 520px;
+    padding: 10px;
+}
+
+.chat-box{
+    width: 600px;
     bottom: 40px;
     right: 40px;
     height: 400px;
@@ -8,8 +16,25 @@
     border-color: #000000;
     border-style: solid;
     border-radius: 40px;
-    border-width: 10px;
-    padding: 10px;
+    border-width: 6px;
+    padding-top: 2px;
+}
+
+.dice-roll-box{
+    width: 600px;
+    bottom: 40px;
+    right: 40px;
+    height: 120px;
+    background-color: rgba(43, 8, 8, 0.295);
+    border-color: #000000;
+    border-style: solid;
+    border-radius: 40px;
+    border-width: 6px;
+}
+
+.dice-body{
+    display: flex;
+    align-items: center;
 }
 
 .chat-body{
@@ -19,10 +44,14 @@
     width: 80%;
 }
 
+.list-row{
+    list-style-type: none;
+    padding-left: 4px;
+}
+
 .message-area{
     display: flex;
     align-items: center;
-    position: absolute;
     bottom: 2px;
 }
 
@@ -31,6 +60,7 @@
     flex-direction: column-reverse;
     overflow-y: scroll;
     height: 260px;
+    padding-right: 2px;
 }
 
 .msg-content{
@@ -68,4 +98,24 @@
 
 .send-btn:hover{
     background-color: rgb(172, 172, 172);
+}
+
+.dice-img{
+    animation: shake 1.4s;
+
+    animation-iteration-count: 2;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(20deg); }
+    10% { transform: translate(-1px, -2px) rotate(-20deg); }
+    20% { transform: translate(-3px, 0px) rotate(20deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(20deg); }
+    200% { transform: translate(-1px, 2px) rotate(-20deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-20deg); }
+    80% { transform: translate(-1px, -1px) rotate(20deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-20deg); }
 }
