@@ -87,19 +87,24 @@ export class ChatComponent implements OnInit {
   }
 
   rollDice(): void {
-    var pos: number = 0;
-    var id = setInterval(() => {
-      if (pos == 100) {
-        clearInterval(id);
-        document.querySelector(".dnd-dice").classList.remove("dice-img")
-        this.rollOutput = Math.floor(Math.random() * this.rollOutOf) + 1
-        this.sendDiceRoll(this.rollOutput, this.rollOutOf)
-      } else {
-        pos++;
-        document.querySelector(".dnd-dice").classList.add("dice-img")
-        this.rollOutput = Math.floor(Math.random() * this.rollOutOf) + 1
-      }
-    }, 30)
+    if (this.rollOutOf >= 1) {
+      var pos: number = 0
+      var id = setInterval(() => {
+        if (pos == 100) {
+          clearInterval(id)
+          document.querySelector(".dnd-dice").classList.remove("dice-img")
+          this.rollOutput = Math.floor(Math.random() * this.rollOutOf) + 1
+          this.sendDiceRoll(this.rollOutput, this.rollOutOf)
+        } else {
+          pos++;
+          document.querySelector(".dnd-dice").classList.add("dice-img")
+          this.rollOutput = Math.floor(Math.random() * this.rollOutOf) + 1
+        }
+      }, 30)
+    }
+    else{
+      window.alert("Cant roll a dice smaller than 1")
+    }
   }
 
   sendDiceRoll(diceRollOutput: number, diceSize): void {
