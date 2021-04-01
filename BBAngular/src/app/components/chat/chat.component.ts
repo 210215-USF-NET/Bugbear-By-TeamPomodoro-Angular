@@ -41,7 +41,6 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.signalRService.retrieveMappedObject().subscribe( (receivedObj: chat) => { this.addToInbox(receivedObj)})
     this.route.queryParams.subscribe(
       params => {
         this.BBService.GetCampaign(params.campaign).subscribe(
@@ -51,23 +50,33 @@ export class ChatComponent implements OnInit {
         )
       }
     )
+    this.auth.user$.subscribe(user => {
+      this.msgDto.userEmail = user.email.substring(0, user.email.lastIndexOf("@"))
+    })
+    this.signalRService.retrieveMappedObject().subscribe( (receivedObj: chat) => { this.addToInbox(receivedObj)})
   }
 
-  send(): void {
+  public send(): void {
     this.auth.user$.subscribe(user => {
-      this.msgDto.userEmail = user.email
+      this.msgDto.userEmail = user.email.substring(0, user.email.lastIndexOf("@"))
     })
     if(this.msgDto) {
-      if(this.msgDto.userEmail.length == 0){
+      if(this.msgDto.message.length == 0){
         window.alert("Message must have content.");
         return;
       } else {
-        this.signalRService.broadcastMessage(this.msgDto);
+        this.signalRService.broadcastMessage(this.msgDto)
       }
+      this.msgDto.message = ''
     }
   }
 
   addToInbox(obj: chat) {
-    this.msgInboxArray.push(obj);
+    var tempObj : chat
+    tempObj = {
+      message: obj.message,
+      userEmail: obj.userEmail
+    }
+    this.msgInboxArray.push(tempObj);
   }
 }

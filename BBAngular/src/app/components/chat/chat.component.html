@@ -5,12 +5,12 @@
     <div class="chat-body">
         <div class="msg-box">
             <ul>
-                <li *ngFor="let mObj of msgInboxArray" [ngClass]="mObj.userEmail === msgDto.userEmail ? 'in-msg' : 'ex-msg'">{{mObj.userEmail}} :<br /><span class="msg-italic-style">{{mObj.message}}</span></li>
+                <li *ngFor="let mObj of msgInboxArray" [ngClass]="mObj.userEmail === msgDto.userEmail ? 'in-msg' : 'ex-msg'" class="text-warning">{{mObj.userEmail}}: <span class="text-white msg-content">{{mObj.message}}</span></li>
             </ul>
         </div>
         <div class="message-area">
             <textarea id="chat-context" cols=6 placeholder="Type message here" class="msg-input"
-                id="chatMessage" [(ngModel)]="msgDto.message"></textarea>
+                id="chatMessage" [(ngModel)]="msgDto.message" (keyup.enter)="send()" autofocus></textarea>
             <button type="submit" class="send-btn" (click)="send()">SEND</button>
         </div>
     </div>

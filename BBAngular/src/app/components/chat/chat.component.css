@@ -4,7 +4,7 @@
     bottom: 40px;
     right: 40px;
     height: 400px;
-    background-color: rgba(82, 82, 82, 0.5);
+    background-color: rgba(43, 8, 8, 0.295);
     border-color: #000000;
     border-style: solid;
     border-radius: 40px;
@@ -24,6 +24,19 @@
     align-items: center;
     position: absolute;
     bottom: 2px;
+}
+
+.msg-box{
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+    height: 260px;
+}
+
+.msg-content{
+    word-wrap: break-word;
+    font-weight: 100;
+    font-size: 14px;
 }
 
 .msg-input{
