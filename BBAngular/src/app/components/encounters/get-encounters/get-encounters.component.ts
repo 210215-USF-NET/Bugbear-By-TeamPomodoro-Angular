@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { encounter } from 'src/app/models/encounter';
 import { BBRESTService } from 'src/app/services/bb-rest.service';
 import { AuthService } from '@auth0/auth0-angular';
+import { campaign } from 'src/app/models/campaign';
+import { SharingDataService } from 'src/app/services/sharing-data.service';
 
 @Component({
   selector: 'app-get-encounters',
@@ -12,19 +14,21 @@ import { AuthService } from '@auth0/auth0-angular';
 export class GetEncountersComponent implements OnInit {
 encounters: encounter[] = [];
 encounterID : number;
+campaign: campaign;
 
-  constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService) { 
+  constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService, private sharingService: SharingDataService) { 
     auth.user$.toPromise
+    this.campaign = this.sharingService.getData();
   }
 
   ngOnInit(): void {
     this.auth.user$.subscribe(user => {
       this.BBService.GetEncounters().subscribe(
         (result) => {
-          result.forEach(story => {
-            if(/*story.userID*/0 === /*user.userID*/0)
+          result.forEach(encounter => {
+            if(this.campaign.campaignEncounters.some(e => e.encounterID == encounter.encounterID))
             {
-              this.encounters.push(story)
+              this.encounters.push(encounter)
             }
           })
         }
