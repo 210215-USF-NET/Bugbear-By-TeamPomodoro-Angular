@@ -30,15 +30,5 @@ export class NavSidebarComponent implements OnInit {
 
   
   ngOnInit(): void {
-    this.route.queryParams
-      .subscribe(
-        params => {
-          this.BBService.GetCampaign(params.campaign).subscribe(
-            foundCampaign => {
-              this.campaign = foundCampaign
-            }
-          )
-        }
-      )
   }
 }

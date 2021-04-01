@@ -28,7 +28,8 @@ export class AddCharacterComponent implements OnInit {
       intelligence: 0,
       wisdom: 0,
       charisma: 0,
-      items: []
+      items: [],
+      campaignID: 0
     }
     this.auth.user$.subscribe(user => {
       this.BBService.GetUserByEmail(user.email).subscribe(
@@ -43,6 +44,7 @@ export class AddCharacterComponent implements OnInit {
   }
 
   onSubmit(): void {
+    console.log(this.character2Add);
     this.BBService.AddCharacter(this.character2Add).subscribe(
       (character) => {
         alert(`${character.characterName} was added!`)

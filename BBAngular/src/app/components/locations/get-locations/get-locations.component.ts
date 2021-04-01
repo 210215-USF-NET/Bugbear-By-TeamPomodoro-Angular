@@ -4,6 +4,8 @@ import { location } from 'src/app/models/location'
 import { BBRESTService } from 'src/app/services/bb-rest.service'
 import { AuthService } from '@auth0/auth0-angular'
 import { LogService } from 'src/app/services/bb-logging.service'
+import { campaign } from 'src/app/models/campaign'
+import { SharingDataService } from 'src/app/services/sharing-data.service'
 
 @Component({
   selector: 'app-get-locations',
@@ -13,17 +15,21 @@ import { LogService } from 'src/app/services/bb-logging.service'
 export class GetLocationsComponent implements OnInit {
   locations: location[] = [];
   locationID: number;
+  campaign: campaign;
 
-  constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService, private logger: LogService) {
+  constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService, private logger: LogService, private sharingService: SharingDataService) {
     auth.user$.toPromise
+    this.campaign = this.sharingService.getData();
   }
 
   ngOnInit(): void {
     this.BBService.GetLocations().subscribe(
       (result) => {
         result.forEach(location => {
-          this.locations.push(location)
-          this.logger.debug(`${location.locationName} added to page array`)
+          if (this.campaign.campaignLocations.some(l => l.locationID == location.locationID)) {
+            this.locations.push(location)
+            this.logger.debug(`${location.locationName} added to page array`)
+          }
         })
       }
     )
