@@ -10,15 +10,6 @@
                 <ul class="navbar-nav flex-grow">
                     <li class="nav-item" style="cursor:pointer;">
                         <div ngbDropdown class="d-inline-block">
-                            <a class = "nav-link text-light" id="dropdownBasic2" ngbDropdownToggle>Characters</a>
-                            <div ngbDropdownMenu aria-labelledby="dropdownBasic2" class ="bg-dark">
-                                <a ngbDropdownItem class="nav-link text-light" routerLink='/get-characters'>View Characters</a>
-                                <a ngbDropdownItem class="nav-link text-light" routerLink='/add-character'>Add New Character</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item" style="cursor:pointer;">
-                        <div ngbDropdown class="d-inline-block">
                             <a class = "nav-link text-light" id="dropdownBasic1" ngbDropdownToggle>Campaigns</a>
                             <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class ="bg-dark">
                                 <a ngbDropdownItem class="nav-link text-light" routerLink='/get-campaigns'>View Campaigns</a>
@@ -32,27 +23,6 @@
                     <button *ngIf="auth.isAuthenticated$ | async" class="btn-primary btn nav-item" [routerLinkActive]="['link-active']">
                         <a class="text-light" (click)="auth.logout({ returnTo: document.location.origin })">Log out</a>
                     </button>
-                    <!-- <li class="nav-item" style="cursor:pointer;">
-                        <div ngbDropdown class="d-inline-block">
-                            <a class = "nav-link text-light" id="dropdownBasic1" ngbDropdownToggle>Story</a>
-                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class ="bg-dark">
-                                <a ngbDropdownItem class="nav-link text-light" routerLink='/stories'>View Stories</a>
-                                <a ngbDropdownItem class="nav-link text-light" routerLink='/add-story'>Add New Story</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <div ngbDropdown class="d-inline-block" style="cursor:pointer;">
-                            <a class = "nav-link text-light" id="dropdownBasic1" ngbDropdownToggle>Encounters</a>
-                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class ="bg-dark">
-                                <a ngbDropdownItem class="nav-link text-light" routerLink='/get-encounters'>View Enc</a>
-                                <a ngbDropdownItem class="nav-link text-light" routerLink='/add-encounters'>Add New Enc</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item" [routerLinkActive]="['link-active']">
-                        <a class="nav-link text-light" routerLink='/quickRef'>Quick Ref</a>
-                    </li> -->
                 </ul>
             </div>
         </div>
