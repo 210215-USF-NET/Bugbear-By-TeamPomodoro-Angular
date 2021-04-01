@@ -32,6 +32,7 @@ export class BBRESTService {
   urlNPC: string = env.BB_REST + '/npc';
   urlStory: string = env.BB_REST + '/story';
   urlUser: string = env.BB_REST + '/user';
+  urlChat: string = env.BB_REST + '/chat';
 
   constructor(private http: HttpClient) { }
 

@@ -1,30 +1,23 @@
-import { Injectable, OnInit } from '@angular/core';
-import * as signalR from '@microsoft/signalr';
 import { HttpClient } from '@angular/common/http';
-import { MessageDto } from 'src/app/models/MessageDto';
+import { Injectable } from '@angular/core';
+import * as signalR from '@aspnet/signalr';
 import { Observable, Subject } from 'rxjs';
+import { chat } from '../models/chat';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
-
-  private connection: any = new signalR.HubConnectionBuilder().withUrl("https://bugbear-api.azurewebsites.net/chatsocket")
+  private connection: any = new signalR.HubConnectionBuilder().withUrl("https://bugbear-api.azurewebsites.net/chat")
     .configureLogging(signalR.LogLevel.Information)
     .build();
 
-    // private connection = new signalR.HubConnectionBuilder()
-    // .configureLogging(signalR.LogLevel.Debug)
-    // .withUrl("https://bugbear-api.azurewebsites.net/chatsocket", {
-    //   skipNegotiation: true,
-    //   transport: signalR.HttpTransportType.WebSockets
-    // })
-    // .build();
-    
-  readonly POST_URL = "https://bugbear-api.azurewebsites.net/api/chat/send"
-
-  private receivedMessageObject: MessageDto = new MessageDto();
-  private sharedObj = new Subject<MessageDto>();
+  readonly POST_URL = "https://bugbear-api.azurewebsites.net/api/chat"
+  private receivedMessageObject: chat = {
+    userEmail: '',
+    message: ''
+  }
+  private sharedObj = new Subject<chat>();
 
   constructor(private http: HttpClient) {
     this.connection.onclose(async () => {
@@ -41,26 +34,21 @@ export class ChatService {
     } catch (err) {
       console.log(err);
       setTimeout(() => this.start(), 5000);
-    }
+    } 
   }
 
-  private mapReceivedMessage(user: string, message: string): void {
-    this.receivedMessageObject.user = user;
-    this.receivedMessageObject.msgText = message;
+  private mapReceivedMessage(userEmail: string, message: string): void {
+    this.receivedMessageObject.userEmail = userEmail;
+    this.receivedMessageObject.message = message;
     this.sharedObj.next(this.receivedMessageObject);
   }
 
-  /* ****************************** Public Methods **************************************** */
-
-  // Calls the controller method
   public broadcastMessage(msgDto: any) {
-    this.http.post(this.POST_URL, msgDto).subscribe(data => console.log(data));
-    // this.connection.invoke("SendMessage1", msgDto.user, msgDto.msgText).catch(err => console.error(err));    // This can invoke the server method named as "SendMethod1" directly.
+    // this.http.post(this.POST_URL, msgDto).subscribe(data => console.log(data));
+    this.connection.invoke("SendMessage1", msgDto.userEmail, msgDto.message).catch(err => console.error(err));
   }
 
-  public retrieveMappedObject(): Observable<MessageDto> {
+  public retrieveMappedObject(): Observable<chat> {
     return this.sharedObj.asObservable();
   }
-
-
 }
