@@ -49,7 +49,7 @@ export class EditCharacterComponent implements OnInit {
       () => {
         alert(`${this.character2Edit.characterName}'s info was successfully edited`);
         this.logger.log(`${this.character2Edit.characterName} edited in Characters table.`);
-        this.router.navigate(['characters']);
+        this.router.navigate(['get-characters']);
       }
     )
   }

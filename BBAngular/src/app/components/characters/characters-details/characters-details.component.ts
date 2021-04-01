@@ -50,7 +50,7 @@ export class CharactersDetailsComponent implements OnInit {
       this.BBService.DeleteCharacter(character2BDeletedID).subscribe(
         () => {
           alert(`${character2BDeletedName} has been deleted`);
-          this.router.navigate(['characters']);
+          this.router.navigate(['get-characters']);
         }
       );
     }
