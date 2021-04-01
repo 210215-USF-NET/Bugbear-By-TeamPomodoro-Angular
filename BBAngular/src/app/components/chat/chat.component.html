@@ -5,7 +5,7 @@
     <div class="chat-body">
         <div class="msg-box">
             <ul>
-                <li *ngFor="let mObj of msgInboxArray" [ngClass]="mObj.userEmail === msgDto.userEmail ? 'in-msg' : 'ex-msg'">{{mObj.userEmail}} :<br /><span class="msg-italic-style">{{mObj.message}}</span></li>
+                <li *ngFor="let mObj of msgInboxArray" [ngClass]="mObj.userEmail === msgDto.userEmail ? 'in-msg' : 'ex-msg'" class="text-warning">{{mObj.userEmail}}: <span class="text-white msg-content">{{mObj.message}}</span></li>
             </ul>
         </div>
         <div class="message-area">
