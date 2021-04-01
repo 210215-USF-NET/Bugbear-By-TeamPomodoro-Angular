@@ -12,18 +12,13 @@
                 class="form-control" placeholder="Enter a Summary of the Encounter"></textarea>
         </div>
         <div class="form-group">
-            <label for="encounterLocationID">Location ID: </label>
-            <input type="text" [(ngModel)]="encToAdd.location.locationID" name="encounterLocationID" id="encounterLocationID" #name="ngModel"
-                class="form-control" placeholder="Enter Location ID">
-        </div>
-        <div class="form-group">
             <label for="location">Location: </label>
-            <select [(ngModel)]="encToAdd.location" name="location" id="location" class="form-control" placeholder="Select Location">
-                <option *ngFor="let location of allSettings">
+            <select [(ngModel)]="locID" name="location" id="location" #name="ngModel" class="form-control" placeholder="Select Location">
+                <option *ngFor="let location of allSettings" [value]="location.locationID" >
                     {{location.locationName}}
                 </option>
             </select>
         </div>
-        <button type="submit" class="btn btn-secondary">Add Encounter</button>
+        <button type="submit" class="btn btn-secondary">Add New Encounter</button>
     </form>
 </div>

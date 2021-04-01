@@ -15,10 +15,11 @@ import { campaign } from 'src/app/models/campaign';
 export class AddEncountersComponent implements OnInit {
   encToAdd : encounter;
   setting: location;
+  allSettings: location[] = [];
+  locID: number;
   campaign: campaign;
 
   constructor(private BBService: BBRESTService, private router: Router, private logger: LogService, private sharingService: SharingDataService) { 
-    allSettings: location[] = [];
     this.setting = {
       locationID: 0,
       locationName: '',
@@ -37,19 +38,33 @@ export class AddEncountersComponent implements OnInit {
 
   ngOnInit(): void {
     this.campaign = this.sharingService.getData();
-    this.setting.campaignID = this.campaign.campaignID;
+    this.allSettings = this.campaign.campaignLocations;
     this.encToAdd.campaignID = this.campaign.campaignID;
   }
 
   onSubmit() {
+    this.addLocationToEncounter();
+    this.logger.debug(`${this.encToAdd.location}`);
+    debugger;
     this.BBService.AddEncounter(this.encToAdd).subscribe(
       (encounter) => {
         this.addEncounterToCampaign(encounter);
+        debugger;
         alert(`${encounter.encounterTitle} was added!`);
         this.logger.log(`${encounter.encounterTitle} added to Encounter table.`);
         this.router.navigate(['get-encounters']);
       }
-    )
+    );
+  }
+
+  addLocationToEncounter() {
+    this.allSettings.forEach(
+      (setting) => {
+        if (setting.locationID === this.locID) {
+          this.encToAdd.location = setting
+        }
+      }
+    );
   }
 
   addEncounterToCampaign(encounter: encounter) : void {
