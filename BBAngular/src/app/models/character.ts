@@ -1,4 +1,3 @@
-import { campaign } from "./campaign";
 import { item } from "./item";
 export interface character{
     characterID: number,

@@ -38,6 +38,15 @@
                         </div>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <div ngbDropdown class="d-inline-block" style="cursor:pointer;">
+                        <a class = "nav-link text-light" id="dropdownBasic1" ngbDropdownToggle>Maps</a>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class ="bg-dark">
+                            <a ngbDropdownItem class="nav-link text-light" routerLink='/get-maps'>View Maps</a>
+                            <a ngbDropdownItem class="nav-link text-light" routerLink='/add-maps'>Add New Location</a>
+                        </div>
+                    </div>
+                </li>
                 <li class="nav-item" [routerLinkActive]="['link-active']">
                     <a class="nav-link text-light" routerLink='/quickRef'>Quick Ref</a>
                 </li>

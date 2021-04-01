@@ -9,6 +9,7 @@ import { campaign } from '../models/campaign';
 import { encounter } from '../models/encounter';
 import { item } from '../models/item';
 import { location } from '../models/location';
+import { map } from '../models/map';
 
 @Injectable({
   providedIn: 'root'
@@ -136,5 +137,18 @@ export class BBRESTService {
   }
   EditLocation(locationToBeEdited: location): Observable<location> {
     return this.http.put<location>(`${this.urlLocation}/${locationToBeEdited.locationID}`, locationToBeEdited, this.httpOptions);
+  }
+
+  GetMaps(): Observable<map[]> {
+    return this.http.get<map[]>(this.urlMap, this.httpOptions);
+  }
+  GetMap(mapID: number): Observable<map> {
+    return this.http.get<map>(`${this.urlMap}/${mapID}`, this.httpOptions);
+  }
+  AddMap(mapToAdd: map): Observable<map> {
+    return this.http.post<map>(this.urlMap, mapToAdd, this.httpOptions);
+  }
+  DeleteMap(mapToBeDeleted: number): Observable<any> {
+    return this.http.delete<any>(`${this.urlMap}/${mapToBeDeleted}`, this.httpOptions);
   }
 }

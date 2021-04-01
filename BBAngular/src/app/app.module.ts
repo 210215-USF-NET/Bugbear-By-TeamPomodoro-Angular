@@ -46,7 +46,8 @@ import { EditItemsComponent } from './components/items/edit-items/edit-items.com
 import { GetLocationsComponent } from './components/locations/get-locations/get-locations.component';
 import { AddLocationsComponent } from './components/locations/add-locations/add-locations.component';
 import { EditLocationsComponent } from './components/locations/edit-locations/edit-locations.component';
-import { LocationDetailsComponent } from './components/locations/location-details/location-details.component'
+import { LocationDetailsComponent } from './components/locations/location-details/location-details.component';
+import { GetMapsComponent } from './components/maps/get-maps/get-maps.component'
 
 const appRoutes: Routes = [
   {
@@ -227,6 +228,7 @@ const appRoutes: Routes = [
     AddLocationsComponent,
     EditLocationsComponent,
     LocationDetailsComponent,
+    GetMapsComponent,
   ],
   imports: [
     BrowserModule,
