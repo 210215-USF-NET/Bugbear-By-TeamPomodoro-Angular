@@ -33,5 +33,4 @@ export class AddItemsComponent implements OnInit {
       }
     );
   }
-
 }

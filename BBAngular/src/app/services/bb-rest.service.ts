@@ -8,6 +8,7 @@ import { story } from '../models/story';
 import { campaign } from '../models/campaign';
 import { encounter } from '../models/encounter';
 import { item } from '../models/item';
+import { location } from '../models/location';
 
 @Injectable({
   providedIn: 'root'
@@ -118,5 +119,21 @@ export class BBRESTService {
   }
   EditItem(itemToBeEdited: item): Observable<item> {
     return this.http.put<item>(`${this.urlItem}/${itemToBeEdited.itemID}`, itemToBeEdited, this.httpOptions);
+  }
+
+  GetLocations(): Observable<location[]> {
+    return this.http.get<location[]>(this.urlLocation, this.httpOptions);
+  }
+  AddLocation(locationToAdd: location): Observable<location> {
+    return this.http.post<location>(this.urlLocation, locationToAdd, this.httpOptions);
+  }
+  GetLocation(locationID: number): Observable<location> {
+    return this.http.get<location>(`${this.urlLocation}/${locationID}`, this.httpOptions);
+  }
+  DeleteLocation(locationIDToBeDeleted: number): Observable<location> {
+    return this.http.delete<any>(`${this.urlLocation}/${locationIDToBeDeleted}`, this.httpOptions);
+  }
+  EditLocation(locationToBeEdited: location): Observable<location> {
+    return this.http.put<location>(`${this.urlLocation}/${locationToBeEdited.locationID}`, locationToBeEdited, this.httpOptions);
   }
 }
