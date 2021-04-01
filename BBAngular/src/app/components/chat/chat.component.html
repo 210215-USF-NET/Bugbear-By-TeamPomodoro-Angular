@@ -1,17 +1,37 @@
-<div class="chat-box">
-    <h2 class="text-center text-white">
-        Campaign Chat
-    </h2>
-    <div class="chat-body">
-        <div class="msg-box">
-            <ul>
-                <li *ngFor="let mObj of msgInboxArray" [ngClass]="mObj.userEmail === msgDto.userEmail ? 'in-msg' : 'ex-msg'" class="text-warning">{{mObj.userEmail}}: <span class="text-white msg-content">{{mObj.message}}</span></li>
-            </ul>
+<div class="chat-container">
+    <div class="chat-box">
+        <h2 class="text-center text-white">
+            Campaign Chat
+        </h2>
+        <div class="chat-body">
+            <div class="msg-box">
+                <ul class="list-row">
+                    <li *ngFor="let mObj of msgInboxArray" [ngClass]="mObj.userEmail === msgDto.userEmail ? 'in-msg' : 'ex-msg'" class="text-warning">{{mObj.userEmail}}: <span class="text-white msg-content">{{mObj.message}}</span></li>
+                </ul>
+            </div>
+            <div class="message-area">
+                <textarea id="chat-context" cols=6 placeholder="Type message here" class="msg-input"
+                    id="chatMessage" [(ngModel)]="msgDto.message" (keyup.enter)="send()" autofocus></textarea>
+                <button type="submit" class="send-btn" (click)="send()">SEND</button>
+            </div>
         </div>
-        <div class="message-area">
-            <textarea id="chat-context" cols=6 placeholder="Type message here" class="msg-input"
-                id="chatMessage" [(ngModel)]="msgDto.message" (keyup.enter)="send()" autofocus></textarea>
-            <button type="submit" class="send-btn" (click)="send()">SEND</button>
-        </div>
+    </div>
+
+    <div class="dice-roll-box mt-1">
+        <h2 class="text-center text-white">
+            Roll Dice
+        </h2>
+    <div class="dice-body text-white">
+        <img class="dnd-dice" src="assets/dnd-dice-20.png" alt="DND-dice" (click)="rollDice()" width=70 style="cursor: pointer;">
+
+        <button class="btn btn-dark" (click)="rollDice()">Roll</button>
+        <p class="ml-2">
+            Size of dice: <input class="dice-value ml-2" type="number" [(ngModel)]="rollOutOf" value="20" style="width: 75px; outline:none;">
+        </p>
+
+        <p class="ml-2">
+            You rolled: <input class="dice-output" [(ngModel)]="rollOutput" value="0" disabled>
+        </p>
+    </div>
     </div>
 </div>

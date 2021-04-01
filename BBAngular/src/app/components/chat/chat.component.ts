@@ -13,8 +13,11 @@ import { ChatService } from 'src/app/services/chat.service';
 })
 export class ChatComponent implements OnInit {
   campaign2Edit: campaign
-  msgDto : chat
+  msgDto: chat
   msgInboxArray: chat[]
+  rollOutOf: number
+  rollOutput: number
+  tempEmail: string
 
   constructor(private BBService: BBRESTService, private router: Router, private route: ActivatedRoute, public auth: AuthService, public signalRService: ChatService) {
     this.msgDto = {
@@ -30,14 +33,17 @@ export class ChatComponent implements OnInit {
       campaignUsers: [],
       campaignCharacters: [],
       campaignEncounters: [],
-      campaignLocations:[],
+      campaignLocations: [],
       campaignMaps: [],
       campaignNPCs: [],
-      campaignStories:[]
+      campaignStories: []
     }
     this.auth.user$.subscribe(user => {
       this.msgDto.userEmail = user.email
+      this.tempEmail = user.email
     })
+    this.rollOutOf = 20
+    this.rollOutput = 0
   }
 
   ngOnInit(): void {
@@ -53,15 +59,15 @@ export class ChatComponent implements OnInit {
     this.auth.user$.subscribe(user => {
       this.msgDto.userEmail = user.email.substring(0, user.email.lastIndexOf("@"))
     })
-    this.signalRService.retrieveMappedObject().subscribe( (receivedObj: chat) => { this.addToInbox(receivedObj)})
+    this.signalRService.retrieveMappedObject().subscribe((receivedObj: chat) => { this.addToInbox(receivedObj) })
   }
 
-  public send(): void {
+  send(): void {
     this.auth.user$.subscribe(user => {
       this.msgDto.userEmail = user.email.substring(0, user.email.lastIndexOf("@"))
     })
-    if(this.msgDto) {
-      if(this.msgDto.message.length == 0){
+    if (this.msgDto) {
+      if (this.msgDto.message.length == 0) {
         window.alert("Message must have content.");
         return;
       } else {
@@ -72,11 +78,38 @@ export class ChatComponent implements OnInit {
   }
 
   addToInbox(obj: chat) {
-    var tempObj : chat
+    var tempObj: chat
     tempObj = {
       message: obj.message,
       userEmail: obj.userEmail
     }
     this.msgInboxArray.push(tempObj);
+  }
+
+  rollDice(): void {
+    var pos: number = 0;
+    var id = setInterval(() => {
+      if (pos == 100) {
+        clearInterval(id);
+        document.querySelector(".dnd-dice").classList.remove("dice-img")
+        this.rollOutput = Math.floor(Math.random() * this.rollOutOf) + 1
+        this.sendDiceRoll(this.rollOutput, this.rollOutOf)
+      } else {
+        pos++;
+        document.querySelector(".dnd-dice").classList.add("dice-img")
+        this.rollOutput = Math.floor(Math.random() * this.rollOutOf) + 1
+      }
+    }, 30)
+  }
+
+  sendDiceRoll(diceRollOutput: number, diceSize): void {
+    this.tempEmail = this.msgDto.userEmail
+    this.msgDto.userEmail = 'BB'
+    this.msgDto.message = `${this.tempEmail} rolled a ${diceRollOutput} out of ${diceSize}`
+    this.signalRService.broadcastMessage(this.msgDto)
+    this.msgDto.message = ''
+    this.auth.user$.subscribe(user => {
+      this.msgDto.userEmail = user.email.substring(0, user.email.lastIndexOf("@"))
+    })
   }
 }
