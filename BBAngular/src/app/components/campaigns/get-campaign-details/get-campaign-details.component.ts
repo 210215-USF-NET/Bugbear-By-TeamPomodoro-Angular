@@ -11,6 +11,7 @@ import { BBRESTService } from 'src/app/services/bb-rest.service';
 })
 export class GetCampaignDetailsComponent implements OnInit {
   campaign: campaign;
+
   constructor(private BBService: BBRESTService, private router: Router, private route: ActivatedRoute, public auth: AuthService) {
     this.campaign = {
       campaignID: 0,

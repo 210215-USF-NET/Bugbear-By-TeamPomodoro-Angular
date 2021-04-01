@@ -7,6 +7,7 @@ import { user } from '../models/user';
 import { story } from '../models/story';
 import { campaign } from '../models/campaign';
 import { encounter } from '../models/encounter';
+import { chat } from '../models/chat';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,7 @@ export class BBRESTService {
   urlNPC: string = env.BB_REST + '/npc';
   urlStory: string = env.BB_REST + '/story';
   urlUser: string = env.BB_REST + '/user';
+  urlChat: string = env.BB_REST + '/chat';
 
   constructor(private http: HttpClient) { }
 
@@ -101,5 +103,12 @@ export class BBRESTService {
   }
   EditEncounter(encounterToBeEdited: encounter): Observable<encounter> {
     return this.http.put<encounter>(`${this.urlEncounter}/${encounterToBeEdited.encounterID}`, encounterToBeEdited, this.httpOptions);
+  }
+
+  GetChats(): Observable<chat[]> {
+    return this.http.get<chat[]>(this.urlChat, this.httpOptions);
+  }
+  AddChat(chat2Add: chat): Observable<chat> {
+    return this.http.post<chat>(this.urlChat, chat2Add, this.httpOptions);
   }
 }

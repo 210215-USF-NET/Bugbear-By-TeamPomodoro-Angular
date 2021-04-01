@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatService } from 'src/app/services/chat.service';
-import { MessageDto } from 'src/app/models/MessageDto';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
+import { campaign } from 'src/app/models/campaign';
+import { chat } from 'src/app/models/chat';
 import { BBRESTService } from 'src/app/services/bb-rest.service';
+import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
   selector: 'app-chat',
@@ -10,40 +12,62 @@ import { BBRESTService } from 'src/app/services/bb-rest.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-  userEmail : string;
-  constructor(private chatService: ChatService, private auth :AuthService, private BBService : BBRESTService) { }
+  campaign2Edit: campaign
+  msgDto : chat
+  msgInboxArray: chat[]
 
-  ngOnInit(): void {
-    this.chatService.retrieveMappedObject().subscribe((receivedObj: MessageDto) => { this.addToInbox(receivedObj) })
+  constructor(private BBService: BBRESTService, private router: Router, private route: ActivatedRoute, public auth: AuthService, public signalRService: ChatService) {
+    this.msgDto = {
+      userEmail: '',
+      message: ''
+    }
+    this.msgInboxArray = []
+    this.campaign2Edit = {
+      campaignID: 0,
+      campaignName: "",
+      description: "",
+      gameMasterID: 0,
+      campaignUsers: [],
+      campaignCharacters: [],
+      campaignEncounters: [],
+      campaignLocations:[],
+      campaignMaps: [],
+      campaignNPCs: [],
+      campaignStories:[]
+    }
     this.auth.user$.subscribe(user => {
-      this.BBService.GetUserByEmail(user.email).subscribe(
-        result => {
-          this.userEmail = result.email
-        }
-      )
+      this.msgDto.userEmail = user.email
     })
   }
 
-  msgDto: MessageDto = new MessageDto();
-  msgInboxArray: MessageDto[] = [];
+  ngOnInit(): void {
+    this.signalRService.retrieveMappedObject().subscribe( (receivedObj: chat) => { this.addToInbox(receivedObj)})
+    this.route.queryParams.subscribe(
+      params => {
+        this.BBService.GetCampaign(params.campaign).subscribe(
+          (campaignFound) => {
+            this.campaign2Edit = campaignFound;
+          }
+        )
+      }
+    )
+  }
 
   send(): void {
-    if (this.msgDto) {
-      this.msgDto.user = this.userEmail
-      if (this.msgDto.msgText.length == 0) {
-        window.alert("Must enter a message body.")
-        return
+    this.auth.user$.subscribe(user => {
+      this.msgDto.userEmail = user.email
+    })
+    if(this.msgDto) {
+      if(this.msgDto.userEmail.length == 0){
+        window.alert("Message must have content.");
+        return;
       } else {
-        this.chatService.broadcastMessage(this.msgDto)
+        this.signalRService.broadcastMessage(this.msgDto);
       }
     }
   }
 
-  addToInbox(obj: MessageDto) {
-    let newObj = new MessageDto()
-    newObj.user = obj.user
-    newObj.msgText = obj.msgText
-    this.msgInboxArray.push(newObj)
-
+  addToInbox(obj: chat) {
+    this.msgInboxArray.push(obj);
   }
 }

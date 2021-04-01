@@ -191,7 +191,7 @@ const appRoutes: Routes = [
       clientId: env.CLIENT_ID,
       scope: 'openid email profile'
     }),
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent]
 })
