@@ -18,7 +18,8 @@ export class AddLocationsComponent implements OnInit {
     {
       locationName: '',
       locationDescription: '',
-      locationID: 0
+      locationID: 0,
+      campaignID: 52
     }
   }
 

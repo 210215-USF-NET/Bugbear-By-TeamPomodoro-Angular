@@ -17,14 +17,16 @@ export class AddEncountersComponent implements OnInit {
     this.setting = {
       locationID: 0,
       locationName: '',
-      locationDescription: ''
+      locationDescription: '',
+      campaignID: 0
     }
     this.encToAdd = 
     {
       encounterID: 0,
       encounterTitle: '',
       encounterDescription: '',
-      location: this.setting
+      location: this.setting,
+      campaignID: 0
     }
   }
 

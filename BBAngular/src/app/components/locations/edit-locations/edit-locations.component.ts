@@ -15,9 +15,10 @@ export class EditLocationsComponent implements OnInit {
   
   constructor(private route: ActivatedRoute, private BBService: BBRESTService, private router: Router, public auth: AuthService, private logger: LogService) { 
     this.locationToEdit = {
+      locationID: 0,
       locationName: '',
       locationDescription: '',
-      locationID: 0
+      campaignID: 52
     }
   }
 

@@ -15,9 +15,10 @@ export class LocationDetailsComponent implements OnInit {
 
   constructor(private BBService: BBRESTService, private route: ActivatedRoute, private router: Router, public auth: AuthService, private logger: LogService) {
     this.location = {
+      locationID: 0,
       locationName: '',
       locationDescription: '',
-      locationID: 0
+      campaignID: 52
     }
   }
 
