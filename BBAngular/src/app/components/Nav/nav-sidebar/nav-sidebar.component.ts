@@ -11,6 +11,7 @@ import { BBRESTService } from 'src/app/services/bb-rest.service';
 })
 export class NavSidebarComponent implements OnInit {
   campaign: campaign;
+  sideIsExpanded: boolean
 
   constructor(private BBService: BBRESTService, private router: Router, private route: ActivatedRoute, public auth: AuthService) {
     this.campaign = {
@@ -26,9 +27,21 @@ export class NavSidebarComponent implements OnInit {
       campaignNPCs: [],
       campaignStories:[]
     }
+    this.sideIsExpanded = false
   }
 
   
   ngOnInit(): void {
+  }
+
+  rotateArrow(): void {
+    if(this.sideIsExpanded === false){
+      document.getElementById('expand-arrow').style.transform = 'translateY(8px) rotate(180deg)'
+      this.sideIsExpanded = true
+    }
+    else{
+      document.getElementById('expand-arrow').style.transform = 'translateY(0px) rotate(0deg)'
+      this.sideIsExpanded = false
+    }
   }
 }
