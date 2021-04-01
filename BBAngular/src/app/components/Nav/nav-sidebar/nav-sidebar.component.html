@@ -45,6 +45,11 @@
         </div>
     </mat-sidenav>
     <mat-sidenav-content>
-        <button (click) = "sidenav.toggle()">Toggle</button>
+        <div id="expand-arrow" (click)="sidenav.toggle(); rotateArrow();">
+            <div id="nav-lines">
+                <div id="close-nav1"></div>
+                <div id="close-nav2"></div>
+            </div>
+        </div>  
     </mat-sidenav-content>
 </mat-sidenav-container>
