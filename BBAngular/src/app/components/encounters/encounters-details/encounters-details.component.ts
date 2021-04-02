@@ -4,6 +4,7 @@ import { encounter } from 'src/app/models/encounter'
 import { BBRESTService } from 'src/app/services/bb-rest.service'
 import { AuthService } from '@auth0/auth0-angular'
 import { LogService } from 'src/app/services/bb-logging.service'
+import { location } from 'src/app/models/location';
 
 @Component({
   selector: 'app-encounters-details',
@@ -13,6 +14,7 @@ import { LogService } from 'src/app/services/bb-logging.service'
 export class EncountersDetailsComponent implements OnInit {
   logger: LogService;
   encounter: encounter;
+  lo: location;
   
   constructor(private BBService: BBRESTService, private route: ActivatedRoute, private router: Router, public auth: AuthService) { 
     this.encounter = 
@@ -36,6 +38,7 @@ export class EncountersDetailsComponent implements OnInit {
           )
         }
       );
+      this.GetName(this.encounter.locationID)
   }
 
   DeleteEncounter(encounterToBeDeleted: encounter): void {
@@ -53,5 +56,11 @@ export class EncountersDetailsComponent implements OnInit {
   }
   EditEncounter(encounterID: number): void {
     this.router.navigate(['edit-encounter'], { queryParams: { encounter: encounterID } });
+  }
+  GetName(id: number) {
+    this.BBService.GetLocation(id).subscribe(
+      (element) =>
+      this.lo = element
+    )
   }
 }

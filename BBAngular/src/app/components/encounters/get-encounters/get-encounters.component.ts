@@ -15,6 +15,7 @@ export class GetEncountersComponent implements OnInit {
 encounters: encounter[] = [];
 encounterID : number;
 campaign: campaign;
+locationNames = new Map();
 
   constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService, private sharingService: SharingDataService) { 
     auth.user$.toPromise
@@ -33,10 +34,11 @@ campaign: campaign;
           })
         }
       )
-    })
+    });
   }
 
   GetEncounter(encounterID: number) {
     this.router.navigate(['encounters-details'], { queryParams: { encounter: encounterID } });
   }
+
 }

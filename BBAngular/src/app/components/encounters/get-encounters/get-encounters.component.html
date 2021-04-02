@@ -16,7 +16,7 @@
         <tbody>
             <tr *ngFor="let encounter of encounters;" (click)=GetEncounter(encounter.encounterID) style="cursor: pointer">
                 <td>{{encounter.encounterTitle}}</td>
-                <td>{{encounter.location}}</td>
+                <td>{{encounter.locationID}}</td>
                 <td>{{encounter.encounterDescription}}</td>
             </tr>
         </tbody>
