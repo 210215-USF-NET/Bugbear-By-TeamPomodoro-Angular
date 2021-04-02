@@ -227,7 +227,8 @@ const appRoutes: Routes = [
     AddLocationsComponent,
     EditLocationsComponent,
     LocationDetailsComponent,
-    StoryDetailsComponent
+    StoryDetailsComponent,
+    ManageCampaignComponent
   ],
   imports: [
     BrowserModule,

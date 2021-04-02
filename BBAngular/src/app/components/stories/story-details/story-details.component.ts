@@ -32,7 +32,6 @@ export class StoryDetailsComponent implements OnInit {
       campaignName: "",
       description: "",
       gameMasterID: 0,
-      campaignUsers: [],
       campaignCharacters: [],
       campaignEncounters: [],
       campaignLocations:[],
@@ -69,7 +68,7 @@ export class StoryDetailsComponent implements OnInit {
         () => {
           alert(`${storyToBeDeleted.storyTitle} has been deleted`);
           this.logger.info(`${storyToBeDeleted.storyTitle} deleted`)
-          this.router.navigate(['get-stories']);
+          this.router.navigate(['stories']);
         }
       );
     }

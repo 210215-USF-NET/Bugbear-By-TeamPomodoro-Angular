@@ -30,7 +30,6 @@ export class ChatComponent implements OnInit {
       campaignName: "",
       description: "",
       gameMasterID: 0,
-      campaignUsers: [],
       campaignCharacters: [],
       campaignEncounters: [],
       campaignLocations: [],
