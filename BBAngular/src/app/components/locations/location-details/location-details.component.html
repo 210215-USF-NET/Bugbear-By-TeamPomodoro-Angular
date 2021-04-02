@@ -14,6 +14,6 @@
             </tr>
         </tbody>
     </table>
-    <button class="btn btn-warning" (click)="EditLocation(location.locationID)">Edit</button> |
-    <button class="btn btn-danger" (click)="DeleteLocation(location)">Delete</button>
+    <button *ngIf= "campaign.gameMasterID == userID" class="btn btn-warning" (click)="EditLocation(location.locationID)">Edit</button> |
+    <button *ngIf= "campaign.gameMasterID == userID" class="btn btn-danger" (click)="DeleteLocation(location)">Delete</button>
 </div>

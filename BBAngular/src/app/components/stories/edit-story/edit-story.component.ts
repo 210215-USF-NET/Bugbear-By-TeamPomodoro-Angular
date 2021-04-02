@@ -40,7 +40,7 @@ export class EditStoryComponent implements OnInit {
     this.BBService.EditStory(this.storyToEdit).subscribe(
       () => {
         alert(`${this.storyToEdit.storyTitle}'s info was successfully edited`);
-        this.router.navigate(['stories']);
+        this.router.navigate(['get-stories']);
       }
     )
   }

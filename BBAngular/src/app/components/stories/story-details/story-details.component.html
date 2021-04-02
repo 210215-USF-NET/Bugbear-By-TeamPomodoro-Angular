@@ -1,3 +1,4 @@
+<app-nav-sidebar></app-nav-sidebar>
 <div *ngIf="story" class="container transparent text-white">
 
     <h2>{{story.storyTitle}} Details</h2>
@@ -17,6 +18,6 @@
             </tr>
         </tbody>
     </table>
-    <button class="btn btn-warning" (click)="EditStory(story.storyID)">Edit</button> |
-    <button class="btn btn-danger" (click)="DeleteStory(story)">Delete</button>
+    <button *ngIf= "campaign.gameMasterID == userID" class="btn btn-warning mr-2" (click)="EditStory(story.storyID)">Edit</button> 
+    <button *ngIf= "campaign.gameMasterID == userID" class="btn btn-danger" (click)="DeleteStory(story)">Delete</button>
 </div>

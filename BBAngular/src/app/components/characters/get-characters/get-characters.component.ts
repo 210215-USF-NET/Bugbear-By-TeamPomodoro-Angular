@@ -14,6 +14,7 @@ import { campaign } from 'src/app/models/campaign';
 export class GetCharactersComponent implements OnInit {
   characters: character[] = [];
   campaign: campaign;
+  userID: number;
 
   constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService, private sharingService: SharingDataService) {
     this.campaign = this.sharingService.getData();
@@ -23,6 +24,7 @@ export class GetCharactersComponent implements OnInit {
     this.auth.user$.subscribe(user => {
       this.BBService.GetUserByEmail(user.email).subscribe(
         currentUser => {
+          this.userID = currentUser.userID;
           this.BBService.GetCharacters().subscribe(
             (result) => {
               result.forEach(character => {

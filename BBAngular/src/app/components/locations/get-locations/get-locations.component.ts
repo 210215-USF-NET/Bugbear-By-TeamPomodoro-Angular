@@ -16,10 +16,18 @@ export class GetLocationsComponent implements OnInit {
   locations: location[] = [];
   locationID: number;
   campaign: campaign;
+  userID: number;
 
   constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService, private logger: LogService, private sharingService: SharingDataService) {
     auth.user$.toPromise
     this.campaign = this.sharingService.getData();
+    this.auth.user$.subscribe(user => {
+      this.BBService.GetUserByEmail(user.email).subscribe(
+        result => {
+          this.userID = result.userID
+        }
+      )
+    })
   }
 
   ngOnInit(): void {

@@ -12,6 +12,7 @@ import { SharingDataService } from 'src/app/services/sharing-data.service';
 })
 export class GetCampaignDetailsComponent implements OnInit {
   campaign: campaign;
+  userID: number;
 
   constructor(private BBService: BBRESTService, private router: Router, private route: ActivatedRoute, public auth: AuthService, private sharingService: SharingDataService) {
     this.campaign = {
@@ -27,6 +28,13 @@ export class GetCampaignDetailsComponent implements OnInit {
       campaignNPCs: [],
       campaignStories:[]
     }
+    this.auth.user$.subscribe(user => {
+      this.BBService.GetUserByEmail(user.email).subscribe(
+        result => {
+          this.userID = result.userID
+        }
+      )
+    })
   }
 
   ngOnInit(): void {

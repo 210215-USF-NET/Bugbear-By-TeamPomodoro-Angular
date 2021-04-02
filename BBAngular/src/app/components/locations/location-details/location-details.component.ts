@@ -4,6 +4,8 @@ import { BBRESTService } from 'src/app/services/bb-rest.service'
 import { AuthService } from '@auth0/auth0-angular'
 import { LogService } from 'src/app/services/bb-logging.service';
 import { location } from 'src/app/models/location';
+import { campaign } from 'src/app/models/campaign';
+import { SharingDataService } from 'src/app/services/sharing-data.service';
 
 @Component({
   selector: 'app-location-details',
@@ -12,14 +14,24 @@ import { location } from 'src/app/models/location';
 })
 export class LocationDetailsComponent implements OnInit {
   location: location;
+  campaign: campaign;
+  userID: number;
 
-  constructor(private BBService: BBRESTService, private route: ActivatedRoute, private router: Router, public auth: AuthService, private logger: LogService) {
+  constructor(private BBService: BBRESTService, private route: ActivatedRoute, private router: Router, public auth: AuthService, private logger: LogService, private sharingService: SharingDataService) {
     this.location = {
       locationID: 0,
       locationName: '',
       locationDescription: '',
       campaignID: 52
     }
+    this.campaign = this.sharingService.getData();
+    this.auth.user$.subscribe(user => {
+      this.BBService.GetUserByEmail(user.email).subscribe(
+        result => {
+          this.userID = result.userID
+        }
+      )
+    })
   }
 
   ngOnInit(): void {

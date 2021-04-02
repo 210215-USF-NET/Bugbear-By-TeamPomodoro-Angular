@@ -3,7 +3,7 @@
     <h1>
         Locations
     </h1>
-    <span class="d-sm-inline-flex justify-content-end">
+    <span *ngIf="campaign.gameMasterID == userID" class="d-sm-inline-flex justify-content-end">
         <button class="btn btn-primary" routerLink='/add-locations'>Add New Location</button>
     </span>
     

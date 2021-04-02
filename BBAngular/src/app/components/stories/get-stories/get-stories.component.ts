@@ -16,6 +16,7 @@ export class GetStoriesComponent implements OnInit {
   stories: story[] = []
   storyID : number
   campaign: campaign;
+  userID: number;
 
   constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService, private logger: LogService, private sharingService: SharingDataService) {
     auth.user$.toPromise
@@ -26,6 +27,7 @@ export class GetStoriesComponent implements OnInit {
     this.auth.user$.subscribe(user => {
       this.BBService.GetUserByEmail(user.email).subscribe(
         user => {
+          this.userID = user.userID;
           this.BBService.GetStories().subscribe(
             (result) => {
               result.forEach(story => {
