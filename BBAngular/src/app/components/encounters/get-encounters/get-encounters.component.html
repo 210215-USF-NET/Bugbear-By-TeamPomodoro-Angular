@@ -7,11 +7,11 @@
         <button class="btn btn-primary" routerLink='/add-encounters'>Add New Encounter</button>
     </span>
 
-    <table class="table">
+    <table class="table" summary="encounter table">
         <thead>
-            <th>Title</th>
-            <th>Location</th>
-            <th>Summary</th>
+            <th id="title">Title</th>
+            <th id="location">Location</th>
+            <th id="summary">Summary</th>
         </thead>
         <tbody>
             <tr *ngFor="let encounter of encounters;" (click)=GetEncounter(encounter.encounterID) style="cursor: pointer">

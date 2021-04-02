@@ -7,10 +7,10 @@
         <button class="btn btn-primary" routerLink='/add-locations'>Add New Location</button>
     </span>
     
-    <table class="table">
+    <table class="table" summary="locations table">
         <thead>
-            <th>Name</th>
-            <th>Description</th>
+            <th id="name">Name</th>
+            <th id="description">Description</th>
         </thead>
         <tbody>
             <tr *ngFor="let location of locations;" (click)="GetLocation(location.locationID)">

@@ -17,7 +17,6 @@ encounterID : number;
 campaign: campaign;
 
   constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService, private sharingService: SharingDataService) { 
-    auth.user$.toPromise
     this.campaign = this.sharingService.getData();
   }
 

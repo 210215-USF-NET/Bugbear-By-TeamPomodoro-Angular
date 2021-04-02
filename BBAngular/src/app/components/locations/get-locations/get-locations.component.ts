@@ -19,7 +19,6 @@ export class GetLocationsComponent implements OnInit {
   userID: number;
 
   constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService, private logger: LogService, private sharingService: SharingDataService) {
-    auth.user$.toPromise
     this.campaign = this.sharingService.getData();
     this.auth.user$.subscribe(user => {
       this.BBService.GetUserByEmail(user.email).subscribe(

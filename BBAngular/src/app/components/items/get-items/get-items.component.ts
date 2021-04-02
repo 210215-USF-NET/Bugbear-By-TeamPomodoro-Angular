@@ -15,7 +15,6 @@ export class GetItemsComponent implements OnInit {
   itemID: number
 
   constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService, private logger: LogService) {
-    auth.user$.toPromise
   }
 
   ngOnInit(): void {
