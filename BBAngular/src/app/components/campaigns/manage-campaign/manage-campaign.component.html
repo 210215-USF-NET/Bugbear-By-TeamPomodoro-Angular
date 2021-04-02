@@ -1,5 +1,17 @@
-<div class="container text-white">
-    <h1>
-        Welcome to your campaign!
-    </h1>
+<div class="container transparent">
+    <!-- <div class="form-group">
+        <label for="email">User to add:</label>
+        <input class="form-control" type="text" placeholder="Enter user to add to campaign" 
+        #user2Find>
+    </div> -->
+    <div class="row" style="text-align: center;">
+        <div class="card text-white bg-dark mb-3 grid-section" style="max-width: 18rem;margin-left: 20px; margin-right: 20px;" *ngFor="let character of allCharacters;" (click)="addCharacterToCampaign(character.characterID)">
+            <div class="card-header" style="font-size: 25px;">{{character.characterName}}</div>
+            <div class="card-body">
+                <h5 class="card-title">Level: {{character.xpLevel}}</h5>
+                <p class="card-text">HP: {{character.hp}}</p>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="mt-2 btn btn-secondary">Add user</button>
 </div>

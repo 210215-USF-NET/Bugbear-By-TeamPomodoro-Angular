@@ -19,7 +19,6 @@ export class AddCampaignComponent implements OnInit {
       campaignName: "",
       description: "",
       gameMasterID: 0,
-      campaignUsers: [],
       campaignCharacters: [],
       campaignEncounters: [],
       campaignLocations:[],

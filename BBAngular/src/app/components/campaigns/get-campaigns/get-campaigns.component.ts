@@ -12,9 +12,10 @@ import { BBRESTService } from 'src/app/services/bb-rest.service';
 export class GetCampaignsComponent implements OnInit {
 
   campaigns: campaign[] = [];
+  anything: boolean;
 
   constructor(private BBService: BBRESTService, private router: Router, public auth: AuthService, private route: ActivatedRoute) {
-    
+    this.anything = false;
   }
 
   ngOnInit(): void {
@@ -24,7 +25,15 @@ export class GetCampaignsComponent implements OnInit {
           this.BBService.GetCampaigns().subscribe(
             (result) => {
               result.forEach(campaign => {
-                if(campaign.campaignUsers !== null && (campaign.campaignUsers.includes(currentUser) || campaign.gameMasterID === currentUser.userID))
+                campaign.campaignCharacters.forEach(
+                  (campaignCharater) => {
+                    if(campaignCharater.userID === currentUser.userID) {
+                      this.anything = false;
+                    }
+                    
+                  }
+                )
+                if(campaign.campaignCharacters !== null && (this.anything || campaign.gameMasterID === currentUser.userID))
                 {
                   this.campaigns.push(campaign)
                 }

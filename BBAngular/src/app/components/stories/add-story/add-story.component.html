@@ -4,12 +4,12 @@
         <div class="form-group">
             <label for="storyTitle">Story Title: </label>
             <input type="text" [(ngModel)]="storyToAdd.storyTitle" name="storyTitle" id="storyTitle" #name="ngModel"
-                class="form-control" placeholder="Enter Title">
+                class="form-control" placeholder="Enter Title" required>
         </div>
         <div class="form-group">
             <label for="storyDescription">Story Description: </label>
             <input type="text" [(ngModel)]="storyToAdd.storyDescription" name="storyDescription" id="storyDescription" #name="ngModel" 
-            class="form-control" placeholder="Enter Story Content">
+            class="form-control" placeholder="Enter Story Content" required>
         </div>
         <button type="submit" class="btn btn-secondary">Add Story</button>
     </form>

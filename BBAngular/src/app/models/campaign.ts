@@ -11,7 +11,6 @@ export interface campaign{
     campaignName: string,
     description: string,
     gameMasterID: number,
-    campaignUsers: user[],
     campaignCharacters: character[],
     campaignEncounters: encounter[],
     campaignLocations: location[],
