@@ -15,6 +15,8 @@ import { campaign } from 'src/app/models/campaign';
 export class AddEncountersComponent implements OnInit {
   encToAdd : encounter;
   setting: location;
+  allSettings: location[] = [];
+  locID: number;
   campaign: campaign;
 
   constructor(private BBService: BBRESTService, private router: Router, private logger: LogService, private sharingService: SharingDataService) { 
@@ -23,32 +25,39 @@ export class AddEncountersComponent implements OnInit {
       locationName: '',
       locationDescription: '',
       campaignID: 0
-    }
+    };
+
     this.encToAdd = 
     {
       encounterID: 0,
       encounterTitle: '',
       encounterDescription: '',
-      location: this.setting,
+      locationID: 0,
       campaignID: 0
-    }
+    };
   }
 
   ngOnInit(): void {
     this.campaign = this.sharingService.getData();
-    this.setting.campaignID = this.campaign.campaignID;
+    this.logger.log(`${this.campaign.campaignID}`);
+    this.logger.log(`${this.campaign.campaignLocations.pop().campaignID}`);
+    this.allSettings = this.campaign.campaignLocations;
     this.encToAdd.campaignID = this.campaign.campaignID;
   }
 
   onSubmit() {
+    this.encToAdd.locationID = this.locID;
+    this.logger.debug(`${this.encToAdd.locationID}`);
+    debugger;
     this.BBService.AddEncounter(this.encToAdd).subscribe(
       (encounter) => {
         this.addEncounterToCampaign(encounter);
+        debugger;
         alert(`${encounter.encounterTitle} was added!`);
         this.logger.log(`${encounter.encounterTitle} added to Encounter table.`);
         this.router.navigate(['get-encounters']);
       }
-    )
+    );
   }
 
   addEncounterToCampaign(encounter: encounter) : void {
