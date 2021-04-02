@@ -9,10 +9,10 @@
         <button class="btn btn-primary" routerLink='/add-story'>Add New Story</button>
     </span>
     
-    <table class="table">
+    <table class="table" summary="story table">
         <thead>
-            <th>Title</th>
-            <th>Description</th>
+            <th id="title">Title</th>
+            <th id="description">Description</th>
         </thead>
         <tbody>
             <tr *ngFor="let story of stories;" (click)="GetStory(story.storyID)">
