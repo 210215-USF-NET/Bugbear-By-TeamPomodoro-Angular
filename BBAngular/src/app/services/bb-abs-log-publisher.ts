@@ -1,5 +1,5 @@
 //Adapted from this tutorial https://www.codemag.com/Article/1711021/Logging-in-Angular-Applications
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import 'rxjs/add/observable/of';
 import { LogEntry } from 'src/app/services/bb-logging.service';
 
