@@ -25,26 +25,29 @@ export class AddEncountersComponent implements OnInit {
       locationName: '',
       locationDescription: '',
       campaignID: 0
-    }
+    };
+
     this.encToAdd = 
     {
       encounterID: 0,
       encounterTitle: '',
       encounterDescription: '',
-      location: this.setting,
+      locationID: 0,
       campaignID: 0
-    }
+    };
   }
 
   ngOnInit(): void {
     this.campaign = this.sharingService.getData();
+    this.logger.log(`${this.campaign.campaignID}`);
+    this.logger.log(`${this.campaign.campaignLocations.pop().campaignID}`);
     this.allSettings = this.campaign.campaignLocations;
     this.encToAdd.campaignID = this.campaign.campaignID;
   }
 
   onSubmit() {
-    this.addLocationToEncounter();
-    this.logger.debug(`${this.encToAdd.location}`);
+    this.encToAdd.locationID = this.locID;
+    this.logger.debug(`${this.encToAdd.locationID}`);
     debugger;
     this.BBService.AddEncounter(this.encToAdd).subscribe(
       (encounter) => {
@@ -53,16 +56,6 @@ export class AddEncountersComponent implements OnInit {
         alert(`${encounter.encounterTitle} was added!`);
         this.logger.log(`${encounter.encounterTitle} added to Encounter table.`);
         this.router.navigate(['get-encounters']);
-      }
-    );
-  }
-
-  addLocationToEncounter() {
-    this.allSettings.forEach(
-      (setting) => {
-        if (setting.locationID === this.locID) {
-          this.encToAdd.location = setting
-        }
       }
     );
   }

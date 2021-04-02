@@ -4,6 +4,9 @@ import { AuthService } from '@auth0/auth0-angular';
 import { BBRESTService } from '../../../services/bb-rest.service';
 import { encounter } from 'src/app/models/encounter';
 import { LogService } from 'src/app/services/bb-logging.service';
+import { location } from 'src/app/models/location';
+import { campaign } from 'src/app/models/campaign';
+import { SharingDataService } from 'src/app/services/sharing-data.service';
 
 @Component({
   selector: 'app-edit-encounters',
@@ -12,20 +15,17 @@ import { LogService } from 'src/app/services/bb-logging.service';
 })
 export class EditEncountersComponent implements OnInit {
   encounterToEdit : encounter;
-  constructor(private route: ActivatedRoute, private BBService: BBRESTService, private router: Router, public auth: AuthService, private logger: LogService) { 
+  locID: number;
+  locations: location[] = [];
+  camp: campaign;
+  constructor(private route: ActivatedRoute, private BBService: BBRESTService, private router: Router, public auth: AuthService, private logger: LogService, private sharingService: SharingDataService) { 
     this.encounterToEdit = 
     {
       encounterID: 0,
       encounterTitle: '',
       encounterDescription: '',
       campaignID: 0,
-      location: 
-        {
-          locationID: 0,
-          locationName: '',
-          locationDescription: '',
-          campaignID: 0
-        }
+      locationID: 0
     }
   }
 
@@ -39,10 +39,16 @@ export class EditEncountersComponent implements OnInit {
           }
         )
       }
-    )
+    );
+
+    this.camp = this.sharingService.getData();
+    this.locations = this.camp.campaignLocations;
+    debugger;
   }
 
   onSubmit(): void {
+    this.encounterToEdit.locationID = this.locID;
+    debugger;
     this.BBService.EditEncounter(this.encounterToEdit).subscribe(
       () => {
         alert(`${this.encounterToEdit.encounterTitle}'s info was successfully edited`);
@@ -51,4 +57,7 @@ export class EditEncountersComponent implements OnInit {
       }
     )
   }
+
+
+
 }

@@ -4,22 +4,20 @@
         <div class="form-group">
             <label for="encounterTitle">Title: </label>
             <input type="text" [(ngModel)]="encounterToEdit.encounterTitle" name="encounterTitle" id="encounterTitle" #name="ngModel"
-                class="form-control" placeholder="Enter Title">
+                class="form-control" placeholder="Enter Title" required>
         </div>
         <div class="form-group">
             <label for="encounterDescription">Description: </label>
             <textarea rows="5" cols=155 type="text" [(ngModel)]="encounterToEdit.encounterDescription" name="encounterDescription" id="encounterDescription" #name="ngModel" 
-                class="form-control" placeholder="Enter a Summary"></textarea>
+                class="form-control" placeholder="Enter a Summary" required></textarea>
         </div>
         <div class="form-group">
-            <label for="encounterLocation">Location: </label>
-            <input type="text" [(ngModel)]="encounterToEdit.location.locationName" name="location.locationName" id="location.locationName" #name="ngModel"
-                class="form-control" placeholder="Enter Location Name">
-        </div>
-        <div class="form-group">
-            <label for="locationDescription">Description: </label>
-            <textarea rows="5" cols=155 type="text" [(ngModel)]="encounterToEdit.location.locationDescription" name="locationDescription" id="locationDescription" #name="ngModel" 
-                class="form-control" placeholder="Enter a Summary"></textarea>
+            <label for="location">Location: </label>
+            <select [(ngModel)]="locID" name="location" id="location" #name="ngModel" class="form-control" required>
+                <option *ngFor="let location of locations" [value]="location.locationID" [attr.selected]="location.locationID==locID">
+                    {{location.locationName}}
+                </option>
+            </select>
         </div>
         <button type="submit" class="mt-2 btn btn-secondary">Save</button>
     </form>
