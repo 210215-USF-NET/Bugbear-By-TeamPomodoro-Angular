@@ -8,7 +8,6 @@
  - Sonar Cloud
  - ASP.NET MVC
  - D&D 5e API
- - imgur API (?)
  - xUnit
  - Serilog
 
